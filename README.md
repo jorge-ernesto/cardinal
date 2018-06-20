@@ -1,7 +1,7 @@
 # cardinal
 Desarrollo de sistemas web en PHP 7 POO, MySQL, Jquery Ajax
 
-¿Que es el patrón MVC?
+¿Qué es el patrón MVC?
 
 El patrón de diseño (de software) MVC se encarga de separar la lógica de negocio de la interfaz de usuario y es el mas utilizado en aplicaciones web, framework, etc, ya que facilita la funcionalidad, mantenibilidad, y escalabilidad del sistema, de forma comoda y sencilla, a la vez que ayuda no mezclar lenguajes de programación en el mismo código, el conocido “código espagueti”.
 MVC divide las aplicaciones en tres niveles de abstracción:

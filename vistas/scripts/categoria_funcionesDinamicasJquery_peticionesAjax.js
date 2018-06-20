@@ -1,4 +1,4 @@
-// Funciones dinámicas con Jquery y peticiones Ajax
+// Funciones dinámicas y peticiones Ajax con Jquery
 
 var tabla;
 
@@ -25,7 +25,7 @@ function mostrarForm(flag) {
     if (flag) { // Si flag es true
         $('#listado-registros').hide();
         $('#formulario-registros').show();
-            $('#btn-guardar').prop('disabled', false); // Cuando se de click en el boton agregar, el boton guardar se habilitara // Cuando se de click en el boton agregar, este se deshabilitara // Equivalente a .attr(), .prop() agrega atributos, y además propiedades
+        $('#btn-guardar').prop('disabled', false); // Cuando se de click en el boton agregar, el boton guardar se habilitara // Cuando se de click en el boton agregar, este se deshabilitara // Equivalente a .attr(), .prop() agrega atributos, y además propiedades
 
     } else {
         $('#listado-registros').show();
@@ -72,18 +72,18 @@ function guardaryeditar(e) {
     var formData = new FormData($('#formulario')[0]); // Todos los datos del formulario son enviados a la variable $formData
     
     $.ajax({
-        url: '../ajax/categoria.php?op=guardaryeditar',
+        url: '../ajax/categoria.php?op=guardaryeditar', // Petición Ajax
         type: 'post',
         data: formData,
         contentType: false,
         processData: false,
         success: function(datos) {
-            alert(datos); // Muestra el mensaje de confirmación                
+            limpiar();
+            bootbox.alert(datos); // Muestra el mensaje de confirmación                
             mostrarForm(false);
             tabla.api().ajax.reload(); // Recarga, actualiza DATATABLES
         }
-    });
-    limpiar();
+    });    
 }
 
 init();
