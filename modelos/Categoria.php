@@ -1,7 +1,8 @@
-<?php // Modelo, clase con los métodos para insertar, editar, listar y eliminar
+<?php 
+// Modelo, clase con los métodos para insertar, editar, listar y eliminar
 
 // Incluimos la conexion a la base de datos
-require '../config/Conexion.php';
+require '../conexion/Conexion.php';
 
 class Categoria {
     // Implementamos nuestro constructor

@@ -1,5 +1,6 @@
-<?php // Funciones para insertar, editar, listar y eliminar
-// Luego los archivo JavaScript harán las peticiones Ajax y estas funciones van a devolver datos,
+<?php 
+// Funciones para insertar, editar, listar y eliminar
+// Luego los archivo JavaScript harán las peticiones Ajax a este archivo y estas funciones van a devolver datos
 // Los datos serán mostrados de manera dinámica en el formulario programado en la parte de las vistas
 
 // Incluimos la clase Categoria, require_once impiden la carga de un mismo fichero varias veces
@@ -61,8 +62,8 @@ switch ($_GET['op']) {
             'iTotalRecords' => count($data), // Enviamos el registros de datos al datatable
             'iTotalDisplayRecords' => count($data), // Enviamos el total de registros a visualizar al datatable
             'aaData' => $data // Enviamos los registros al datatable
-        );
-        echo json_encode($resultados); // Codificamos los resultados utilizando JSON
+        );        
+        echo json_encode($resultados); // Codificamos los resultados utilizando JSON para poder verlos
     break;
 }
 

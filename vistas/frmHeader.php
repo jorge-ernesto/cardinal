@@ -8,8 +8,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../public/css/font-awesome.css">
+    <!-- Font Awesome (Web Fonts with CSS) -->
+    <link rel="stylesheet" href="../public/css/font-awesome.min.css">    
     <!-- Theme style -->
     <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -21,8 +21,8 @@
     <!-- DATATABLES -->
     <link rel="stylesheet" href="../public/datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" href="../public/datatables/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="../public/datatables/responsive.dataTables.min.css">
-
+    <link rel="stylesheet" href="../public/datatables/responsive.dataTables.min.css">   
+    
 </head>
 <body class="hold-transition skin-blue-light sidebar-mini">
     <div class="wrapper">
