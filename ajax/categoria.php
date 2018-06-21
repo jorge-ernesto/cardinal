@@ -19,38 +19,13 @@ $descripcion = isset($_POST['descripcion'])? limpiarCadena($_POST['descripcion']
 
 // Funciones que van a devolver datos
 switch ($_GET['op']) {
-    case 'guardaryeditar':
-        if (empty($idcategoria)) {
-            $respuesta = $categoria->insertar($nombre,$descripcion);
-            echo $respuesta? 'Categoría registrada':'Categoría no se pudo registrar'; // Si respuesta recibe un 1, entonces, si no
-        } else {
-            $respuesta = $categoria->editar($idcategoria,$nombre,$descripcion);
-            echo $respuesta? 'Categoría actualizada':'Categoría no se pudo actualizar';
-        }        
-    break;
-
-    case 'desactivar';
-        $respuesta = $categoria->desactivar($idcategoria);
-        echo $respuesta? 'Categoría desactivada':'Categoría no se puede desactivar';        
-    break;
-
-    case 'activar';
-        $respuesta = $categoria->activar($idcategoria);
-        echo $respuesta? 'Categoría activada':'Categoria no se puede activar';       
-    break;
-
-    case 'mostrar';
-        $respuesta = $categoria->mostrar($idcategoria);        
-        echo json_encode($respuesta); // Codificamos el resultado utilizando JSON
-    break;
-
     case 'listar';
         $respuesta = $categoria->listar();
                        
         $data = array(); // Declaramos un array 
         while ($registro = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
             $data[] = array( // Todos los registros obtenidos se almacenan en el array $data declarado en la parte superior
-                '0' => $registro->idcategoria,
+                '0' => '<button class="btn btn-warning" onclick="mostrar('.$registro->idcategoria.')"><i class="fa fa-pencil"></i></button>',
                 '1' => $registro->nombre,
                 '2' => $registro->descripcion,
                 '3' => $registro->condicion
@@ -65,6 +40,31 @@ switch ($_GET['op']) {
         );        
         echo json_encode($resultados); // Codificamos los resultados utilizando JSON para poder verlos
     break;
+    
+    case 'guardaryeditar':
+        if (empty($idcategoria)) {
+            $respuesta = $categoria->insertar($nombre,$descripcion);
+            echo $respuesta? 'Categoría registrada':'Categoría no se pudo registrar'; // Si respuesta recibe un 1, entonces, si no
+        } else {
+            $respuesta = $categoria->editar($idcategoria,$nombre,$descripcion);
+            echo $respuesta? 'Categoría actualizada':'Categoría no se pudo actualizar';
+        }        
+    break;
+    
+    case 'mostrar';
+        $respuesta = $categoria->mostrar($idcategoria);        
+        echo json_encode($respuesta); // Codificamos el resultado utilizando JSON
+    break;
+
+    case 'desactivar';
+        $respuesta = $categoria->desactivar($idcategoria);
+        echo $respuesta? 'Categoría desactivada':'Categoría no se puede desactivar';        
+    break;
+
+    case 'activar';
+        $respuesta = $categoria->activar($idcategoria);
+        echo $respuesta? 'Categoría activada':'Categoria no se puede activar';       
+    break;  
 }
 
 ?>

@@ -86,4 +86,16 @@ function guardaryeditar(e) {
     });    
 }
 
+// Función mostrar, permite que podamos editar
+function mostrar(idcategoria) {
+    $.post('../ajax/categoria.php?op=mostrar', {idcategoria : idcategoria}, function(datos, status) { // Petición Ajax
+        datos = JSON.parse(datos);
+        mostrarForm(true);
+            
+        $('#idcategoria').val(datos.idcategoria);
+        $('#nombre').val(datos.nombre);
+        $('#descripcion').val(datos.descripcion);            
+    });
+}
+
 init();

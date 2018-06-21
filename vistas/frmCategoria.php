@@ -24,7 +24,7 @@ require 'frmHeader.php';
                             <div id="listado-registros" class="panel-body table-responsive"> <!-- <div id="listado-registros" class="panel-body table-responsive" style="height: 400px;"> -->
                                 <table id="tbl-listado" class="table table-striped table-bordered table-condensed table-hover">
                                     <thead>
-                                        <th>ID Categoría</th>
+                                        <th>Opciones</th> <!-- ID Categoría -->
                                         <th>Nombre</th>
                                         <th>Descripción</th>
                                         <th>Estado</th>
@@ -33,7 +33,7 @@ require 'frmHeader.php';
                                         
                                     </tbody>
                                     <tfoot>
-                                        <th>ID Categoría</th>
+                                        <th>Opciones</th> <!-- ID Categoría -->
                                         <th>Nombre</th>
                                         <th>Descripción</th>
                                         <th>Estado</th>
