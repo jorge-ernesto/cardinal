@@ -25,10 +25,16 @@ switch ($_GET['op']) {
         $data = array(); // Declaramos un array 
         while ($registro = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
             $data[] = array( // Todos los registros obtenidos se almacenan en el array $data declarado en la parte superior
-                '0' => '<button class="btn btn-warning" onclick="mostrar('.$registro->idcategoria.')"><i class="fa fa-pencil"></i></button>',
+                '0' => ($registro->condicion)? // Si la condición es true ó 1 entonces se podrá desactivar, si la condición es false ó 0 entonces se podráS activar
+                       '<button class="btn btn-warning" onclick="mostrar('.$registro->idcategoria.')"><i class="fa fa-pencil"></i></button>'
+                      .' <button class="btn btn-danger" onclick="desactivar('.$registro->idcategoria.')"><i class="fa fa-close"></i></button>':
+                       '<button class="btn btn-warning" onclick="mostrar('.$registro->idcategoria.')"><i class="fa fa-pencil"></i></button>'
+                      .' <button class="btn btn-primary" onclick="activar('.$registro->idcategoria.')"><i class="fa fa-check"></i></button>',
                 '1' => $registro->nombre,
                 '2' => $registro->descripcion,
-                '3' => $registro->condicion
+                '3' => ($registro->condicion)? // Si la condición es true ó 1 entonces se mostrará un label Activado, si la condición es false ó 0 entonces se mostrará un label Desactivado
+                       '<span class="label bg-green">Activado</span>':
+                       '<span class="label bg-red">Desactivado</span>'
             );
         }
                 

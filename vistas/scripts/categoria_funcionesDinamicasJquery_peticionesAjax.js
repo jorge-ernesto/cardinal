@@ -1,4 +1,4 @@
-// Funciones dinámicas y peticiones Ajax con Jquery
+// Funciones dinámicas con Jquery y peticiones Ajax
 
 var tabla;
 
@@ -95,6 +95,34 @@ function mostrar(idcategoria) {
         $('#idcategoria').val(datos.idcategoria);
         $('#nombre').val(datos.nombre);
         $('#descripcion').val(datos.descripcion);            
+    });
+}
+
+// Función para desactivar registros
+function desactivar(idcategoria) {
+    bootbox.confirm('¿Está seguro de desactivar la categoría?', function(result) {
+        if (result) { // Si la respuesta es Ok
+            $.post('../ajax/categoria.php?op=desactivar', {idcategoria : idcategoria}, function(datos) { // Peticion Ajax
+                bootbox.alert(datos);
+                tabla.api().ajax.reload();
+            });
+        } else { // Si la respuesta es Cancel
+//            bootbox.alert('KKK');
+        }
+    });
+}
+
+// Función para activar registros
+function activar(idcategoria) {
+    bootbox.confirm('¿Está seguro de activar la categoría?', function(result) {
+        if (result) {
+            $.post('../ajax/categoria.php?op=activar', {idcategoria : idcategoria}, function(datos) { // Peticion Ajax
+                bootbox.alert(datos);
+                tabla.api().ajax.reload();
+            });            
+        } else {
+//            bootbox.alert('KKK');
+        }
     });
 }
 
