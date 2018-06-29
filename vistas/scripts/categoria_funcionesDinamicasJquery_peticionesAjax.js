@@ -7,7 +7,7 @@ function init() {
     limpiar();
     mostrarForm(false);
     listar();
-    
+
     $('#formulario').on('submit', function(e) {
         guardaryeditar(e);
     });
@@ -21,7 +21,7 @@ function limpiar() {
 }
 
 // Función mostrar formulario
-function mostrarForm(flag) {    
+function mostrarForm(flag) {
     if (flag) { // Si flag es true
         $('#listado-registros').hide();
         $('#formulario-registros').show();
@@ -67,10 +67,10 @@ function listar() {
 
 // Función para guardar ó editar
 function guardaryeditar(e) {
-    e.preventDefault(); // No se activará la acción predeterminada del evento
+    e.preventDefault(); // No se activará la acción predeterminada del evento // Evitamos que al dar click, se agregue en la barra de busqueda el caracter de #, es decir que te envie a la página
     $('#btn-guardar').prop('disabled', true);
     var formData = new FormData($('#formulario')[0]); // Todos los datos del formulario son enviados a la variable $formData
-    
+
     $.ajax({
         url: '../ajax/categoria.php?op=guardaryeditar', // Petición Ajax
         type: 'post',
@@ -79,11 +79,11 @@ function guardaryeditar(e) {
         processData: false,
         success: function(datos) {
             limpiar();
-            bootbox.alert(datos); // Muestra el mensaje de confirmación                
+            bootbox.alert(datos); // Muestra el mensaje de confirmación
             mostrarForm(false);
             tabla.api().ajax.reload(); // Recarga, actualiza DATATABLES
         }
-    });    
+    });
 }
 
 // Función mostrar, permite que podamos editar
@@ -91,10 +91,10 @@ function mostrar(idcategoria) {
     $.post('../ajax/categoria.php?op=mostrar', {idcategoria : idcategoria}, function(datos, status) { // Petición Ajax
         datos = JSON.parse(datos);
         mostrarForm(true);
-            
+
         $('#idcategoria').val(datos.idcategoria);
         $('#nombre').val(datos.nombre);
-        $('#descripcion').val(datos.descripcion);            
+        $('#descripcion').val(datos.descripcion);
     });
 }
 
@@ -119,7 +119,7 @@ function activar(idcategoria) {
             $.post('../ajax/categoria.php?op=activar', {idcategoria : idcategoria}, function(datos) { // Peticion Ajax
                 bootbox.alert(datos);
                 tabla.api().ajax.reload();
-            });            
+            });
         } else {
 //            bootbox.alert('KKK');
         }
