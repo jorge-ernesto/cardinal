@@ -18,8 +18,7 @@ require 'frmHeader.php';
                                 </h1>
                                 <div class="box-tools pull-right">
                                 </div>
-                            </div>
-                            <!-- /.box-header -->
+                            </div><!-- /.box-header -->
                             <!-- Centro -->                            
                             <div id="listado-registros" class="panel-body table-responsive"> <!-- <div id="listado-registros" class="panel-body table-responsive" style="height: 400px;"> -->
                                 <table id="tbl-listado" class="table table-striped table-bordered table-condensed table-hover">
