@@ -1,14 +1,11 @@
 <?php // Conexión a la base de datos
 
-// Incluimos las variables globales, require_once impiden la carga de un mismo fichero varias veces
-require_once 'global.php';
+require_once 'global.php'; // Incluimos las variables globales, require_once impiden la carga de un mismo fichero varias veces
 
 $conexion = new mysqli(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
-
 mysqli_query($conexion, 'SET NAMES "' . DB_ENCODE . '"');
 
-// Si tenemos un posible error en la conexión lo mostramos
-if (mysqli_connect_errno()) {
+if (mysqli_connect_errno()) { // Si tenemos un posible error en la conexión lo mostramos
     printf('Error estableciendo conexión con la base de datos: %s\n',myqsli_connect_error());
     exit();
 }

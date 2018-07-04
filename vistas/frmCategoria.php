@@ -43,16 +43,17 @@ require 'frmHeader.php';
                             <div id="formulario-registros" class="panel-body" style="height: 400px;"> <!-- <div id="formulario-registros" class="panel-body table-responsive" style="height: 400px;"> -->
                                 <form id="formulario" name="formulario" method="post"> <!-- Cuando el usuario de click en Enviar, toda la informacion que tengamos en el formulario se enviara al archivo recibe.php -->
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <input id="idcategoria" name="idcategoria" type="hidden">                                        
-                                        <label for="nombre">Nombre:</label> <!-- for se relaciona con id -->                                        
+                                        <input id="idcategoria" name="idcategoria" type="hidden">                                                                                
+                                        <label for="nombre">Nombre:</label> <!-- for se relaciona con id -->
                                         <input id="nombre" class="form-control" name="nombre" type="text" placeholder="Nombre" maxlength="50" required>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <label for="descripcion">Descripción:</label>
-                                        <input id="descripcion" class="form-control" name="descripcion" type="text" placeholder="Descripción" maxlength="256">
+                                        <input id="descripcion" class="form-control" name="descripcion" type="text" placeholder="Descripción" maxlength="250">
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <button id="btn-guardar" class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
+                                        <!-- <button id="btn-guardar" class="btn btn-primary" type="submit" onclick="insertar_editar(e)"><i class="fa fa-save"></i> Guardar</button> -->
                                         <button id="btn-cancelar" class="btn btn-danger" type="button" onclick="cancelarForm()"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
                                     </div>
                                 </form>

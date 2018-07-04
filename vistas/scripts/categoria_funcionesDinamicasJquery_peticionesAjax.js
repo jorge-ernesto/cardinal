@@ -2,26 +2,23 @@
 
 var tabla;
 
-// Función que se ejecuta al inicio
-function init() {
+function init() { // Función que se ejecuta al inicio
     limpiar();
     mostrarForm(false);
     listar();
 
     $('#formulario').on('submit', function(e) {
-        guardaryeditar(e);
+        insertar_editar(e);
     });
 }
 
-// Función limpiar
-function limpiar() {
+function limpiar() { // Función limpiar
     $('#idcategoria').val('');
     $('#nombre').val('');
     $('#descripcion').val('');
 }
 
-// Función mostrar formulario
-function mostrarForm(flag) {
+function mostrarForm(flag) { // Función mostrar formulario
     if (flag) { // Si flag es true
         $('#listado-registros').hide();
         $('#formulario-registros').show();
@@ -33,14 +30,12 @@ function mostrarForm(flag) {
     }
 }
 
-// Función cancelar formulario
-function cancelarForm() {
+function cancelarForm() { // Función cancelar formulario
     limpiar();
     mostrarForm(false);
 }
 
-// Función listar
-function listar() {
+function listar() { // Función listar
     tabla = $('#tbl-listado').dataTable({
         'aProcessing': true, // Activamos el procesamiento de DATATABLES
         'aServerSide': true, // Paginación y filtrado realizados por el servidor
@@ -52,7 +47,7 @@ function listar() {
             'pdf'
         ],
         ajax: {
-            url: '../ajax/categoria.php?op=listar', // Petición Ajax
+            url: '../controlador/controladorCategoria.php?op=listar', // Ejecuta la petición Ajax
             type: 'get',
             dataType: 'json',
             error: function(e) {
@@ -65,14 +60,13 @@ function listar() {
     });
 }
 
-// Función para guardar ó editar
-function guardaryeditar(e) {
+function insertar_editar(e) { // Función para guardar ó editar
     e.preventDefault(); // No se activará la acción predeterminada del evento // Evitamos que al dar click, se agregue en la barra de busqueda el caracter de #, es decir que te envie a la página
     $('#btn-guardar').prop('disabled', true);
     var formData = new FormData($('#formulario')[0]); // Todos los datos del formulario son enviados a la variable $formData
 
     $.ajax({
-        url: '../ajax/categoria.php?op=guardaryeditar', // Petición Ajax
+        url: '../controlador/controladorCategoria.php?op=insertar_editar', // Ejecuta la petición Ajax
         type: 'post',
         data: formData,
         contentType: false,
@@ -86,23 +80,21 @@ function guardaryeditar(e) {
     });
 }
 
-// Función mostrar, permite que podamos editar
-function mostrar(idcategoria) {
-    $.post('../ajax/categoria.php?op=mostrar', {idcategoria : idcategoria}, function(datos, status) { // Petición Ajax
+function mostrar(idcategoria) { // Función mostrar, permite que podamos editar
+    $.post('../controlador/controladorCategoria.php?op=mostrar', {idcategoria : idcategoria}, function(datos, status) { // Ejecuta la petición Ajax, no lo envia hacia el parametro de la función, sino hacia el value de la etiqueta id="idcategoria"
         datos = JSON.parse(datos);
         mostrarForm(true);
 
-        $('#idcategoria').val(datos.idcategoria);
-        $('#nombre').val(datos.nombre);
-        $('#descripcion').val(datos.descripcion);
+        $('#idcategoria').val(datos.idcat);
+        $('#nombre').val(datos.nom_cat);
+        $('#descripcion').val(datos.des_cat);
     });
 }
 
-// Función para desactivar registros
-function desactivar(idcategoria) {
+function desactivar(idcategoria) { // Función para desactivar registros
     bootbox.confirm('¿Está seguro de desactivar la categoría?', function(result) {
         if (result) { // Si la respuesta es Ok
-            $.post('../ajax/categoria.php?op=desactivar', {idcategoria : idcategoria}, function(datos) { // Peticion Ajax
+            $.post('../controlador/controladorCategoria.php?op=desactivar', {idcategoria : idcategoria}, function(datos) { // Ejecuta la petición Ajax, no lo envia hacia el parametro de la función, sino hacia el value de la etiqueta id="idcategoria"
                 bootbox.alert(datos);
                 tabla.api().ajax.reload();
             });
@@ -112,11 +104,10 @@ function desactivar(idcategoria) {
     });
 }
 
-// Función para activar registros
-function activar(idcategoria) {
+function activar(idcategoria) { // Función para activar registros
     bootbox.confirm('¿Está seguro de activar la categoría?', function(result) {
         if (result) {
-            $.post('../ajax/categoria.php?op=activar', {idcategoria : idcategoria}, function(datos) { // Peticion Ajax
+            $.post('../controlador/controladorCategoria.php?op=activar', {idcategoria : idcategoria}, function(datos) { // Ejecuta la petición Ajax, no lo envia hacia el parametro de la función, sino hacia el value de la etiqueta id="idcategoria"
                 bootbox.alert(datos);
                 tabla.api().ajax.reload();
             });
