@@ -4,7 +4,7 @@ require_once '../modelos/Categoria.php'; // Incluimos la clase Categoria, requir
 
 $objCat = new Categoria(); // Creamos un objeto, el objeto hace una instancia a la clase Categoria, al crear una instancia utilizamos el constructor de la clase
 
-$idcategoria = isset($_POST['idcategoria'])? limpiarCadena($_POST['idcategoria']):''; // Estructura Condicional de una sola línea, el formulario que implementaremos enviara los datos por el metodo $_POST
+$idcategoria = isset($_POST['idcategoria'])? limpiarCadena($_POST['idcategoria']):''; // Estructura Condicional de una sola línea, el formulario que implementaremos enviara los datos por el método $_POST
 $nombre = isset($_POST['nombre'])? limpiarCadena($_POST['nombre']):'';
 $descripcion = isset($_POST['descripcion'])? limpiarCadena($_POST['descripcion']):'';
 // Si existe el objeto idcategoria del formulario y lo recibo mediante el metodo $_POST
