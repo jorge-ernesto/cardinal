@@ -2,7 +2,7 @@
 
 var tabla;
 
-function init() { // Función que se ejecuta al inicio
+function init() { // Función que se ejecuta al antes que todo, se ejecuta cuando llamamos al archivo JavaScript
     limpiar();
     mostrarForm(false);
     listar();

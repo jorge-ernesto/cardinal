@@ -53,7 +53,6 @@ require 'frmHeader.php';
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <button id="btn-guardar" class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
-                                        <!-- <button id="btn-guardar" class="btn btn-primary" type="submit" onclick="insertar_editar(e)"><i class="fa fa-save"></i> Guardar</button> -->
                                         <button id="btn-cancelar" class="btn btn-danger" type="button" onclick="cancelarForm()"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
                                     </div>
                                 </form>
