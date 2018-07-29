@@ -14,7 +14,7 @@ class Categoria { // En PHP las clases se escriben comenzando con mayuscula, ade
     }    
         
     public function insertar($nombre,$descripcion) { // Implementamos un método para insertar registros
-        $sql = "insert into categoria (nom_cat,des_cat,con_cat)
+        $sql = "insert into categoria (nom_cat,des_cat,est_cat)
                 values('$nombre','$descripcion','1')";
         return ejecutarConsulta($sql);
     }
@@ -35,14 +35,14 @@ class Categoria { // En PHP las clases se escriben comenzando con mayuscula, ade
         
     public function desactivar($idcategoria) { // Implementamos un método para desactivar categorías
         $sql = "update categoria
-                set    con_cat = '0'
+                set    est_cat = '0'
                 where  idcat = '$idcategoria'";
         return ejecutarConsulta($sql);
     }
         
     public function activar($idcategoria) { // Implementamos un método para desactivar categorías
         $sql = "update categoria
-                set    con_cat = '1'
+                set    est_cat = '1'
                 where  idcat = '$idcategoria'";
         return ejecutarConsulta($sql);
     }
