@@ -26,6 +26,9 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+.user {
+    font-weight: 300!important;
+}
 /* Layout */
 .wrapper {
   min-height: 100%;
@@ -167,14 +170,14 @@ h6,
 }
 /* General Links */
 a {
-  color: #3c8dbc;
+  color: #06bfee;
 }
 a:hover,
 a:active,
 a:focus {
   outline: none;
   text-decoration: none;
-  color: #72afd2;
+  color: #06bfee;
 }
 /* Page Header */
 .page-header {
@@ -291,7 +294,7 @@ a:focus {
   display: block;
   float: left;
   height: 50px;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 50px;
   text-align: center;
   width: 230px;
@@ -1518,9 +1521,9 @@ a:focus {
  */
 .box {
   position: relative;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   background: #ffffff;
-  border-top: 3px solid #d2d6de;
+  border-top: 3px solid #06bfee;
   margin-bottom: 20px;
   width: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -1724,7 +1727,7 @@ a:focus {
 .box-header > .ion,
 .box-header .box-title {
   display: inline-block;
-  font-size: 18px;
+  font-size: 15px;
   margin: 0;
   line-height: 1;
 }

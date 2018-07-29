@@ -2,7 +2,7 @@
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.3.0
             </div>
-            <strong>Copyright &copy; 2017-2018 <a target="_blank" href="https://twitter.com/jorge_cywdt">Cardinal</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2017-2019 <a target="_blank" href="https://twitter.com/jorge_cywdt">Cardinal</a>.</strong> All rights reserved.
         </footer>
     </div>
     

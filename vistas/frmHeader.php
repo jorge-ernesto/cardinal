@@ -11,10 +11,10 @@
     <!-- Font Awesome (Web Fonts with CSS) -->
     <link rel="stylesheet" href="../public/css/font-awesome.min.css">    
     <!-- Theme style -->
-    <link rel="stylesheet" href="../public/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../public/css/AdminLTE.css"> <!-- min -->
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../public/css/_all-skins.min.css">
+    <link rel="stylesheet" href="../public/css/_all-skins.css"> <!-- min -->
     <link rel="apple-touch-icon" href="../public/img/apple-touch-icon.png">
     <link rel="shortcut icon" href="../public/img/favicon.ico">
 
@@ -31,7 +31,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>C..</b></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Cardinal</b></span>
+                <span class="logo-lg"><b>Cardinal CoreUI</b></span>
             </a>
 
             <!-- Header Navbar: style can be found in header.less -->
@@ -49,7 +49,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="../public/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Jorge Ernesto</span>
+                                <span class="hidden-xs user">Jorge Ernesto</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -83,10 +83,11 @@
             <section class="sidebar">
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu">
-                    <li class="header"></li>
+                    <!-- <li class="header"></li> -->
                     <li>
                         <a href="#">
                             <i class="fa fa-tasks"></i> <span>Escritorio</span>
+                            <small class="label pull-right bg-aqua">NEW</small>
                         </a>
                     </li>
                     <li class="treeview">
@@ -151,18 +152,18 @@
                         <ul class="treeview-menu">
                             <li><a href="consultaventas.php"><i class="fa fa-circle-o"></i> Consulta Ventas</a></li>
                         </ul>
-                    </li>
+                    </li>                    
                     <li>
                         <a href="#">
-                            <i class="fa fa-plus-square"></i> <span>Ayuda</span>
-                            <small class="label pull-right bg-black">PDF</small>
+                            <i class="fa fa-info-circle"></i> <span>Ayuda</span>
+                            <small class="label pull-right bg-aqua">PDF</small>
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <i class="fa fa-info-circle"></i> <span>Acerca De...</span>
-                            <small class="label pull-right bg-black">Cardinal d.</small>
-                        </a>
+                            <i class="fa fa-info-circle"></i> <span>Acerca de..</span>
+                            <small class="label pull-right bg-aqua">CoreUI</small>
+                        </a>                        
                     </li>
                 </ul>
             </section>

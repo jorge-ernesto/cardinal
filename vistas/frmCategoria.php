@@ -52,7 +52,7 @@ require 'frmHeader.php';
                                         <input id="descripcion" class="form-control" name="descripcion" type="text" placeholder="Descripción" maxlength="250">
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <button id="btn-enviar" class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Enviar</button>
+                                        <button id="btn-enviar" class="btn btn-primary" type="submit"><i class="fa fa-cloud"></i> Enviar</button>
                                         <button id="btn-cancelar" class="btn btn-danger" type="button" onclick="cancelarForm()"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
                                     </div>
                                 </form>

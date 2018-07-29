@@ -28,8 +28,8 @@ switch ($_GET['op']) { // Funciones que van a devolver datos
                 '1' => $registro->nom_cat,
                 '2' => $registro->des_cat,
                 '3' => ($registro->est_cat)? // Si la condición es true ó 1 entonces se mostrará un label Activado, si la condición es false ó 0 entonces se mostrará un label Desactivado
-                       '<span class="label bg-green">Activado</span>':
-                       '<span class="label bg-red">Inactivo</span>'
+                       '<span class="label bg-aqua">Activo</span>':
+                       '<span class="label bg-black">Inactivo</span>'
             );
         }
                 
