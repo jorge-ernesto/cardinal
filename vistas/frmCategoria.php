@@ -14,7 +14,7 @@ require 'frmHeader.php';
                         <div class="box">
                             <div class="box-header with-border">
                                 <h1 class="box-title">Categoría
-                                    <button id="btn-agregar" class="btn btn-success" type="button" onclick="mostrarForm(true)"><i class="fa fa-plus-circle"></i> Agregar</button>
+                                    <button id="btn-nuevo" class="btn btn-success" type="button" onclick="mostrarForm(true)"><i class="fa fa-plus-circle"></i> Nuevo</button>
                                 </h1>
                                 <div class="box-tools pull-right">
                                 </div>
@@ -52,7 +52,7 @@ require 'frmHeader.php';
                                         <input id="descripcion" class="form-control" name="descripcion" type="text" placeholder="Descripción" maxlength="250">
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <button id="btn-guardar" class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Guardar</button>
+                                        <button id="btn-enviar" class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Enviar</button>
                                         <button id="btn-cancelar" class="btn btn-danger" type="button" onclick="cancelarForm()"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
                                     </div>
                                 </form>

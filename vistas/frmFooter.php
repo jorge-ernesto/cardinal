@@ -4,8 +4,8 @@
             </div>
             <strong>Copyright &copy; 2017-2018 <a target="_blank" href="https://twitter.com/jorge_cywdt">Cardinal</a>.</strong> All rights reserved.
         </footer>
-
     </div>
+    
     <!-- jQuery 3.3.1 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="../public/js/jquery-3.1.1.min.js"></script> -->

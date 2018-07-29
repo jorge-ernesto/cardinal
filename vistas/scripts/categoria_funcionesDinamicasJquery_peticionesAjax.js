@@ -19,10 +19,10 @@ function limpiar() { // Función limpiar
 }
 
 function mostrarForm(flag) { // Función mostrar formulario
-    if (flag == true) { // Si flag es true
+    if (flag == true) {
         $('#listado-registros').hide();
         $('#formulario-registros').show();
-        $('#btn-guardar').prop('disabled', false); // Cuando se de click en el boton agregar, el boton guardar se habilitara // Equivalente a .attr(), .prop() agrega atributos, y además propiedades
+        $('#btn-enviar').prop('disabled', false); // Cuando se de click en el boton agregar, el boton guardar se habilitara // Equivalente a .attr(), .prop() agrega atributos, y además propiedades
 
     } else {
         $('#listado-registros').show();
@@ -73,7 +73,7 @@ function mostrar(idcategoria) { // Función mostrar, permite que podamos editar
 
 function insertar_editar(e) { // Función para guardar ó editar
     e.preventDefault(); // No se activará la acción predeterminada del evento // Evitamos que al dar click, se agregue en la barra de busqueda el caracter de #, es decir que te envie a la página
-    $('#btn-guardar').prop('disabled', true);
+    $('#btn-enviar').prop('disabled', true);
     var formData = new FormData($('#formulario')[0]); // Todos los datos del formulario son enviados a la variable $formData
 
     $.ajax({
