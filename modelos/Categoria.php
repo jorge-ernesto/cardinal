@@ -14,8 +14,7 @@ class Categoria { // En PHP las clases se escriben comenzando con mayuscula, ade
     }    
         
     public function insertar($nombre,$descripcion) { // Implementamos un método para insertar registros
-        $sql = "insert into categoria (nom_cat,des_cat,est_cat)
-                values('$nombre','$descripcion','1')";
+        $sql = "insert into categoria (nom_cat,des_cat,est_cat) values('$nombre','$descripcion','1')";
         return ejecutarConsulta($sql);
     }
         
