@@ -11,10 +11,10 @@
     <!-- Font Awesome (Web Fonts with CSS) -->
     <link rel="stylesheet" href="../public/css/font-awesome.min.css">    
     <!-- Theme style -->
-    <link rel="stylesheet" href="../public/css/AdminLTE.css"> <!-- min -->
+    <link rel="stylesheet" href="../public/css/AdminLTE.min.css"> <!-- min -->
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../public/css/_all-skins.css"> <!-- min -->
+    <link rel="stylesheet" href="../public/css/_all-skins.min.css"> <!-- min -->
     <link rel="apple-touch-icon" href="../public/img/apple-touch-icon.png">
     <link rel="shortcut icon" href="../public/img/favicon.ico">
 
@@ -96,7 +96,7 @@
                             <span>Almacén</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
-                        <ul class="treeview-menu">
+                        <ul class="wea treeview-menu">
                             <li><a href="articulo.php"><i class="fa fa-circle-o"></i> Artículos</a></li>
                             <li><a href="categoria.php"><i class="fa fa-circle-o"></i> Categorías</a></li>
                         </ul>
@@ -108,7 +108,7 @@
                             <span>Compras</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
-                        <ul class="treeview-menu">
+                        <ul class="wea treeview-menu">
                             <li><a href="ingreso.php"><i class="fa fa-circle-o"></i> Ingresos</a></li>
                             <li><a href="proveedor.php"><i class="fa fa-circle-o"></i> Proveedores</a></li>
                         </ul>
@@ -119,7 +119,7 @@
                             <span>Ventas</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
-                        <ul class="treeview-menu">
+                        <ul class="wea treeview-menu">
                             <li><a href="venta.php"><i class="fa fa-circle-o"></i> Ventas</a></li>
                             <li><a href="cliente.php"><i class="fa fa-circle-o"></i> Clientes</a></li>
                         </ul>
@@ -129,7 +129,7 @@
                             <i class="fa fa-folder"></i> <span>Acceso</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
-                        <ul class="treeview-menu">
+                        <ul class="wea treeview-menu">
                             <li><a href="usuario.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                             <li><a href="permiso.php"><i class="fa fa-circle-o"></i> Permisos</a></li>
 
@@ -140,7 +140,7 @@
                             <i class="fa fa-bar-chart"></i> <span>Consulta Compras</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
-                        <ul class="treeview-menu">
+                        <ul class="wea treeview-menu">
                             <li><a href="consultacompras.php"><i class="fa fa-circle-o"></i> Consulta Compras</a></li>
                         </ul>
                     </li>
@@ -149,7 +149,7 @@
                             <i class="fa fa-bar-chart"></i> <span>Consulta Ventas</span>
                             <i class="fa fa-angle-left pull-right"></i>
                         </a>
-                        <ul class="treeview-menu">
+                        <ul class="wea treeview-menu">
                             <li><a href="consultaventas.php"><i class="fa fa-circle-o"></i> Consulta Ventas</a></li>
                         </ul>
                     </li>                    

@@ -237,7 +237,7 @@
   font-weight: 300;
 }
 .skin-blue-light .sidebar-menu > li > .treeview-menu {
-  background: #f4f4f5;
+  background: #2e3439;
 }
 .skin-blue-light .sidebar a {
   color: #fff;
@@ -246,11 +246,11 @@
   text-decoration: none;
 }
 .skin-blue-light .treeview-menu > li > a {
-  color: #777777;
+  color: #fff;
 }
 .skin-blue-light .treeview-menu > li.active > a,
-.skin-blue-light .treeview-menu > li > a:hover {
-  color: #000;
+.skin-blue-light .treeview-menu > li > a:hover {  
+  color: #fff;
 }
 .skin-blue-light .treeview-menu > li.active > a {
   font-weight: 300;
