@@ -56,7 +56,7 @@ function listar() { // Función listar
         },
         'bDestroy': true,
         'iDisplayLength': 5, // Cada cuanto registros se realiza la paginación de registros
-        'order': [[0, 'asc']]  // desc // Orden de datos, utilizamos la columna 0 que seria el idcategoria, y ordenamos de forma ascendente
+        'order': [[0, 'asc']]  // 1, desc // Orden de datos, utilizamos la columna 0 que seria el idcategoria, y ordenamos de forma ascendente
     });
 }
 
