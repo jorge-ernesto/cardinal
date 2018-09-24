@@ -70,4 +70,4 @@ require 'frmHeader.php';
 require 'frmFooter.php'
 ?>
         
-<script src="scripts/categoria_funcionesDinamicasJquery_peticionesAjax.js"></script>  
+<script src="scripts/categoria_funcionesDinamicasJquery_peticionesAjax.js"></script>
