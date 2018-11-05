@@ -7,21 +7,21 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/css/bootstrap.min.css">
     <!-- Font Awesome (Web Fonts with CSS) -->
-    <link rel="stylesheet" href="../public/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="vendors/css/font-awesome.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../public/css/AdminLTE.min.css"> <!-- min -->
+    <link rel="stylesheet" href="vendors/css/AdminLTE.min.css"> <!-- min -->
     <!-- AdminLTE Skins. Choose a skin from the css/skins
     folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../public/css/_all-skins.min.css"> <!-- min -->
-    <link rel="apple-touch-icon" href="../public/img/apple-touch-icon.png">
-    <link rel="shortcut icon" href="../public/img/favicon.ico">
+    <link rel="stylesheet" href="vendors/css/_all-skins.min.css"> <!-- min -->
+    <link rel="apple-touch-icon" href="vendors/img/apple-touch-icon.png">
+    <link rel="shortcut icon" href="vendors/img/favicon.ico">
 
     <!-- DATATABLES -->
-    <link rel="stylesheet" href="../public/datatables/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="../public/datatables/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="../public/datatables/responsive.dataTables.min.css">    
+    <link rel="stylesheet" href="vendors/datatables/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="vendors/datatables/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="vendors/datatables/responsive.dataTables.min.css">
 </head>
 <body class="hold-transition skin-blue-light sidebar-mini">
     <div class="wrapper">
@@ -48,13 +48,13 @@
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="../public/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <img src="vendors/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <span class="hidden-xs user">Jorge Ernesto</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="../public/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                    <img src="vendors/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
                                         Cardinal - Version 2.3.0
                                         <small>https://twitter.com/jorge_cywdt</small>
@@ -152,7 +152,7 @@
                         <ul class="wea treeview-menu">
                             <li><a href="consultaventas.php"><i class="fa fa-circle-o"></i> Consulta Ventas</a></li>
                         </ul>
-                    </li>                    
+                    </li>
                     <li>
                         <a href="#">
                             <i class="fa fa-info-circle"></i> <span>Ayuda</span>
@@ -163,7 +163,7 @@
                         <a href="#">
                             <i class="fa fa-info-circle"></i> <span>Acerca de..</span>
                             <small class="label pull-right bg-aqua">CoreUI</small>
-                        </a>                        
+                        </a>
                     </li>
                 </ul>
             </section>
