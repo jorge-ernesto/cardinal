@@ -21,7 +21,7 @@ require 'layout/header.php';
                             </div><!-- /.box-header -->
                             <!-- Centro -->
                             <div id="listado-registros" class="panel-body table-responsive"> <!-- <div id="listado-registros" class="panel-body table-responsive" style="height: 400px;"> -->
-                                <table id="tbl-listado" class="table table-striped table-bordered table-condensed table-hover">
+                                <table id="table_id" class="table table-striped table-bordered table-condensed table-hover">
                                     <thead>
                                         <th>Opciones</th> <!-- ID Categoría -->
                                         <th>Nombre</th>

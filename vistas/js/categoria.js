@@ -1,62 +1,52 @@
-// Funciones dinámicas con Jquery y peticiones Ajax
-
 var tabla;
 
-function init() { // Función que se ejecuta al antes que todo, se ejecuta cuando llamamos al archivo JavaScript
-    limpiar();
+function init() {
+    limpiarForm();
     mostrarForm(false);
     listar();
-
-    $('#formulario').on('submit', function(e) {
-        insertar_editar(e);
-    });
 }
+init();
 
-function limpiar() { // Función limpiar
-    $('#idcategoria').val('');
-    $('#nombre').val('');
-    $('#descripcion').val('');
-}
-
-function mostrarForm(flag) { // Función mostrar formulario
-    if (flag == true) {
-        $('#listado-registros').hide();
-        $('#formulario-registros').show();
-        $('#btn-enviar').prop('disabled', false); // Cuando se de click en el boton agregar, el boton guardar se habilitara // Equivalente a .attr(), .prop() agrega atributos, y además propiedades
-
-    } else {
-        $('#listado-registros').show();
-        $('#formulario-registros').hide();
-    }
-}
-
-function cancelarForm() { // Función cancelar formulario
-    limpiar();
-    mostrarForm(false);
-}
-
-function listar() { // Función listar
-    tabla = $('#tbl-listado').dataTable({
-        'aProcessing': true, // Activamos el procesamiento de DATATABLES
-        'aServerSide': true, // Paginación y filtrado realizados por el servidor
-        'dom': 'Bfrtip', // Definimos los elementos del control de tabla
-        'buttons': [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdf'
-        ],
+function listar() {
+    tabla = $('#table_id').dataTable({
+        'aProcessing': true,
+        'aServerSide': true,
         ajax: {
-            url: '../controlador/controladorCategoria.php?op=listar', // Ejecuta la petición Ajax
-            type: 'get',
+            method: 'get',
+            url: '../controlador/controladorCategoria.php?op=listar',
             dataType: 'json',
             error: function(e) {
                 console.log(e.responseText);
             }
         },
-        'bDestroy': true,
-        'iDisplayLength': 5, // Cada cuanto registros se realiza la paginación de registros
-        'order': [[0, 'asc']]  // 1, desc // Orden de datos, utilizamos la columna 0 que seria el idcategoria, y ordenamos de forma ascendente
+        'iDisplayLength': 5,
+        'dom': 'Bfrtip',
+        'buttons': [
+            'copyHtml5', 'csvHtml5', 'excelHtml5', 'pdf'
+        ],
+    });
+}
+
+$('#formulario').on('submit', function() {
+    guardar();
+});
+
+function guardar() {
+    $('#btn-enviar').attr('disabled', true);
+    var formData = new FormData($('#formulario')[0]);
+
+    $.ajax({
+        data: formData,
+        method: 'post',
+        url: '../controlador/controladorCategoria.php?op=insertar_editar',
+        contentType: false,
+        processData: false,
+        success: function(datos) {
+            limpiarForm();
+            bootbox.alert(datos); // Muestra el mensaje de confirmación
+            mostrarForm(false);
+            tabla.api().ajax.reload(); // Recarga, actualiza DATATABLES
+        }
     });
 }
 
@@ -68,26 +58,6 @@ function mostrar(idcategoria) { // Función mostrar, permite que podamos editar
         $('#idcategoria').val(datos.idcat);
         $('#nombre').val(datos.nom_cat);
         $('#descripcion').val(datos.des_cat);
-    });
-}
-
-function insertar_editar(e) { // Función para guardar ó editar
-    e.preventDefault(); // No se activará la acción predeterminada del evento // Evitamos que al dar click, se agregue en la barra de busqueda el caracter de #, es decir que te envie a la página
-    $('#btn-enviar').prop('disabled', true);
-    var formData = new FormData($('#formulario')[0]); // Todos los datos del formulario son enviados a la variable $formData
-
-    $.ajax({
-        url: '../controlador/controladorCategoria.php?op=insertar_editar', // Ejecuta la petición Ajax
-        type: 'post',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function(datos) {
-            limpiar();
-            bootbox.alert(datos); // Muestra el mensaje de confirmación
-            mostrarForm(false);
-            tabla.api().ajax.reload(); // Recarga, actualiza DATATABLES
-        }
     });
 }
 
@@ -115,4 +85,27 @@ function activar(idcategoria) { // Función para activar registros
     });
 }
 
-init();
+/*************** weas ***************/
+
+function limpiarForm() { // Función limpiarForm
+    $('#idcategoria').val('');
+    $('#nombre').val('');
+    $('#descripcion').val('');
+}
+
+function mostrarForm(flag) { // Función mostrar formulario
+    if (flag == true) {
+        $('#listado-registros').hide();
+        $('#formulario-registros').show();
+        $('#btn-enviar').attr('disabled', false); // Cuando se de click en el boton agregar, el boton guardar se habilitara // Equivalente a .attr(), .attr() agrega atributos, y además attriedades
+
+    } else {
+        $('#listado-registros').show();
+        $('#formulario-registros').hide();
+    }
+}
+
+function cancelarForm() { // Función cancelar formulario
+    limpiarForm();
+    mostrarForm(false);
+}
