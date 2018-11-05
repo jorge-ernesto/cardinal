@@ -4,10 +4,10 @@ require_once '../modelos/categoria.php'; // Incluimos la clase Categoria, requir
 
 $objCat = new categoria(); // Creamos un objeto, el objeto hace una instancia a la clase Categoria, al crear una instancia utilizamos el constructor de la clase
 
-$varIdCategoria = isset($_POST['varIdCategoria'])? limpiarCadena($_POST['varIdCategoria']):''; // Obtiene la variable desde Jquery
-$idcategoria = isset($_POST['idcategoria'])? limpiarCadena($_POST['idcategoria']):''; // Obtiene la variable desde el formulario
-$nombre = isset($_POST['nombre'])? limpiarCadena($_POST['nombre']):'';
-$descripcion = isset($_POST['descripcion'])? limpiarCadena($_POST['descripcion']):'';
+$varIdCategoria = isset($_POST['varIdCategoria'])? clearString($_POST['varIdCategoria']):''; // Obtiene la variable desde Jquery
+$idcategoria = isset($_POST['idcategoria'])? clearString($_POST['idcategoria']):''; // Obtiene la variable desde el formulario
+$nombre = isset($_POST['nombre'])? clearString($_POST['nombre']):'';
+$descripcion = isset($_POST['descripcion'])? clearString($_POST['descripcion']):'';
 // Estructura Condicional de una sola línea, el formulario que implementaremos enviara los datos por el método $_POST
 // Si existe la variable varIdCategoria y lo recibo mediante el metodo $_POST
 // Si existe, lo que recibo lo envio al método limpiarCadena
