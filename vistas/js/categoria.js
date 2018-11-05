@@ -13,7 +13,7 @@ function listar() {
         'aServerSide': true,
         ajax: {
             method: 'get',
-            url: '../controlador/controladorCategoria.php?op=listar',
+            url: '../controlador/controladorCategoria.php?action=listar',
             dataType: 'json',
             error: function(e) {
                 console.log(e.responseText);
@@ -38,7 +38,7 @@ function guardar() {
     $.ajax({
         data: formData,
         method: 'post',
-        url: '../controlador/controladorCategoria.php?op=insertar_editar',
+        url: '../controlador/controladorCategoria.php?action=guardar',
         contentType: false,
         processData: false,
         success: function(datos) {
@@ -51,7 +51,7 @@ function guardar() {
 }
 
 function mostrar(idcategoria) { // Función mostrar, permite que podamos editar
-    $.post('../controlador/controladorCategoria.php?op=mostrar', {varIdCategoria : idcategoria}, function(datos, status, objeto) { // Datos que retornan, estado de la petición, Objetos de la peticion
+    $.post('../controlador/controladorCategoria.php?action=mostrar', {varIdCategoria : idcategoria}, function(datos, status, objeto) { // Datos que retornan, estado de la petición, Objetos de la peticion
         datos = JSON.parse(datos);
         mostrarForm(true);
 
@@ -64,7 +64,7 @@ function mostrar(idcategoria) { // Función mostrar, permite que podamos editar
 function desactivar(idcategoria) { // Función para desactivar registros
     bootbox.confirm('¿Está seguro de desactivar la categoría?', function(result) {
         if (result) { // Si la respuesta es Ok
-            $.post('../controlador/controladorCategoria.php?op=desactivar', {varIdCategoria : idcategoria}, function(datos, status, objeto) {
+            $.post('../controlador/controladorCategoria.php?action=desactivar', {varIdCategoria : idcategoria}, function(datos, status, objeto) {
                 bootbox.alert(datos);
                 tabla.api().ajax.reload();
             });
@@ -77,7 +77,7 @@ function desactivar(idcategoria) { // Función para desactivar registros
 function activar(idcategoria) { // Función para activar registros
     bootbox.confirm('¿Está seguro de activar la categoría?', function(result) {
         if (result) {
-            $.post('../controlador/controladorCategoria.php?op=activar', {varIdCategoria : idcategoria}, function(datos) {
+            $.post('../controlador/controladorCategoria.php?action=activar', {varIdCategoria : idcategoria}, function(datos) {
                 bootbox.alert(datos);
                 tabla.api().ajax.reload();
             });

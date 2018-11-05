@@ -8,59 +8,60 @@ $idcategoria = isset($_POST['idcategoria']) ? clearString($_POST['idcategoria'])
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
 $descripcion = isset($_POST['descripcion']) ? clearString($_POST['descripcion']) : '';
 
-$objCat = new categoria();
+$objDaoCat = new categoria();
+$action = $_GET['action'];
 
-switch ($_GET['op']) {
+switch($action) {
     case 'listar';
-        $respuesta = $objCat->listar();
+        $respuesta = $objDaoCat->listar();
 
-        $data = array(); // Declaramos un array
-        while ($registro = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
-            $data[] = array( // Todos los registros obtenidos se almacenan en el array $data declarado en la parte superior
-                '0' => ($registro->est_cat)? // Si la condición es true ó 1 entonces se podrá desactivar, si la condición es false ó 0 entonces se podrá activar
-                       '<button class="btn btn-warning" onclick="mostrar('.$registro->idcat.')"><i class="fa fa-pencil"></i></button>'
-                      .' <button class="btn btn-danger" onclick="desactivar('.$registro->idcat.')"><i class="fa fa-close"></i></button>':
-                       '<button class="btn btn-warning" onclick="mostrar('.$registro->idcat.')"><i class="fa fa-pencil"></i></button>'
-                      .' <button class="btn btn-primary" onclick="activar('.$registro->idcat.')"><i class="fa fa-check"></i></button>',
-                '1' => $registro->nom_cat,
-                '2' => $registro->des_cat,
-                '3' => ($registro->est_cat)? // Si la condición es true ó 1 entonces se mostrará un label Activado, si la condición es false ó 0 entonces se mostrará un label Desactivado
-                       '<span class="label bg-aqua">Activo</span>':
+        $listJson = array(); // Declaramos un array
+        while ($obj = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
+            $listJson[] = array(
+                '0' => ($obj->est_cat == 1) ?
+                       '<button class="btn btn-warning" onclick="mostrar('.$obj->idcat.')"><i class="fa fa-pencil"></i></button>'
+                      .' <button class="btn btn-danger" onclick="desactivar('.$obj->idcat.')"><i class="fa fa-close"></i></button>' :
+                       '<button class="btn btn-warning" onclick="mostrar('.$obj->idcat.')"><i class="fa fa-pencil"></i></button>'
+                      .' <button class="btn btn-primary" onclick="activar('.$obj->idcat.')"><i class="fa fa-check"></i></button>',
+                '1' => $obj->nom_cat,
+                '2' => $obj->des_cat,
+                '3' => ($obj->est_cat == 1) ?
+                       '<span class="label bg-aqua">Activo</span>' :
                        '<span class="label bg-black">Inactivo</span>'
             );
         }
 
-        $resultados = array( // Declaramos un array
-            'sEcho' => 1, // Información para el datatable
-            'iTotalRecords' => count($data), // Enviamos el registros de datos al datatable
-            'iTotalDisplayRecords' => count($data), // Enviamos el total de registros a visualizar al datatable
-            'aaData' => $data // Enviamos los registros al datatable
+        $json = array( // Declaramos un array
+            'sEcho' => 1,
+            'iTotalRecords' => count($listJson),
+            'iTotalDisplayRecords' => count($listJson),
+            'aaData' => $listJson
         );
-        echo json_encode($resultados); // Codificamos los resultados utilizando JSON para poder verlos
+        echo json_encode($json); // Codificamos los resultados utilizando JSON para poder verlos
     break;
 
     case 'mostrar';
-        $respuesta = $objCat->mostrar($varIdCategoria);
+        $respuesta = $objDaoCat->mostrar($varIdCategoria);
         echo json_encode($respuesta); // Codificamos el resultado utilizando JSON
     break;
 
-    case 'insertar_editar':
+    case 'guardar':
         if (empty($idcategoria)) {
-            $respuesta = $objCat->insertar($nombre,$descripcion);
+            $respuesta = $objDaoCat->insertar($nombre,$descripcion);
             echo $respuesta? 'Categoría registrada':'Categoría no se pudo registrar'; // Si respuesta recibe un 1, entonces, si no
         } else {
-            $respuesta = $objCat->editar($idcategoria,$nombre,$descripcion);
+            $respuesta = $objDaoCat->editar($idcategoria,$nombre,$descripcion);
             echo $respuesta? 'Categoría actualizada':'Categoría no se pudo actualizar';
         }
     break;
 
     case 'desactivar';
-        $respuesta = $objCat->desactivar($varIdCategoria);
+        $respuesta = $objDaoCat->desactivar($varIdCategoria);
         echo $respuesta? 'Categoría desactivada':'Categoría no se puede desactivar';
     break;
 
     case 'activar';
-        $respuesta = $objCat->activar($varIdCategoria);
+        $respuesta = $objDaoCat->activar($varIdCategoria);
         echo $respuesta? 'Categoría activada':'Categoria no se puede activar';
     break;
 }
