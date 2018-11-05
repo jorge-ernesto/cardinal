@@ -8,8 +8,7 @@ class categoria {
     }
 
     public function listar() {
-        $sql = "select *
-                from   categoria";
+        $sql = "select * from categoria";
         return execute($sql);
     }
 
@@ -39,7 +38,7 @@ class categoria {
         return execute($sql);
     }
 
-    public function activar($idcategoria) { // Implementamos un método para desactivar categorías
+    public function activar($idcategoria) {
         $sql = "update categoria
                 set    est_cat = '1'
                 where  idcat = '$idcategoria'";

@@ -1,19 +1,16 @@
-<?php // Funciones para insertar, editar, listar y eliminar
+<?php
 
-require_once '../modelos/categoria.php'; // Incluimos la clase Categoria, require_once impiden la carga de un mismo fichero varias veces
+require '../modelos/categoria.php';
+require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se puede instanciar
 
-$objCat = new categoria(); // Creamos un objeto, el objeto hace una instancia a la clase Categoria, al crear una instancia utilizamos el constructor de la clase
+$varIdCategoria = isset($_POST['varIdCategoria']) ? clearString($_POST['varIdCategoria']) : ''; // Obtiene la variable de categoria.js
+$idcategoria = isset($_POST['idcategoria']) ? clearString($_POST['idcategoria']) : ''; // Obtiene la variable desde el listarCategoria.php
+$nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
+$descripcion = isset($_POST['descripcion']) ? clearString($_POST['descripcion']) : '';
 
-$varIdCategoria = isset($_POST['varIdCategoria'])? clearString($_POST['varIdCategoria']):''; // Obtiene la variable desde Jquery
-$idcategoria = isset($_POST['idcategoria'])? clearString($_POST['idcategoria']):''; // Obtiene la variable desde el formulario
-$nombre = isset($_POST['nombre'])? clearString($_POST['nombre']):'';
-$descripcion = isset($_POST['descripcion'])? clearString($_POST['descripcion']):'';
-// Estructura Condicional de una sola línea, el formulario que implementaremos enviara los datos por el método $_POST
-// Si existe la variable varIdCategoria y lo recibo mediante el metodo $_POST
-// Si existe, lo que recibo lo envio al método limpiarCadena
-// Si no existe, solo obtenemos una cadena de texto vacia
+$objCat = new categoria();
 
-switch ($_GET['op']) { // Funciones que van a devolver datos
+switch ($_GET['op']) {
     case 'listar';
         $respuesta = $objCat->listar();
 

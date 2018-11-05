@@ -28,7 +28,7 @@ function clearString($str) {
 }
 
 /*
-function ejecutarConsultaRetornarID($sql) {
+function saveWithFindId($sql) {
     global $conexion;
     $query = $conexion->query($sql);
     return $conexion->insert_id; // Retornamos haciendo uso de la setencia insert_id, la llave primaria del registro insertado
