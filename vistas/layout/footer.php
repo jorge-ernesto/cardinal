@@ -23,8 +23,6 @@
     <script src="vendors/datatables/pdfmake.min.js"></script>
     <script src="vendors/datatables/vfs_fonts.js"></script>
 
-    <!-- Bootbox -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script> <!-- CDN de Bootbox -->
-    <!-- <script src="vendors/js/bootbox.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script> <!-- CDN de Bootbox -->    
 </body>
 </html>

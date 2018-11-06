@@ -43,7 +43,7 @@ require 'layout/header.php';
                             <div id="formulario-registros" class="panel-body" style="height: 400px;"> <!-- <div id="formulario-registros" class="panel-body table-responsive" style="height: 400px;"> -->
                                 <form id="formulario" name="formulario" method="post"> <!-- Cuando el usuario de click en Enviar, toda la informacion que tengamos en el formulario se enviara al archivo recibe.php -->
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <input id="idcategoria" name="idcategoria" type="hidden">
+                                        <input id="id" name="id" type="hidden">
                                         <label for="nombre">Nombre:</label> <!-- for se relaciona con id -->
                                         <input id="nombre" class="form-control" name="nombre" type="text" placeholder="Nombre" maxlength="50" required>
                                     </div>

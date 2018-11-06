@@ -20,10 +20,21 @@ function listar() {
             }
         },
         'iDisplayLength': 5,
-        'dom': 'Bfrtip',
-        'buttons': [
+        dom: 'Bfrtip',
+        buttons: [
             'copyHtml5', 'csvHtml5', 'excelHtml5', 'pdf'
         ],
+    });
+}
+
+function mostrar(id) {
+    $.post('../controlador/controladorCategoria.php?action=mostrar', {idCategoria:id}, function(data) {
+        data = JSON.parse(data);
+
+        mostrarForm(true);
+        $('#id').val(data.idcat);
+        $('#nombre').val(data.nom_cat);
+        $('#descripcion').val(data.des_cat);
     });
 }
 
@@ -32,7 +43,7 @@ $('#formulario').on('submit', function() {
 });
 
 function guardar() {
-    $('#btn-enviar').attr('disabled', true);
+    $('#btn-enviar').attr('disabled', true); // Si usamos boolean no usar comillas simples
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
@@ -43,42 +54,28 @@ function guardar() {
         processData: false,
         success: function(datos) {
             limpiarForm();
-            bootbox.alert(datos); // Muestra el mensaje de confirmación
+            bootbox.alert(datos);
             mostrarForm(false);
-            tabla.api().ajax.reload(); // Recarga, actualiza DATATABLES
+            tabla.api().ajax.reload();
         }
     });
 }
 
-function mostrar(idcategoria) { // Función mostrar, permite que podamos editar
-    $.post('../controlador/controladorCategoria.php?action=mostrar', {varIdCategoria : idcategoria}, function(datos, status, objeto) { // Datos que retornan, estado de la petición, Objetos de la peticion
-        datos = JSON.parse(datos);
-        mostrarForm(true);
-
-        $('#idcategoria').val(datos.idcat);
-        $('#nombre').val(datos.nom_cat);
-        $('#descripcion').val(datos.des_cat);
+function desactivar(id) {
+    bootbox.confirm('¿Está seguro de desactivar la categoría?',
+    function(result){
+        $.post('../controlador/controladorCategoria.php?action=desactivar', {idCategoria:id}, function(data) {
+            bootbox.alert(data);
+            tabla.api().ajax.reload();
+        });
     });
 }
 
-function desactivar(idcategoria) { // Función para desactivar registros
-    bootbox.confirm('¿Está seguro de desactivar la categoría?', function(result) {
-        if (result) { // Si la respuesta es Ok
-            $.post('../controlador/controladorCategoria.php?action=desactivar', {varIdCategoria : idcategoria}, function(datos, status, objeto) {
-                bootbox.alert(datos);
-                tabla.api().ajax.reload();
-            });
-        } else { // Si la respuesta es Cancel
-//            bootbox.alert('KKK');
-        }
-    });
-}
-
-function activar(idcategoria) { // Función para activar registros
+function activar(id) {
     bootbox.confirm('¿Está seguro de activar la categoría?', function(result) {
         if (result) {
-            $.post('../controlador/controladorCategoria.php?action=activar', {varIdCategoria : idcategoria}, function(datos) {
-                bootbox.alert(datos);
+            $.post('../controlador/controladorCategoria.php?action=activar', {idCategoria:id}, function(data) {
+                bootbox.alert(data);
                 tabla.api().ajax.reload();
             });
         }
@@ -87,25 +84,25 @@ function activar(idcategoria) { // Función para activar registros
 
 /*************** weas ***************/
 
-function limpiarForm() { // Función limpiarForm
-    $('#idcategoria').val('');
+function limpiarForm() {
+    $('#id').val('');
     $('#nombre').val('');
     $('#descripcion').val('');
 }
 
-function mostrarForm(flag) { // Función mostrar formulario
-    if (flag == true) {
+function mostrarForm(posta) {
+    if (posta == true) {
         $('#listado-registros').hide();
         $('#formulario-registros').show();
-        $('#btn-enviar').attr('disabled', false); // Cuando se de click en el boton agregar, el boton guardar se habilitara // Equivalente a .attr(), .attr() agrega atributos, y además attriedades
-
+        $('#btn-enviar').attr('disabled', false);
     } else {
         $('#listado-registros').show();
         $('#formulario-registros').hide();
+        $('#btn-enviar').attr('disabled', true);
     }
 }
 
-function cancelarForm() { // Función cancelar formulario
+function cancelarForm() {
     limpiarForm();
     mostrarForm(false);
 }
