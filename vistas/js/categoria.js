@@ -72,13 +72,12 @@ function desactivar(id) {
 }
 
 function activar(id) {
-    bootbox.confirm('¿Está seguro de activar la categoría?', function(result) {
-        if (result) {
-            $.post('../controlador/controladorCategoria.php?action=activar', {idCategoria:id}, function(data) {
-                bootbox.alert(data);
-                tabla.api().ajax.reload();
-            });
-        }
+    bootbox.confirm('¿Está seguro de activar la categoría?',
+    function(result){
+        $.post('../controlador/controladorCategoria.php?action=activar', {idCategoria:id}, function(data) {
+            bootbox.alert(data);
+            tabla.api().ajax.reload();
+        });
     });
 }
 
