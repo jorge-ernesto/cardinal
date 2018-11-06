@@ -64,20 +64,24 @@ function guardar() {
 function desactivar(id) {
     bootbox.confirm('¿Está seguro de desactivar la categoría?',
     function(result){
-        $.post('../controlador/controladorCategoria.php?action=desactivar', {idCategoria:id}, function(data) {
-            bootbox.alert(data);
-            tabla.api().ajax.reload();
-        });
+        if (result) {
+            $.post('../controlador/controladorCategoria.php?action=desactivar', {idCategoria:id}, function(data) {
+                bootbox.alert(data);
+                tabla.api().ajax.reload();
+            });
+        }
     });
 }
 
 function activar(id) {
     bootbox.confirm('¿Está seguro de activar la categoría?',
     function(result){
-        $.post('../controlador/controladorCategoria.php?action=activar', {idCategoria:id}, function(data) {
-            bootbox.alert(data);
-            tabla.api().ajax.reload();
-        });
+        if (result) {
+            $.post('../controlador/controladorCategoria.php?action=activar', {idCategoria:id}, function(data) {
+                bootbox.alert(data);
+                tabla.api().ajax.reload();
+            });
+        }
     });
 }
 

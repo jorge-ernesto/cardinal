@@ -12,11 +12,6 @@ class categoria {
         return execute($sql);
     }
 
-    public function insertar($nombre, $descripcion) {
-        $sql = "insert into categoria (nom_cat,des_cat,est_cat) values('$nombre','$descripcion','1')";
-        return execute($sql);
-    }
-
     public function mostrar($idcategoria) {
         $sql = "select *
                 from   categoria
@@ -24,10 +19,15 @@ class categoria {
         return findById($sql);
     }
 
-    public function editar($idcategoria, $nombre, $descripcion) {
+    public function insertar($nombre, $descripcion) {
+        $sql = "insert into categoria (nom_cat,des_cat,est_cat) values('$nombre','$descripcion','1')";
+        return execute($sql);
+    }
+
+    public function editar($id, $nombre, $descripcion) {
         $sql = "update categoria
                 set    nom_cat = '$nombre',des_cat = '$descripcion'
-                where  idcat = '$idcategoria'";
+                where  idcat = '$id'";
         return execute($sql);
     }
 
