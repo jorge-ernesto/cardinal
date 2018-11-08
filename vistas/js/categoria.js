@@ -32,9 +32,9 @@ function mostrar(id) {
         data = JSON.parse(data);
 
         mostrarForm(true);
-        $('#id').val(data.idcat);
-        $('#nombre').val(data.nom_cat);
-        $('#descripcion').val(data.des_cat);
+        $('#id').val(data.id);
+        $('#nombre').val(data.nombre);
+        $('#descripcion').val(data.descripcion);
     });
 }
 

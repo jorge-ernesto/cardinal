@@ -18,14 +18,14 @@ switch($action) {
         $listJson = array(); // Declaramos un array
         while ($obj = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
             $listJson[] = array(
-                '0' => ($obj->est_cat == 1) ?
-                       '<button class="btn btn-warning" onclick="mostrar(' . $obj->idcat . ')"><i class="fa fa-pencil"></i></button>'
-                      .' <button class="btn btn-danger" onclick="desactivar(' . $obj->idcat . ')"><i class="fa fa-close"></i></button>' :
-                       '<button class="btn btn-warning" onclick="mostrar(' . $obj->idcat . ')"><i class="fa fa-pencil"></i></button>'
-                      .' <button class="btn btn-primary" onclick="activar(' . $obj->idcat . ')"><i class="fa fa-check"></i></button>',
-                '1' => $obj->nom_cat,
-                '2' => $obj->des_cat,
-                '3' => ($obj->est_cat == 1) ?
+                '0' => ($obj->estado == 1) ?
+                       '<button class="btn btn-warning" onclick="mostrar(' . $obj->id . ')"><i class="fa fa-pencil"></i></button>'
+                      .' <button class="btn btn-danger" onclick="desactivar(' . $obj->id . ')"><i class="fa fa-close"></i></button>' :
+                       '<button class="btn btn-warning" onclick="mostrar(' . $obj->id . ')"><i class="fa fa-pencil"></i></button>'
+                      .' <button class="btn btn-primary" onclick="activar(' . $obj->id . ')"><i class="fa fa-check"></i></button>',
+                '1' => $obj->nombre,
+                '2' => $obj->descripcion,
+                '3' => ($obj->estado == 1) ?
                        '<span class="label bg-aqua">Activo</span>' :
                        '<span class="label bg-black">Inactivo</span>'
             );
@@ -47,7 +47,7 @@ switch($action) {
 
     case 'guardar':
         if (empty($id)) {
-            $respuesta = $objDaoCat->insertar($nombre, $descripcion);
+            $respuesta = $objDaoCat->guardar($nombre, $descripcion);
             echo $respuesta ? 'Categoría registrada' : 'Categoría no se pudo registrar';
         } else {
             $respuesta = $objDaoCat->editar($id, $nombre, $descripcion);

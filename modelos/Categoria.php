@@ -8,40 +8,42 @@ class categoria {
     }
 
     public function listar() {
-        $sql = "select * from categoria";
+        $sql = "select   *
+                from     categoria
+                order by id";
         return execute($sql);
     }
 
     public function mostrar($idcategoria) {
         $sql = "select *
                 from   categoria
-                where  idcat = '$idcategoria'";
+                where  id = '$idcategoria'";
         return findById($sql);
     }
 
-    public function insertar($nombre, $descripcion) {
-        $sql = "insert into categoria (nom_cat,des_cat,est_cat) values('$nombre','$descripcion','1')";
+    public function guardar($nombre, $descripcion) {
+        $sql = "insert into categoria (nombre,descripcion,estado) values('$nombre','$descripcion','1')";
         return execute($sql);
     }
 
     public function editar($id, $nombre, $descripcion) {
         $sql = "update categoria
-                set    nom_cat = '$nombre',des_cat = '$descripcion'
-                where  idcat = '$id'";
+                set    nombre = '$nombre',descripcion = '$descripcion'
+                where  id = '$id'";
         return execute($sql);
     }
 
     public function desactivar($idcategoria) {
         $sql = "update categoria
-                set    est_cat = '0'
-                where  idcat = '$idcategoria'";
+                set    estado = '0'
+                where  id = '$idcategoria'";
         return execute($sql);
     }
 
     public function activar($idcategoria) {
         $sql = "update categoria
-                set    est_cat = '1'
-                where  idcat = '$idcategoria'";
+                set    estado = '1'
+                where  id = '$idcategoria'";
         return execute($sql);
     }
 
