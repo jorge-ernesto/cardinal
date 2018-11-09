@@ -1,73 +1,95 @@
-<!-- Vista HTML con Bootstrap, para poder realizar el listado y paginación de registros con DATATABLES -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>App Angular</title>
+    <?php require 'layout/head.php'; ?>
+</head>
+<body>
+    <?php require 'layout/header.php'; ?>
 
-<?php
-require 'layout/header.php';
-?>
+    <div class="container">
+        <div class="row justify-content-center mt-3 pt-2"> <!-- mt-5 pt5 -->
+            <div class="col-md-12"> <!-- col-md-7 -->
 
-        <!-- Contenido -->
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+                <div id="listado-registros">
+                    <div class="card border-primary"> <!-- card bg-light -->
+                        <div class="card-header">Categorías</div>
+                        <div class="card-body text-primary"> <!-- card-body -->
 
-            <section class="content">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="box">
-                            <div class="box-header with-border">
-                                <h1 class="box-title">Categoría
-                                    <button id="btn-nuevo" class="btn btn-success" type="button" onclick="mostrarForm(true)"><i class="fa fa-plus-circle"></i> Nuevo</button>
-                                </h1>
-                                <div class="box-tools pull-right">
-                                </div>
-                            </div><!-- /.box-header -->
-                            <!-- Centro -->
-                            <div id="listado-registros" class="panel-body table-responsive"> <!-- <div id="listado-registros" class="panel-body table-responsive" style="height: 400px;"> -->
-                                <table id="table_id" class="table table-striped table-bordered table-condensed table-hover">
-                                    <thead>
-                                        <th>Opciones</th> <!-- ID Categoría -->
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Estado</th>
+                            <h5 class="card-title">Listado de categorías</h5>
+                            <div class="table-responsive">
+                                <table id="table_id" class="table table-bordered table-striped"> <!-- <table class="table table-sm table-bordered table-striped table-hover table-responsive"> -->
+                                    <thead> <!-- class="thead-dark" -->
+                                        <tr>
+                                            <th>id</th>
+                                            <th>nombre</th>
+                                            <th>descripción</th>
+                                            <th>editar</th>
+                                            <th>eliminar</th>
+                                            <th>estado</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
                                     </tbody>
-                                    <tfoot>
-                                        <th>Opciones</th> <!-- ID Categoría -->
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Estado</th>
-                                    </tfoot>
                                 </table>
                             </div>
+                            <h4>
+                                <a id="wea" class="btn btn-primary mr-2" href="javascript:mostrarForm(true)">Crear Categoría</a>
+                            </h4>
 
-                            <div id="formulario-registros" class="panel-body" style="height: 400px;"> <!-- <div id="formulario-registros" class="panel-body table-responsive" style="height: 400px;"> -->
-                                <form id="formulario" name="formulario" method="post"> <!-- Cuando el usuario de click en Enviar, toda la informacion que tengamos en el formulario se enviara al archivo recibe.php -->
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <input id="id" name="id" type="hidden">
-                                        <label for="nombre">Nombre:</label> <!-- for se relaciona con id -->
-                                        <input id="nombre" class="form-control" name="nombre" type="text" placeholder="Nombre" maxlength="50" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="formulario-registros">
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Clientes</div>
+                        <div class="card-body">
+
+                            <form method="post" id="formulario"> <!-- novalidate -->
+                                <div class="row form-group">
+                                    <label for="nombre" class="col-form-label col-md-2">Nombre:</label> <!-- col-md-4 -->
+                                    <div class="col-md-5"> <!-- col-md-8 -->
+                                        <input type="text" name="nombre" value="" id="nombre" class="form-control"> <!-- required -->
                                     </div>
-                                    <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <label for="descripcion">Descripción:</label>
-                                        <input id="descripcion" class="form-control" name="descripcion" type="text" placeholder="Descripción" maxlength="250">
+                                </div>
+                                <div class="row form-group">
+                                    <label for="descripcion" class="col-form-label col-md-2">Descripción:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" name="descripcion" value="" id="descripcion" class="form-control"> <!-- required -->
                                     </div>
-                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <button id="btn-enviar" class="btn btn-primary" type="submit"><i class="fa fa-cloud"></i> Enviar</button>
-                                        <button id="btn-cancelar" class="btn btn-danger" type="button" onclick="cancelarForm()"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- Fin-Centro -->
-                        </div><!-- /.box -->
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </section><!-- /.content -->
+                                </div>
+                                <h4>
+                                    <button type="submit" id="btn-enviar" class="btn btn-primary">Crear Categoría</button>
+                                    <a class="btn btn-primary" href="javascript:mostrarForm(false)">Atras</a>
+                                </h4>
 
-        </div><!-- /.content-wrapper -->
-        <!-- Fin-Contenido -->
+                                <input type="hidden" name="id" value="" id="id" class="form-control">
+                            </form>
 
-<?php
-require 'layout/footer.php'
-?>
+                        </div>
+                    </div>
+                </div>
 
-<script src="js/categoria.js"></script>
+                <?php require 'layout/footer.php'; ?>
+
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+
+    <?php require 'layout/cdn.php'; ?>
+
+    <script src="js/categoria.js"></script>
+</body>
+</html>

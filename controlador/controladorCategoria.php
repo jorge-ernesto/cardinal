@@ -18,16 +18,16 @@ switch($action) {
         $listJson = array(); // Declaramos un array
         while ($obj = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
             $listJson[] = array(
-                '0' => ($obj->estado == 1) ?
-                       '<button class="btn btn-warning" onclick="mostrar(' . $obj->id . ')"><i class="fa fa-pencil"></i></button>'
-                      .' <button class="btn btn-danger" onclick="desactivar(' . $obj->id . ')"><i class="fa fa-close"></i></button>' :
-                       '<button class="btn btn-warning" onclick="mostrar(' . $obj->id . ')"><i class="fa fa-pencil"></i></button>'
-                      .' <button class="btn btn-primary" onclick="activar(' . $obj->id . ')"><i class="fa fa-check"></i></button>',
+                '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
                 '1' => $obj->nombre,
                 '2' => $obj->descripcion,
-                '3' => ($obj->estado == 1) ?
-                       '<span class="label bg-aqua">Activo</span>' :
-                       '<span class="label bg-black">Inactivo</span>'
+                '3' => '<a class="btn btn-sm btn-primary" href="javascript:mostrar(' . $obj->id . ')">editar</a>',
+                '4' => ($obj->estado == 1) ?
+                       '<a class="btn btn-sm btn-dark" href="javascript:desactivar(' . $obj->id . ')">desactivar</a>' :
+                       '<a class="btn btn-sm btn-primary" href="javascript:activar(' . $obj->id . ')">activar</a>',
+                '5' => ($obj->estado == 1) ?
+                       '<h6><span class="badge badge-outline-primary">Activado</span></h6>' :
+                       '<h6><span class="badge badge-outline-dark">Desactivado</span></h6>'
             );
         }
 

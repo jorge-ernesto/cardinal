@@ -1,171 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cardinal | www.cardinal.com</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="vendors/css/bootstrap.min.css">
-    <!-- Font Awesome (Web Fonts with CSS) -->
-    <link rel="stylesheet" href="vendors/css/font-awesome.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="vendors/css/AdminLTE.min.css"> <!-- min -->
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-    folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="vendors/css/_all-skins.min.css"> <!-- min -->
-    <link rel="apple-touch-icon" href="vendors/img/apple-touch-icon.png">
-    <link rel="shortcut icon" href="vendors/img/favicon.ico">
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">App Angular</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- DATATABLES -->
-    <link rel="stylesheet" href="vendors/datatables/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="vendors/datatables/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="vendors/datatables/responsive.dataTables.min.css">
-</head>
-<body class="hold-transition skin-blue-light sidebar-mini">
-    <div class="wrapper">
-        <header class="main-header">
-            <!-- Logo -->
-            <a href="index2.html" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>C..</b></span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Cardinal CoreUI</b></span>
-            </a>
-
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Navegación</span>
-                </a>
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="vendors/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs user">Jorge Ernesto</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header">
-                                    <img src="vendors/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                    <p>
-                                        Cardinal - Version 2.3.0
-                                        <small>https://twitter.com/jorge_cywdt</small>
-                                    </p>
-                                </li>
-
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-
-                                    <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Cerrar</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </nav>
-        </header>
-
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu">
-                    <!-- <li class="header"></li> -->
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-tasks"></i> <span>Escritorio</span>
-                            <small class="label pull-right bg-aqua">NEW</small>
-                        </a>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-laptop"></i>
-                            <span>Almacén</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="wea treeview-menu">
-                            <li><a href="articulo.php"><i class="fa fa-circle-o"></i> Artículos</a></li>
-                            <li><a href="categoria.php"><i class="fa fa-circle-o"></i> Categorías</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-th"></i>
-                            <span>Compras</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="wea treeview-menu">
-                            <li><a href="ingreso.php"><i class="fa fa-circle-o"></i> Ingresos</a></li>
-                            <li><a href="proveedor.php"><i class="fa fa-circle-o"></i> Proveedores</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>Ventas</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="wea treeview-menu">
-                            <li><a href="venta.php"><i class="fa fa-circle-o"></i> Ventas</a></li>
-                            <li><a href="cliente.php"><i class="fa fa-circle-o"></i> Clientes</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-folder"></i> <span>Acceso</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="wea treeview-menu">
-                            <li><a href="usuario.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                            <li><a href="permiso.php"><i class="fa fa-circle-o"></i> Permisos</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-bar-chart"></i> <span>Consulta Compras</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="wea treeview-menu">
-                            <li><a href="consultacompras.php"><i class="fa fa-circle-o"></i> Consulta Compras</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-bar-chart"></i> <span>Consulta Ventas</span>
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="wea treeview-menu">
-                            <li><a href="consultaventas.php"><i class="fa fa-circle-o"></i> Consulta Ventas</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-info-circle"></i> <span>Ayuda</span>
-                            <small class="label pull-right bg-aqua">PDF</small>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-info-circle"></i> <span>Acerca de..</span>
-                            <small class="label pull-right bg-aqua">CoreUI</small>
-                        </a>
-                    </li>
-                </ul>
-            </section>
-            <!-- /.sidebar -->
-        </aside>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link active" href="home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="controladorCliente?action=listarCliente">Clientes</a></li>
+                <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+                <li class="nav-item">
+                    <a class="nav-link disabled d-none" href="#">Disabled</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>    
+</header>
