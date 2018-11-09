@@ -8,10 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link active" href="home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="home.php">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="controladorCliente?action=listarCliente">Clientes</a></li>
-                <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="listarCategoria.php">Categorías</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item">
                     <a class="nav-link disabled d-none" href="#">Disabled</a>
                 </li>
@@ -21,5 +21,5 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
-    </nav>    
+    </nav>
 </header>
