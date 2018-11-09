@@ -3,9 +3,7 @@
 require '../modelos/articulo.php';
 require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se puede instanciar
 
-$idArticulo = isset($_POST['idArticulo']) ? clearString($_POST['idArticulo']) : ''; // Obtiene la variable desde categoria.js para poder buscar, desactivar y activar
-
-$id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Obtiene la variable desde el formulario para poder guardar
+$id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Obtiene la variable desde articulo.js para poder buscar, guardar, desactivar y activar
 $idCategoria = isset($_POST['idCategoria']) ? clearString($_POST['idCategoria']) : '';
 $codigo = isset($_POST['codigo']) ? clearString($_POST['codigo']) : '';
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
@@ -24,13 +22,17 @@ switch($action) {
         while ($obj = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
             $listJson[] = array(
                 '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
-                '1' => $obj->nombre,
-                '2' => $obj->descripcion,
-                '3' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
-                '4' => ($obj->estado == 1) ?
+                '1' => $obj->cnombre,
+                '2' => $obj->codigo,
+                '3' => $obj->nombre,
+                '4' => $obj->stock,
+                '5' => $obj->descripcion,
+                '6' => $obj->imagen,
+                '6' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
+                '7' => ($obj->estado == 1) ?
                        '<a class="btn btn-sm btn-dark" href="javascript:desactivar(' . $obj->id . ')">desactivar</a>' :
                        '<a class="btn btn-sm btn-primary" href="javascript:activar(' . $obj->id . ')">activar</a>',
-                '5' => ($obj->estado == 1) ?
+                '8' => ($obj->estado == 1) ?
                        '<h6><span class="badge badge-outline-primary">Activado</span></h6>' :
                        '<h6><span class="badge badge-outline-dark">Desactivado</span></h6>'
             );
@@ -46,7 +48,7 @@ switch($action) {
     break;
 
     case 'buscar';
-        $respuesta = $objDaoArt->buscar($idArticulo);
+        $respuesta = $objDaoArt->buscar($id);
         echo json_encode($respuesta);
     break;
 
@@ -61,12 +63,12 @@ switch($action) {
     break;
 
     case 'desactivar';
-        $respuesta = $objDaoArt->desactivar($idArticulo);
+        $respuesta = $objDaoArt->desactivar($id);
         echo $respuesta ? 'Artículo desactivado con éxito' : 'No se puede desactivar artículo';
     break;
 
     case 'activar';
-        $respuesta = $objDaoArt->activar($idArticulo);
+        $respuesta = $objDaoArt->activar($id);
         echo $respuesta ? 'Artículo activado con éxito' : 'No se puede activar artículo';
     break;
 }

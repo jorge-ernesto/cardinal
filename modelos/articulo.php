@@ -8,7 +8,7 @@ class articulo {
     }
 
     public function listar() {
-        $sql = "select     a.id,a.id_categoria,c.nombre,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen
+        $sql = "select     a.id,c.nombre as cnombre,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen,a.estado
                 from       articulo a
                 inner join categoria c
                 on         a.id_categoria = c.id

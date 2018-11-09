@@ -54,7 +54,7 @@ function listar() {
 wea();
 
 function buscar(id) {
-    $.post('../controlador/controladorCategoria.php?action=buscar', {idCategoria:id}, function(data) {
+    $.post('../controlador/controladorCategoria.php?action=buscar', {id:id}, function(data) {
         data = JSON.parse(data);
 
         mostrarForm(true);
@@ -103,7 +103,7 @@ function desactivar(id) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.value) {
-            $.post('../controlador/controladorCategoria.php?action=desactivar', {idCategoria:id}, function(data) {
+            $.post('../controlador/controladorCategoria.php?action=desactivar', {id:id}, function(data) {
                 tabla.ajax.reload();
                 swal(data, 'You clicked the button!', 'success')
             });
@@ -122,7 +122,7 @@ function activar(id) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.value) {
-            $.post('../controlador/controladorCategoria.php?action=activar', {idCategoria:id}, function(data) {
+            $.post('../controlador/controladorCategoria.php?action=activar', {id:id}, function(data) {
                 tabla.ajax.reload();
                 swal(data, 'You clicked the button!', 'success')
             });

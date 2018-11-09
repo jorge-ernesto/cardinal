@@ -61,7 +61,7 @@
                                 <div class="row form-group">
                                     <label for="nombre" class="col-form-label col-md-2">Nombre:</label> <!-- col-md-4 -->
                                     <div class="col-md-5"> <!-- col-md-8 -->
-                                        <input type="text" name="nombre" value="" id="nombre" class="form-control"> <!-- required -->
+                                        <input type="text" name="nombre" value="" id="nombre" class="form-control" required> <!-- required -->
                                     </div>
                                 </div>
                                 <div class="row form-group">

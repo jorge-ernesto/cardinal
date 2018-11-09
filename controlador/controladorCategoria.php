@@ -3,9 +3,7 @@
 require '../modelos/categoria.php';
 require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se puede instanciar
 
-$idCategoria = isset($_POST['idCategoria']) ? clearString($_POST['idCategoria']) : ''; // Obtiene la variable desde categoria.js para poder buscar, desactivar y activar
-
-$id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Obtiene la variable desde el formulario para poder guardar
+$id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Obtiene la variable desde categoria.js para poder buscar, guardar, desactivar y activar
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
 $descripcion = isset($_POST['descripcion']) ? clearString($_POST['descripcion']) : '';
 
@@ -42,7 +40,7 @@ switch($action) {
     break;
 
     case 'buscar';
-        $respuesta = $objDaoCat->buscar($idCategoria);
+        $respuesta = $objDaoCat->buscar($id);
         echo json_encode($respuesta);
     break;
 
@@ -57,12 +55,12 @@ switch($action) {
     break;
 
     case 'desactivar';
-        $respuesta = $objDaoCat->desactivar($idCategoria);
+        $respuesta = $objDaoCat->desactivar($id);
         echo $respuesta ? 'Categoría desactivada con éxito' : 'No se puede desactivar categoria';
     break;
 
     case 'activar';
-        $respuesta = $objDaoCat->activar($idCategoria);
+        $respuesta = $objDaoCat->activar($id);
         echo $respuesta ? 'Categoría activada con éxito' : 'No se puede activar categoria';
     break;
 }
