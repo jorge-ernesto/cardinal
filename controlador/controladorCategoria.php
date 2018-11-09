@@ -3,7 +3,7 @@
 require '../modelos/categoria.php';
 require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se puede instanciar
 
-$idCategoria = isset($_POST['idCategoria']) ? clearString($_POST['idCategoria']) : ''; // Obtiene la variable desde categoria.js para poder mostrar, desactivar y activar
+$idCategoria = isset($_POST['idCategoria']) ? clearString($_POST['idCategoria']) : ''; // Obtiene la variable desde categoria.js para poder buscar, desactivar y activar
 $id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Obtiene la variable desde el formulario para poder guardar
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
 $descripcion = isset($_POST['descripcion']) ? clearString($_POST['descripcion']) : '';

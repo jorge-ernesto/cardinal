@@ -14,15 +14,16 @@ class categoria {
         return execute($sql);
     }
 
-    public function buscar($idcategoria) {
+    public function buscar($id) {
         $sql = "select *
                 from   categoria
-                where  id = '$idcategoria'";
+                where  id = '$id'";
         return findById($sql);
     }
 
     public function guardar($nombre, $descripcion) {
-        $sql = "insert into categoria (nombre,descripcion,estado) values('$nombre','$descripcion','1')";
+        $sql = "insert into categoria (nombre,descripcion,estado)
+                values('$nombre','$descripcion','1')";
         return execute($sql);
     }
 
@@ -33,17 +34,17 @@ class categoria {
         return execute($sql);
     }
 
-    public function desactivar($idcategoria) {
+    public function desactivar($id) {
         $sql = "update categoria
                 set    estado = '0'
-                where  id = '$idcategoria'";
+                where  id = '$id'";
         return execute($sql);
     }
 
-    public function activar($idcategoria) {
+    public function activar($id) {
         $sql = "update categoria
                 set    estado = '1'
-                where  id = '$idcategoria'";
+                where  id = '$id'";
         return execute($sql);
     }
 
