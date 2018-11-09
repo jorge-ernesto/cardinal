@@ -49,21 +49,21 @@ switch($action) {
     case 'guardar':
         if (empty($id)) {
             $respuesta = $objDaoCat->guardar($nombre, $descripcion);
-            echo $respuesta ? 'Categoría registrada' : 'Categoría no se pudo registrar';
+            echo $respuesta ? 'Categoría creada con éxito' : 'No se pudo crear categoría';
         } else {
             $respuesta = $objDaoCat->editar($id, $nombre, $descripcion);
-            echo $respuesta ? 'Categoría actualizada' : 'Categoría no se pudo actualizar';
+            echo $respuesta ? 'Categoría editada con éxito' : 'No se pudo editar categoría';
         }
     break;
 
     case 'desactivar';
         $respuesta = $objDaoCat->desactivar($idCategoria);
-        echo $respuesta ? 'Categoría desactivada' : 'Categoría no se puede desactivar';
+        echo $respuesta ? 'Categoría desactivada con éxito' : 'No se puede desactivar categoria';
     break;
 
     case 'activar';
         $respuesta = $objDaoCat->activar($idCategoria);
-        echo $respuesta ? 'Categoría activada' : 'Categoria no se puede activar';
+        echo $respuesta ? 'Categoría activada con éxito' : 'No se puede activar categoria';
     break;
 }
 

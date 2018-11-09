@@ -83,18 +83,10 @@ function guardar(e) {
             limpiarForm();
             mostrarForm(false);
             tabla.ajax.reload();
-            if (data == 'Categoría registrada') {
-                swal(
-                    data,
-                    'You clicked the button!',
-                    'success'
-                )
+            if (data == 'Categoría creada con éxito') {
+                swal(data, 'You clicked the button!', 'success')
             } else {
-                swal(
-                    data,
-                    'You clicked the button!',
-                    'error'
-                )
+                swal(data, 'You clicked the button!', 'error')
             }
         }
     });
@@ -113,12 +105,8 @@ function desactivar(id) {
         if (result.value) {
             $.post('../controlador/controladorCategoria.php?action=desactivar', {idCategoria:id}, function(data) {
                 tabla.ajax.reload();
+                swal(data, 'You clicked the button!', 'success')
             });
-            swal(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-            )
         }
     })
 }
@@ -136,12 +124,8 @@ function activar(id) {
         if (result.value) {
             $.post('../controlador/controladorCategoria.php?action=activar', {idCategoria:id}, function(data) {
                 tabla.ajax.reload();
+                swal(data, 'You clicked the button!', 'success')
             });
-            swal(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-            )
         }
     })
 }
