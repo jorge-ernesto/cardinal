@@ -1,5 +1,3 @@
-<!-- Vista HTML con Bootstrap, para poder realizar el listado y paginación de registros con DATATABLES -->
-
 <?php
 require 'layout/header.php';
 ?>
@@ -20,10 +18,10 @@ require 'layout/header.php';
                                 </div>
                             </div><!-- /.box-header -->
                             <!-- Centro -->
-                            <div id="listado-registros" class="panel-body table-responsive"> <!-- <div id="listado-registros" class="panel-body table-responsive" style="height: 400px;"> -->
+                            <div id="listado-registros" class="panel-body table-responsive">
                                 <table id="table_id" class="table table-striped table-bordered table-condensed table-hover">
                                     <thead>
-                                        <th>Opciones</th> <!-- ID Categoría -->
+                                        <th>Opciones</th>
                                         <th>Nombre</th>
                                         <th>Descripción</th>
                                         <th>Estado</th>
@@ -32,7 +30,7 @@ require 'layout/header.php';
 
                                     </tbody>
                                     <tfoot>
-                                        <th>Opciones</th> <!-- ID Categoría -->
+                                        <th>Opciones</th>
                                         <th>Nombre</th>
                                         <th>Descripción</th>
                                         <th>Estado</th>
@@ -40,11 +38,11 @@ require 'layout/header.php';
                                 </table>
                             </div>
 
-                            <div id="formulario-registros" class="panel-body" style="height: 400px;"> <!-- <div id="formulario-registros" class="panel-body table-responsive" style="height: 400px;"> -->
-                                <form id="formulario" method="post"> <!-- Cuando el usuario de click en Enviar, toda la informacion que tengamos en el formulario se enviara al archivo recibe.php -->
+                            <div id="formulario-registros" class="panel-body" style="height: 400px;">
+                                <form id="formulario" method="post">
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <input id="id" name="id" type="hidden">
-                                        <label for="nombre">Nombre:</label> <!-- for se relaciona con id -->
+                                        <label for="nombre">Nombre:</label>
                                         <input id="nombre" class="form-control" name="nombre" type="text" placeholder="Nombre" maxlength="50" required>
                                     </div>
                                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
