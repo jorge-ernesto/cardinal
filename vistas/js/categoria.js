@@ -64,11 +64,12 @@ function buscar(id) {
     });
 }
 
-$('#formulario').on('submit', function() {
-    guardar();
+$('#formulario').on('submit', function(e) {
+    guardar(e);
 });
 
-function guardar() {
+function guardar(e) {
+    e.preventDefault(); // avoid to execute the actual submit of the form
     $('#btn-enviar').attr('disabled', true); // Si usamos boolean no usar comillas simples
     var formData = new FormData($('#formulario')[0]);
 
@@ -78,11 +79,23 @@ function guardar() {
         url: '../controlador/controladorCategoria.php?action=guardar',
         contentType: false,
         processData: false,
-        success: function(datos) {
+        success: function(data) {
             limpiarForm();
-            bootbox.alert(datos);
             mostrarForm(false);
             tabla.ajax.reload();
+            if (data == 'Categoría registrada') {
+                swal(
+                    data,
+                    'You clicked the button!',
+                    'success'
+                )
+            } else {
+                swal(
+                    data,
+                    'You clicked the button!',
+                    'error'
+                )
+            }
         }
     });
 }
