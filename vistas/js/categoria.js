@@ -88,24 +88,40 @@ function guardar() {
 }
 
 function desactivar(id) {
-    bootbox.confirm('¿Está seguro de desactivar la categoría?',
-    function(result){
-        if (result) {
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
             $.post('../controlador/controladorCategoria.php?action=desactivar', {idCategoria:id}, function(data) {
-                bootbox.alert(data);
                 tabla.ajax.reload();
+            });
+            swal("Poof! Your imaginary file has been deleted!", {
+                icon: "success",
             });
         }
     });
 }
 
 function activar(id) {
-    bootbox.confirm('¿Está seguro de activar la categoría?',
-    function(result){
-        if (result) {
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
             $.post('../controlador/controladorCategoria.php?action=activar', {idCategoria:id}, function(data) {
-                bootbox.alert(data);
                 tabla.ajax.reload();
+            });
+            swal("Poof! Your imaginary file has been deleted!", {
+                icon: "success",
             });
         }
     });
