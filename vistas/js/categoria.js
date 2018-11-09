@@ -89,42 +89,48 @@ function guardar() {
 
 function desactivar(id) {
     swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-    })
-    .then((willDelete) => {
-        if (willDelete) {
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
             $.post('../controlador/controladorCategoria.php?action=desactivar', {idCategoria:id}, function(data) {
                 tabla.ajax.reload();
             });
-            swal("Poof! Your imaginary file has been deleted!", {
-                icon: "success",
-            });
+            swal(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
         }
-    });
+    })
 }
 
 function activar(id) {
     swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-    })
-    .then((willDelete) => {
-        if (willDelete) {
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.value) {
             $.post('../controlador/controladorCategoria.php?action=activar', {idCategoria:id}, function(data) {
                 tabla.ajax.reload();
             });
-            swal("Poof! Your imaginary file has been deleted!", {
-                icon: "success",
-            });
+            swal(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
         }
-    });
+    })
 }
 
 /*************** weas ***************/

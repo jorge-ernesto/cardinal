@@ -1,20 +1,24 @@
 <?php
 
-require '../modelos/categoria.php';
+require '../modelos/articulo.php';
 require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se puede instanciar
 
-$idCategoria = isset($_POST['idCategoria']) ? clearString($_POST['idCategoria']) : ''; // Obtiene la variable desde categoria.js para poder buscar, desactivar y activar
+$idArticulo = isset($_POST['idArticulo']) ? clearString($_POST['idArticulo']) : ''; // Obtiene la variable desde categoria.js para poder buscar, desactivar y activar
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Obtiene la variable desde el formulario para poder guardar
+$idCategoria = isset($_POST['idCategoria']) ? clearString($_POST['idCategoria']) : ''; // Obtiene la variable desde el formulario para poder guardar
+$codigo = isset($_POST['codigo']) ? clearString($_POST['codigo']) : '';
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
+$stock = isset($_POST['stock']) ? clearString($_POST['stock']) : '';
 $descripcion = isset($_POST['descripcion']) ? clearString($_POST['descripcion']) : '';
+$imagen = isset($_POST['imagen']) ? clearString($_POST['imagen']) : '';
 
-$objDaoCat = new categoria();
+$objDaoArt = new articulo();
 $action = $_GET['action']; // String action = request.getParameter("action");
 
 switch($action) {
     case 'listar';
-        $respuesta = $objDaoCat->listar();
+        $respuesta = $objDaoArt->listar();
 
         $listJson = array(); // Declaramos un array
         while ($obj = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
@@ -42,27 +46,27 @@ switch($action) {
     break;
 
     case 'buscar';
-        $respuesta = $objDaoCat->buscar($idCategoria);
+        $respuesta = $objDaoArt->buscar($idCategoria);
         echo json_encode($respuesta);
     break;
 
     case 'guardar':
         if (empty($id)) {
-            $respuesta = $objDaoCat->guardar($nombre, $descripcion);
-            echo $respuesta ? 'Categoría registrada' : 'Categoría no se pudo registrar';
+            $respuesta = $objDaoArt->guardar($idCategoria, $codigo, $nombre, $stock, $descripcion, $imagen);
+            echo $respuesta ? 'Articulo registrado' : 'Categoría no se pudo registrar';
         } else {
-            $respuesta = $objDaoCat->editar($id, $nombre, $descripcion);
+            $respuesta = $objDaoArt->editar($id, $nombre, $descripcion);
             echo $respuesta ? 'Categoría actualizada' : 'Categoría no se pudo actualizar';
         }
     break;
 
     case 'desactivar';
-        $respuesta = $objDaoCat->desactivar($idCategoria);
+        $respuesta = $objDaoArt->desactivar($idCategoria);
         echo $respuesta ? 'Categoría desactivada' : 'Categoría no se puede desactivar';
     break;
 
     case 'activar';
-        $respuesta = $objDaoCat->activar($idCategoria);
+        $respuesta = $objDaoArt->activar($idCategoria);
         echo $respuesta ? 'Categoría activada' : 'Categoria no se puede activar';
     break;
 }
