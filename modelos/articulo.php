@@ -8,9 +8,11 @@ class articulo {
     }
 
     public function listar() {
-        $sql = "select   *
-                from     articulo
-                order by id";
+        $sql = "select     a.id,a.id_categoria,c.nombre,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen
+                from       articulo a
+                inner join categoria c
+                on         a.id_categoria = c.id
+                order by   a.id";
         return execute($sql);
     }
 
