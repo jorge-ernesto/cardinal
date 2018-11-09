@@ -14,7 +14,7 @@ class categoria {
         return execute($sql);
     }
 
-    public function mostrar($idcategoria) {
+    public function buscar($idcategoria) {
         $sql = "select *
                 from   categoria
                 where  id = '$idcategoria'";

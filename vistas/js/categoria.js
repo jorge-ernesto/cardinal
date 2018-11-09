@@ -53,8 +53,8 @@ function listar() {
 }
 wea();
 
-function mostrar(id) {
-    $.post('../controlador/controladorCategoria.php?action=mostrar', {idCategoria:id}, function(data) {
+function buscar(id) {
+    $.post('../controlador/controladorCategoria.php?action=buscar', {idCategoria:id}, function(data) {
         data = JSON.parse(data);
 
         mostrarForm(true);

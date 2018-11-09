@@ -21,7 +21,7 @@ switch($action) {
                 '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
                 '1' => $obj->nombre,
                 '2' => $obj->descripcion,
-                '3' => '<a class="btn btn-sm btn-primary" href="javascript:mostrar(' . $obj->id . ')">editar</a>',
+                '3' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
                 '4' => ($obj->estado == 1) ?
                        '<a class="btn btn-sm btn-dark" href="javascript:desactivar(' . $obj->id . ')">desactivar</a>' :
                        '<a class="btn btn-sm btn-primary" href="javascript:activar(' . $obj->id . ')">activar</a>',
@@ -40,8 +40,8 @@ switch($action) {
         echo json_encode($json);
     break;
 
-    case 'mostrar';
-        $respuesta = $objDaoCat->mostrar($idCategoria);
+    case 'buscar';
+        $respuesta = $objDaoCat->buscar($idCategoria);
         echo json_encode($respuesta);
     break;
 
