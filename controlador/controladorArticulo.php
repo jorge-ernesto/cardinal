@@ -6,7 +6,7 @@ require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se
 $idArticulo = isset($_POST['idArticulo']) ? clearString($_POST['idArticulo']) : ''; // Obtiene la variable desde categoria.js para poder buscar, desactivar y activar
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Obtiene la variable desde el formulario para poder guardar
-$idCategoria = isset($_POST['idCategoria']) ? clearString($_POST['idCategoria']) : ''; // Obtiene la variable desde el formulario para poder guardar
+$idCategoria = isset($_POST['idCategoria']) ? clearString($_POST['idCategoria']) : '';
 $codigo = isset($_POST['codigo']) ? clearString($_POST['codigo']) : '';
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
 $stock = isset($_POST['stock']) ? clearString($_POST['stock']) : '';
@@ -46,28 +46,28 @@ switch($action) {
     break;
 
     case 'buscar';
-        $respuesta = $objDaoArt->buscar($idCategoria);
+        $respuesta = $objDaoArt->buscar($idArticulo);
         echo json_encode($respuesta);
     break;
 
     case 'guardar':
         if (empty($id)) {
             $respuesta = $objDaoArt->guardar($idCategoria, $codigo, $nombre, $stock, $descripcion, $imagen);
-            echo $respuesta ? 'Articulo registrado' : 'Categoría no se pudo registrar';
+            echo $respuesta ? 'Artículo creado con éxito' : 'No se pudo crear artículo';
         } else {
-            $respuesta = $objDaoArt->editar($id, $nombre, $descripcion);
-            echo $respuesta ? 'Categoría actualizada' : 'Categoría no se pudo actualizar';
+            $respuesta = $objDaoArt->editar($id, $idCategoria, $codigo, $nombre, $stock, $descripcion, $imagen);
+            echo $respuesta ? 'Artículo editado con éxito' : 'No se pudo editar artículo';
         }
     break;
 
     case 'desactivar';
-        $respuesta = $objDaoArt->desactivar($idCategoria);
-        echo $respuesta ? 'Categoría desactivada' : 'Categoría no se puede desactivar';
+        $respuesta = $objDaoArt->desactivar($idArticulo);
+        echo $respuesta ? 'Artículo desactivado con éxito' : 'No se puede desactivar artículo';
     break;
 
     case 'activar';
-        $respuesta = $objDaoArt->activar($idCategoria);
-        echo $respuesta ? 'Categoría activada' : 'Categoria no se puede activar';
+        $respuesta = $objDaoArt->activar($idArticulo);
+        echo $respuesta ? 'Artículo activado con éxito' : 'No se puede activar artículo';
     break;
 }
 
