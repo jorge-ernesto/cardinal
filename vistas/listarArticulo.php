@@ -91,7 +91,7 @@
                                 <div class="row form-group">
                                     <label for="stock" class="col-form-label col-md-2">Stock:</label>
                                     <div class="col-md-5">
-                                        <input type="number" name="stock" value="" id="stock" class="form-control" required> <!-- required -->
+                                        <input type="number" name="stock" value="" id="stock" class="form-control" min="1" required> <!-- required -->
                                     </div>
                                 </div>
                                 <div class="row form-group">
