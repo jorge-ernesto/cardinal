@@ -4,6 +4,8 @@ function init() {
     limpiarForm();
     mostrarForm(false);
     listar();
+
+    select();
 }
 init();
 
@@ -131,6 +133,13 @@ function activar(id) {
             });
         }
     })
+}
+
+function select() {
+    $.post('../controlador/controladorCategoria.php?action=select', function(data) {
+        $('#categoria').html(data);
+        $('#categoria').selectpicker('refresh');
+    });
 }
 
 /*************** weas ***************/

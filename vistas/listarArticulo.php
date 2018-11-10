@@ -69,10 +69,8 @@
                                 <div class="row form-group">
                                     <label for="categoria" class="col-form-label col-md-2">Categoría:</label> <!-- col-md-4 -->
                                     <div class="col-md-5"> <!-- col-md-8 -->
-                                        <select name="categoria" id="categoria" class="form-control">
-                                            <!-- <c:forEach var="cat" items="${cat.rows}">
-                                                <option value="${ cat.id }" id="${ cat.id }">${ cat.nombre }</option>
-                                            </c:forEach> -->
+                                        <select name="categoria" id="categoria" class="form-control selectpicker" data-live-search="true">
+                                            <!-- <option value="" id=""></option> -->
                                         </select>
                                     </div>
                                 </div>

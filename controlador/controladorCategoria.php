@@ -63,6 +63,13 @@ switch($action) {
         $respuesta = $objDaoCat->activar($id);
         echo $respuesta ? 'Categoría activada con éxito' : 'No se puede activar categoría';
     break;
+
+    case 'select';
+        $respuesta = $objDaoCat->select();
+        while ($obj = $respuesta->fetch_object()) {
+            echo '<option value="'. $obj->id .'" id="'. $obj->id .'">'. $obj->nombre .'</option>';
+        }
+    break;
 }
 
 ?>

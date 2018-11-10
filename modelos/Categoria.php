@@ -48,6 +48,14 @@ class categoria {
         return execute($sql);
     }
 
+    public function select() {
+        $sql = "select   id,nombre
+                from     categorias
+                where    estado = 1
+                order by id";
+        return execute($sql);
+    }
+
 }
 
 ?>
