@@ -16,7 +16,7 @@
 
                 <div id="listadoRegistros">
                     <div class="card border-primary"> <!-- card bg-light -->
-                        <div class="card-header">Categorías</div>
+                        <div class="card-header">Artículos</div>
                         <div class="card-body text-primary"> <!-- card-body -->
 
                             <h5 class="card-title">Listado de artículos</h5>
@@ -25,9 +25,9 @@
                                     <thead> <!-- class="thead-dark" -->
                                         <tr>
                                             <th>id</th>
+                                            <th>nombre</th>
                                             <th>categoria</th>
                                             <th>codigo</th>
-                                            <th>nombre</th>
                                             <th>stock</th>
                                             <th>descripcion</th>
                                             <th>imagen</th>

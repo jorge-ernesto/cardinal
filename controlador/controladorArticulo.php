@@ -22,9 +22,9 @@ switch($action) {
         while ($obj = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
             $listJson[] = array(
                 '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
-                '1' => $obj->nombreCategoria,
-                '2' => $obj->codigo,
-                '3' => $obj->nombre,
+                '1' => $obj->nombre,
+                '2' => $obj->categoria,
+                '3' => $obj->codigo,
                 '4' => $obj->stock,
                 '5' => $obj->descripcion,
                 '6' => $obj->imagen, // '<img src="../files/articulos/' . obj->imagen . '" width="50"></img>',
