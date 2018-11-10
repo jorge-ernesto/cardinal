@@ -22,17 +22,17 @@ switch($action) {
         while ($obj = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
             $listJson[] = array(
                 '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
-                '1' => $obj->cnombre,
+                '1' => $obj->nombreCategoria,
                 '2' => $obj->codigo,
                 '3' => $obj->nombre,
                 '4' => $obj->stock,
                 '5' => $obj->descripcion,
-                '6' => $obj->imagen,
-                '6' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
-                '7' => ($obj->estado == 1) ?
+                '6' => $obj->imagen, // '<img src="../files/articulos/' . obj->imagen . '" width="50"></img>',
+                '7' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
+                '8' => ($obj->estado == 1) ?
                        '<a class="btn btn-sm btn-dark" href="javascript:desactivar(' . $obj->id . ')">desactivar</a>' :
                        '<a class="btn btn-sm btn-primary" href="javascript:activar(' . $obj->id . ')">activar</a>',
-                '8' => ($obj->estado == 1) ?
+                '9' => ($obj->estado == 1) ?
                        '<h6><span class="badge badge-outline-primary">Activado</span></h6>' :
                        '<h6><span class="badge badge-outline-dark">Desactivado</span></h6>'
             );
@@ -53,6 +53,16 @@ switch($action) {
     break;
 
     case 'guardar':
+        if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name'])) {
+            $imagen = '';
+        } else {
+            $ext = explode('.', $_FILES['imagen']['name']);
+            if ($_FILES['imagen']['type'] == 'image/jpg' || $_FILES['imagen']['type'] == 'image/jpeg' || $_FILES['imagen']['type'] == 'image/png') {
+                $imagen = round(microtime(true)) . '.' . end($ext);
+                move_uploaded_file($_FILES['imagen']['tmp_name'], '../files/articulos' . $imagen);
+            }
+        }
+
         if (empty($id)) {
             $respuesta = $objDaoArt->guardar($idCategoria, $codigo, $nombre, $stock, $descripcion, $imagen);
             echo $respuesta ? 'Artículo creado con éxito' : 'No se pudo crear artículo';

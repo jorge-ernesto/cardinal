@@ -25,8 +25,12 @@
                                     <thead> <!-- class="thead-dark" -->
                                         <tr>
                                             <th>id</th>
+                                            <th>categoria</th>
+                                            <th>codigo</th>
                                             <th>nombre</th>
-                                            <th>descripción</th>
+                                            <th>stock</th>
+                                            <th>descripcion</th>
+                                            <th>imagen</th>
                                             <th>editar</th>
                                             <th>eliminar</th>
                                             <th>estado</th>
@@ -34,6 +38,10 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -71,7 +79,7 @@
                                     </div>
                                 </div>
                                 <h4>
-                                    <button type="submit" id="crearCategoria" class="btn btn-primary">Crear Categoría</button>
+                                    <button type="submit" id="crearArtículo" class="btn btn-primary">Crear Artículo</button>
                                     <a class="btn btn-primary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 
@@ -90,6 +98,6 @@
 
     <?php require 'layout/cdn.php'; ?>
 
-    <script src="js/categoria.js"></script>
+    <script src="js/articulo.js"></script>
 </body>
 </html>

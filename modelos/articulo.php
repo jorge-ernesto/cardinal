@@ -8,7 +8,7 @@ class articulo {
     }
 
     public function listar() {
-        $sql = "select     a.id,c.nombre as cnombre,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen,a.estado
+        $sql = "select     a.id,a.id_categoria,c.nombre as nombreCategoria,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen,a.estado
                 from       articulo a
                 inner join categoria c
                 on         a.id_categoria = c.id
@@ -31,7 +31,7 @@ class articulo {
 
     public function editar($id, $idCategoria, $codigo, $nombre, $stock, $descripcion, $imagen) {
         $sql = "update articulo
-                set    id_categoria = '$idCategoria',codigo = "$codigo",nombre = '$nombre',stock = "$stock",descripcion = "$descripcion",codigo = "$codigo",descripcion = '$descripcion',imagen = '$imagen'
+                set    id_categoria = '$idCategoria',codigo = '$codigo',nombre = '$nombre',stock = '$stock',descripcion = '$descripcion',imagen = '$imagen',descripcion = '$descripcion',imagen = '$imagen'
                 where  id = '$id'";
         return execute($sql);
     }

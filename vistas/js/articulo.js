@@ -13,7 +13,7 @@ function listar() {
         "serverSide": false,
         ajax: {
             method: 'get',
-            url: '../controlador/controladorCategoria.php?action=listar',
+            url: '../controlador/controladorArticulo.php?action=listar',
             dataType: 'json',
             error: function(e) {
                 console.log(e.responseText);
@@ -54,12 +54,15 @@ function listar() {
 wea();
 
 function buscar(id) {
-    $.post('../controlador/controladorCategoria.php?action=buscar', {id:id}, function(data) {
+    $.post('../controlador/controladorArticulo.php?action=buscar', {id:id}, function(data) {
         data = JSON.parse(data);
 
         mostrarForm(true);
         $('#id').val(data.id);
+        $('#idCategoria').val(data.id_categoria);
+        $('#codigo').val(data.codigo);
         $('#nombre').val(data.nombre);
+        $('#stock').val(data.stock);
         $('#descripcion').val(data.descripcion);
     });
 }
@@ -70,20 +73,20 @@ $('#formulario').on('submit', function(e) {
 
 function guardar(e) {
     e.preventDefault(); // avoid to execute the actual submit of the form
-    $('#crearCategoria').attr('disabled', true); // Si usamos boolean no usar comillas simples
+    $('#crearArticulo').attr('disabled', true); // Si usamos boolean no usar comillas simples
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
         data: formData,
         method: 'post',
-        url: '../controlador/controladorCategoria.php?action=guardar',
+        url: '../controlador/controladorArticulo.php?action=guardar',
         contentType: false,
         processData: false,
         success: function(data) {
             limpiarForm();
             mostrarForm(false);
             tabla.ajax.reload();
-            if (data == 'Categoría creada con éxito' || data == 'Categoría editada con éxito') {
+            if (data == 'Categoría creada con éxito') {
                 swal(data, 'You clicked the button!', 'success')
             } else {
                 swal(data, 'You clicked the button!', 'error')
@@ -103,7 +106,7 @@ function desactivar(id) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.value) {
-            $.post('../controlador/controladorCategoria.php?action=desactivar', {id:id}, function(data) {
+            $.post('../controlador/controladorArticulo.php?action=desactivar', {id:id}, function(data) {
                 tabla.ajax.reload();
                 swal(data, 'You clicked the button!', 'success')
             });
@@ -122,7 +125,7 @@ function activar(id) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.value) {
-            $.post('../controlador/controladorCategoria.php?action=activar', {id:id}, function(data) {
+            $.post('../controlador/controladorArticulo.php?action=activar', {id:id}, function(data) {
                 tabla.ajax.reload();
                 swal(data, 'You clicked the button!', 'success')
             });
@@ -134,7 +137,10 @@ function activar(id) {
 
 function limpiarForm() {
     $('#id').val('');
+    $('#idCategoria').val('');
+    $('codigo').val('');
     $('#nombre').val('');
+    $('#stock').val('');
     $('#descripcion').val('');
 }
 
@@ -142,11 +148,11 @@ function mostrarForm(posta) {
     if (posta == true) {
         $('#listadoRegistros').hide();
         $('#formularioRegistros').show();
-        $('#crearCategoria').attr('disabled', false);
+        $('#crearArticulo').attr('disabled', false);
     } else {
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
-        $('#crearCategoria').attr('disabled', true);
+        $('#crearArticulo').attr('disabled', true);
     }
 }
 
