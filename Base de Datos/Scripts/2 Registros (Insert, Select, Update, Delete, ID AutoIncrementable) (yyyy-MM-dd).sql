@@ -19,4 +19,6 @@ insert into categorias values(3,'Descripción 3','Descripción 3',1);
 insert into categorias values(4,'Descripción 4','Descripción 4',1);
 insert into categorias values(5,'Descripción 5','Descripción 5',1);
 
+insert into articulos (id_categoria,codigo,nombre,stock,descripcion,imagen,estado) values(1,'123456789','Impresora Empson L300',0,null,null,1);
+
 commit;
