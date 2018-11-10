@@ -86,7 +86,7 @@ function guardar(e) {
             limpiarForm();
             mostrarForm(false);
             tabla.ajax.reload();
-            if (data == 'Categoría creada con éxito') {
+            if (data == 'Artículo creado con éxito' || data == 'Artículo editado con éxito') {
                 swal(data, 'You clicked the button!', 'success')
             } else {
                 swal(data, 'You clicked the button!', 'error')

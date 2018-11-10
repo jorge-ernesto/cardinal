@@ -56,12 +56,12 @@ switch($action) {
 
     case 'desactivar';
         $respuesta = $objDaoCat->desactivar($id);
-        echo $respuesta ? 'Categoría desactivada con éxito' : 'No se puede desactivar categoria';
+        echo $respuesta ? 'Categoría desactivada con éxito' : 'No se puede desactivar categoría';
     break;
 
     case 'activar';
         $respuesta = $objDaoCat->activar($id);
-        echo $respuesta ? 'Categoría activada con éxito' : 'No se puede activar categoria';
+        echo $respuesta ? 'Categoría activada con éxito' : 'No se puede activar categoría';
     break;
 }
 

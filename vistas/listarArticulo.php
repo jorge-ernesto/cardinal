@@ -62,14 +62,36 @@
 
                 <div id="formularioRegistros">
                     <div class="card bg-dark text-white">
-                        <div class="card-header">Clientes</div>
+                        <div class="card-header">Artículos</div>
                         <div class="card-body">
 
                             <form method="post" id="formulario"> <!-- novalidate -->
                                 <div class="row form-group">
-                                    <label for="nombre" class="col-form-label col-md-2">Nombre:</label> <!-- col-md-4 -->
+                                    <label for="categoria" class="col-form-label col-md-2">Categoría:</label> <!-- col-md-4 -->
                                     <div class="col-md-5"> <!-- col-md-8 -->
+                                        <select name="categoria" id="categoria" class="form-control">
+                                            <!-- <c:forEach var="cat" items="${cat.rows}">
+                                                <option value="${ cat.id }" id="${ cat.id }">${ cat.nombre }</option>
+                                            </c:forEach> -->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="codigo" class="col-form-label col-md-2">Código:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" name="codigo" value="" id="codigo" class="form-control"> <!-- required -->
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="nombre" class="col-form-label col-md-2">Nombre:</label>
+                                    <div class="col-md-5">
                                         <input type="text" name="nombre" value="" id="nombre" class="form-control" required> <!-- required -->
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="stock" class="col-form-label col-md-2">Stock:</label>
+                                    <div class="col-md-5">
+                                        <input type="number" name="stock" value="" id="stock" class="form-control" required> <!-- required -->
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -78,6 +100,15 @@
                                         <input type="text" name="descripcion" value="" id="descripcion" class="form-control"> <!-- required -->
                                     </div>
                                 </div>
+                                <div class="form-group row">
+			                        <label for="descripcion" class="col-form-label col-md-2">Imagén:</label>
+                                    <div class="col-md-5">
+                                        <div class="custom-file">
+                                            <input type="file" name="file" value="file" id="file" class="custom-file-input">
+                                            <label for="customFile" class="custom-file-label">Choose file</label>
+                                        </div>
+                                    </div>
+			                    </div>
                                 <h4>
                                     <button type="submit" id="crearArtículo" class="btn btn-primary">Crear Artículo</button>
                                     <a class="btn btn-primary" href="javascript:cancelarForm(false)">Atras</a>
