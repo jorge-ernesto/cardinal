@@ -10,7 +10,7 @@ class articulo {
     public function listar() {
         $sql = "select     a.id,a.id_categoria,c.nombre as categoria,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen,a.estado
                 from       articulos a
-                inner join categoria c
+                inner join categorias c
                 on         a.id_categoria = c.id
                 order by   a.id";
         return execute($sql);

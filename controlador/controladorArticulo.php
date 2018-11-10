@@ -27,7 +27,7 @@ switch($action) {
                 '3' => $obj->codigo,
                 '4' => $obj->stock,
                 '5' => $obj->descripcion,
-                '6' => $obj->imagen, // '<img src="../files/articulos/' . obj->imagen . '" width="50"></img>',
+                '6' => '<img src="../files/articulos/' . $obj->imagen . '" width="50"></img>',
                 '7' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
                 '8' => ($obj->estado == 1) ?
                        '<a class="btn btn-sm btn-dark" href="javascript:desactivar(' . $obj->id . ')">desactivar</a>' :
