@@ -19,7 +19,7 @@
                         <div class="card-header">Categorías</div>
                         <div class="card-body text-primary"> <!-- card-body -->
 
-                            <h5 class="card-title">Listado de categorías</h5>
+                            <h5 class="card-title">Listado de artículos</h5>
                             <div class="table-responsive">
                                 <table id="table_id" class="table table-bordered table-striped"> <!-- <table class="table table-sm table-bordered table-striped table-hover table-responsive"> -->
                                     <thead> <!-- class="thead-dark" -->
@@ -53,7 +53,7 @@
                                 </table>
                             </div>
                             <h4>
-                                <a id="wea" class="btn btn-primary mr-2" href="javascript:mostrarForm(true)">Crear Categoría</a>
+                                <a id="wea" class="btn btn-primary mr-2" href="javascript:mostrarForm(true)">Crear Artículo</a>
                             </h4>
 
                         </div>
