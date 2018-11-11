@@ -67,7 +67,7 @@ switch($action) {
     case 'select';
         $respuesta = $objDaoCat->select();
         while ($obj = $respuesta->fetch_object()) {
-            echo '<option value="'. $obj->id .'" id="'. $obj->id .'">'. $obj->nombre .'</option>';
+            echo '<option value="'. $obj->id .'" id="'. $obj->id .'" data-subtext="'. $obj->descripcion .'">'. $obj->nombre .'</option>';
         }
     break;
 }

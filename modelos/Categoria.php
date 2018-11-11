@@ -49,7 +49,7 @@ class categoria {
     }
 
     public function select() {
-        $sql = "select   id,nombre
+        $sql = "select   id,nombre,descripcion
                 from     categorias
                 where    estado = 1
                 order by id";
