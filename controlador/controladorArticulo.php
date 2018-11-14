@@ -9,7 +9,7 @@ $codigo = isset($_POST['codigo']) ? clearString($_POST['codigo']) : '';
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
 $stock = isset($_POST['stock']) ? clearString($_POST['stock']) : '';
 $descripcion = isset($_POST['descripcion']) ? clearString($_POST['descripcion']) : '';
-$imagen = isset($_POST['imagen']) ? clearString($_POST['imagen']) : '';
+$imagen = isset($_POST['file']) ? clearString($_POST['file']) : '';
 
 $objDaoArt = new articulo();
 $action = $_GET['action']; // String action = request.getParameter("action");
