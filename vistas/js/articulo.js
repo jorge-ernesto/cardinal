@@ -146,8 +146,8 @@ function select() {
 
 function limpiarForm() {
     $('#id').val('');
-    $('#idCategoria').val('');
-    $('codigo').val('');
+    $('#categoria').val('');
+    $('#codigo').val('');
     $('#nombre').val('');
     $('#stock').val('');
     $('#descripcion').val('');

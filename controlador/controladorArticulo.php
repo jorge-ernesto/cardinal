@@ -4,7 +4,7 @@ require '../modelos/articulo.php';
 require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se puede instanciar
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Obtiene la variable desde articulo.js para poder buscar, guardar, desactivar y activar
-$idCategoria = isset($_POST['idCategoria']) ? clearString($_POST['idCategoria']) : '';
+$idCategoria = isset($_POST['categoria']) ? clearString($_POST['categoria']) : '';
 $codigo = isset($_POST['codigo']) ? clearString($_POST['codigo']) : '';
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
 $stock = isset($_POST['stock']) ? clearString($_POST['stock']) : '';
@@ -53,13 +53,13 @@ switch($action) {
     break;
 
     case 'guardar':
-        if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name'])) {
+        if (!file_exists($_FILES['file']['tmp_name']) || !is_uploaded_file($_FILES['file']['tmp_name'])) {
             $imagen = '';
         } else {
-            $ext = explode('.', $_FILES['imagen']['name']);
-            if ($_FILES['imagen']['type'] == 'image/jpg' || $_FILES['imagen']['type'] == 'image/jpeg' || $_FILES['imagen']['type'] == 'image/png') {
+            $ext = explode('.', $_FILES['file']['name']);
+            if ($_FILES['file']['type'] == 'image/jpg' || $_FILES['file']['type'] == 'image/jpeg' || $_FILES['file']['type'] == 'image/png') {
                 $imagen = round(microtime(true)) . '.' . end($ext);
-                move_uploaded_file($_FILES['imagen']['tmp_name'], '../files/articulos' . $imagen);
+                move_uploaded_file($_FILES['file']['tmp_name'], '../files/articulos/' . $imagen);
             }
         }
 
