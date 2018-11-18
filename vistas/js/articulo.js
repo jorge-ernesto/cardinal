@@ -147,6 +147,11 @@ function select() {
 
 /*************** weas ***************/
 
+function cancelarForm() {
+    limpiarForm();
+    mostrarForm(false);
+}
+
 function limpiarForm() {
     $('#id').val('');
     $('#categoria').val('');
@@ -165,12 +170,10 @@ function mostrarForm(posta) {
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
         $('#crearArticulo').attr('disabled', true);
-    }
-}
 
-function cancelarForm() {
-    limpiarForm();
-    mostrarForm(false);
+        $('#categoria').val($('option:first', select).val());
+        $('#fileCurrent').val(''); $('#fileShow').hide(); $('#fileShow').attr("src" ,"");
+    }
 }
 
 function wea() {
