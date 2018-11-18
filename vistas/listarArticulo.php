@@ -133,10 +133,8 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                <div id="print">
-                                    <svg id="barcode"></svg>
-                                </div>
+                            <div class="modal-body" id="print">
+                                <svg id="barcode"></svg>                                
                             </div>
                             <div class="modal-footer">
                                 <a class="btn btn-sm btn-success" href="javascript:imprimirBarcode()">Imprimir</a>
