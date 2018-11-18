@@ -159,6 +159,7 @@ function limpiarForm() {
     $('#nombre').val('');
     $('#stock').val('');
     $('#descripcion').val('');
+    $('#file').val('');
 }
 
 function mostrarForm(posta) {
