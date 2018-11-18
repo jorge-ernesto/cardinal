@@ -145,6 +145,12 @@ function select() {
     });
 }
 
+function generarBarcode() {
+    codigo = $('#codigo').val();
+    JsBarcode('#barcode', codigo);
+    $('#exampleModal').modal('show');
+}
+
 /*************** weas ***************/
 
 function cancelarForm() {

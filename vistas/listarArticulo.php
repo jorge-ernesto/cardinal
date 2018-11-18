@@ -79,6 +79,7 @@
                                     <div class="col-md-5">
                                         <input type="text" name="codigo" value="" id="codigo" class="form-control"> <!-- required -->
                                     </div>
+                                    <a class="btn btn-secondary" href="javascript:generarBarcode()">Barcode</a>
                                 </div>
                                 <div class="row form-group">
                                     <label for="nombre" class="col-form-label col-md-2">Nombre:</label>
@@ -98,7 +99,7 @@
                                         <input type="text" name="descripcion" value="" id="descripcion" class="form-control"> <!-- required -->
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row clearfix">
 			                        <label for="descripcion" class="col-form-label col-md-2">Imagén:</label>
                                     <div class="col-md-5">
                                         <div class="custom-file">
@@ -106,9 +107,9 @@
                                             <label for="customFile" class="custom-file-label">Choose file</label>
 
                                             <input type="hidden" name="fileCurrent" id="fileCurrent" class="custom-file-input">
-                                            <img src="" id="fileShow" class="float-right mt-2" width="120" height="66"></img>
                                         </div>
                                     </div>
+                                    <img src="" id="fileShow" class="float-right" width="120" height="66"></img>
 			                    </div>
                                 <h4>
                                     <button type="submit" id="crearArtículo" class="btn btn-secondary">Crear Artículo</button>
@@ -118,6 +119,26 @@
                                 <input type="hidden" name="id" value="" id="id" class="form-control">
                             </form>
 
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="exampleModalLabel">Modal title</h6>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <svg id="barcode"></svg>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Atras</button>
+                            </div>
                         </div>
                     </div>
                 </div>
