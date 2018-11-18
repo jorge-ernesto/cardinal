@@ -23,10 +23,10 @@ switch($action) {
             $listJson[] = array(
                 '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
                 '1' => $obj->nombre,
-                '2' => $obj->categoria,
-                '3' => $obj->codigo,
-                '4' => $obj->stock,
-                '5' => $obj->descripcion,
+                '2' => $obj->descripcion,
+                '3' => $obj->categoria,
+                '4' => $obj->codigo,
+                '5' => $obj->stock,
                 '6' => '<img src="../files/articulos/' . $obj->imagen . '" width="50"></img>',
                 '7' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
                 '8' => ($obj->estado == 1) ?
@@ -54,7 +54,7 @@ switch($action) {
 
     case 'guardar':
         if (!file_exists($_FILES['file']['tmp_name']) || !is_uploaded_file($_FILES['file']['tmp_name'])) {
-            $imagen = '';
+            $imagen = $_POST['fileCurrent']; // $imagen = '';
         } else {
             $ext = explode('.', $_FILES['file']['name']);
             if ($_FILES['file']['type'] == 'image/jpg' || $_FILES['file']['type'] == 'image/jpeg' || $_FILES['file']['type'] == 'image/png') {

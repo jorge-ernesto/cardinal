@@ -26,10 +26,10 @@
                                         <tr>
                                             <th>id</th>
                                             <th>nombre</th>
+                                            <th>descripcion</th>
                                             <th>categoria</th>
                                             <th>codigo</th>
                                             <th>stock</th>
-                                            <th>descripcion</th>
                                             <th>imagen</th>
                                             <th>editar</th>
                                             <th>eliminar</th>
@@ -89,7 +89,7 @@
                                 <div class="row form-group">
                                     <label for="stock" class="col-form-label col-md-2">Stock:</label>
                                     <div class="col-md-5">
-                                        <input type="number" name="stock" value="" id="stock" class="form-control" min="1" required> <!-- required -->
+                                        <input type="number" name="stock" value="" id="stock" class="form-control" min="1" required> <!-- required --> <!-- value="1" no funciona por limpiarForm() en init() -->
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -102,14 +102,17 @@
 			                        <label for="descripcion" class="col-form-label col-md-2">Imagén:</label>
                                     <div class="col-md-5">
                                         <div class="custom-file">
-                                            <input type="file" name="file" value="file" id="file" class="custom-file-input">
+                                            <input type="file" name="file" id="file" class="custom-file-input"> <!-- required --> <!-- value="", genera error -->
                                             <label for="customFile" class="custom-file-label">Choose file</label>
+
+                                            <input type="hidden" name="fileCurrent" id="fileCurrent" class="custom-file-input">
+                                            <img src="" id="fileShow" class="float-right mt-2" width="120" height="66"></img>
                                         </div>
                                     </div>
 			                    </div>
                                 <h4>
-                                    <button type="submit" id="crearArtículo" class="btn btn-primary">Crear Artículo</button>
-                                    <a class="btn btn-primary" href="javascript:cancelarForm(false)">Atras</a>
+                                    <button type="submit" id="crearArtículo" class="btn btn-secondary">Crear Artículo</button>
+                                    <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 
                                 <input type="hidden" name="id" value="" id="id" class="form-control">

@@ -6,6 +6,8 @@ function init() {
     listar();
 
     select();
+
+    $('#fileShow').hide();
 }
 init();
 
@@ -61,11 +63,12 @@ function buscar(id) {
 
         mostrarForm(true);
         $('#id').val(data.id);
-        $('#idCategoria').val(data.id_categoria);
+        $('#categoria').val(data.id_categoria); $('#categoria').selectpicker('refresh');
         $('#codigo').val(data.codigo);
         $('#nombre').val(data.nombre);
         $('#stock').val(data.stock);
         $('#descripcion').val(data.descripcion);
+        $('#fileCurrent').val(data.imagen); $('#fileShow').show(); $('#fileShow').attr("src" ,"../files/articulos/" + data.imagen);
     });
 }
 

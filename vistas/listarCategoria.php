@@ -71,8 +71,8 @@
                                     </div>
                                 </div>
                                 <h4>
-                                    <button type="submit" id="crearCategoria" class="btn btn-primary">Crear Categoría</button>
-                                    <a class="btn btn-primary" href="javascript:cancelarForm(false)">Atras</a>
+                                    <button type="submit" id="crearCategoria" class="btn btn-secondary">Crear Categoría</button>
+                                    <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 
                                 <input type="hidden" name="id" value="" id="id" class="form-control">
