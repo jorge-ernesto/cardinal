@@ -134,9 +134,12 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <svg id="barcode"></svg>
+                                <div id="print">
+                                    <svg id="barcode"></svg>
+                                </div>
                             </div>
                             <div class="modal-footer">
+                                <a class="btn btn-sm btn-success" href="javascript:imprimirBarcode()">Imprimir</a>
                                 <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Atras</button>
                             </div>
                         </div>

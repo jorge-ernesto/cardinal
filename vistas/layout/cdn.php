@@ -11,3 +11,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script> <!-- CDN de Bootstrap Select -->
 
 <script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script> <!-- CDN de JsBarcode -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PrintArea/2.4.1/jquery.PrintArea.min.js"></script> <!-- CDN de PrintArea -->

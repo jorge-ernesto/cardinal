@@ -151,6 +151,10 @@ function generarBarcode() {
     $('#exampleModal').modal('show');
 }
 
+function imprimirBarcode() {
+    $('#print').printArea();
+}
+
 /*************** weas ***************/
 
 function cancelarForm() {
