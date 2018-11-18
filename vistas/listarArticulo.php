@@ -128,7 +128,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h6 class="modal-title" id="exampleModalLabel">Modal title</h6>
+                                <h6 class="modal-title" id="exampleModalLabel">Barcode</h6>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -137,7 +137,7 @@
                                 <svg id="barcode"></svg>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Atras</button>
+                                <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Atras</button>
                             </div>
                         </div>
                     </div>
