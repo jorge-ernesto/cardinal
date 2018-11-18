@@ -177,7 +177,7 @@ function wea() {
     $('#table_id_info').appendTo('#div3');
     $('#table_id_paginate').appendTo('#div4');
 
-    //    $('.dt-buttons').addClass('mb-2');
+    // $('.dt-buttons').addClass('mb-2');
 
     $('.dt-buttons button').removeClass('btn-secondary');
     $('.dt-buttons button').addClass('btn-primary');
