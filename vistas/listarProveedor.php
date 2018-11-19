@@ -101,7 +101,7 @@
                                 <div class="row form-group">
                                     <label for="email" class="col-form-label col-md-2">Email:</label>
                                     <div class="col-md-5">
-                                        <input type="text" name="email" value="" id="email" class="form-control"> <!-- required -->
+                                        <input type="email" name="email" value="" id="email" class="form-control"> <!-- required -->
                                     </div>
                                 </div>
                                 <h4>

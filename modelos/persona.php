@@ -31,7 +31,7 @@ class persona {
     }
 
     public function guardar($tipoPersona, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email) {
-        $sql = "insert into personas (tipo_persona,nombre,tipo_documento,num_documento,direccion,telefon,email)
+        $sql = "insert into personas (tipo_persona,nombre,tipo_documento,num_documento,direccion,telefono,email)
                 values('$tipoPersona','$nombre','$tipoDocumento','$numDocumento','$direccion','$telefono','$email')";
         return execute($sql);
     }
