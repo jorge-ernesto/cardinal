@@ -16,24 +16,30 @@
 
                 <div id="listadoRegistros">
                     <div class="card border-primary"> <!-- card bg-light -->
-                        <div class="card-header">Categorías</div>
+                        <div class="card-header">Proveedores</div>
                         <div class="card-body text-primary"> <!-- card-body -->
 
-                            <h5 class="card-title">Listado de categorías</h5>
+                            <h5 class="card-title">Listado de proveedores</h5>
                             <div class="table-responsive">
                                 <table id="table_id" class="table table-bordered table-striped"> <!-- <table class="table table-sm table-bordered table-striped table-hover table-responsive"> -->
                                     <thead> <!-- class="thead-dark" -->
                                         <tr>
                                             <th>id</th>
                                             <th>nombre</th>
-                                            <th>descripción</th>
+                                            <th>documento</th>
+                                            <th>numero</th>
+                                            <th>direccion</th>
+                                            <th>telefono</th>
+                                            <th>email</th>
                                             <th>editar</th>
                                             <th>eliminar</th>
-                                            <th>estado</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                             <td></td>
                                             <td></td>
                                             <td></td>
@@ -45,7 +51,7 @@
                                 </table>
                             </div>
                             <h4>
-                                <a id="wea" class="btn btn-primary mr-2" href="javascript:mostrarForm(true)">Crear Categoría</a>
+                                <a id="wea" class="btn btn-primary mr-2" href="javascript:mostrarForm(true)">Crear Proveedor</a>
                             </h4>
 
                         </div>
@@ -54,7 +60,7 @@
 
                 <div id="formularioRegistros">
                     <div class="card bg-dark text-white">
-                        <div class="card-header">Clientes</div>
+                        <div class="card-header">Proveedores</div>
                         <div class="card-body">
 
                             <form method="post" id="formulario"> <!-- novalidate -->
@@ -65,17 +71,46 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label for="descripcion" class="col-form-label col-md-2">Descripción:</label>
+                                    <label for="tipoDocumento" class="col-form-label col-md-2">Documento:</label>
                                     <div class="col-md-5">
-                                        <input type="text" name="descripcion" value="" id="descripcion" class="form-control"> <!-- required -->
+                                        <select name="tipoDocumento" id="tipoDocumento" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
+                                            <option value="DNI" id="DNI">DNI</option>
+                                            <option value="RUC" id="RUC">RUC</option>
+                                            <option value="CEDULA" id="CEDULA">CEDULA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="numDocumento" class="col-form-label col-md-2">Número:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" name="numDocumento" value="" id="numDocumento" class="form-control"> <!-- required -->
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="direccion" class="col-form-label col-md-2">Dirección:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" name="direccion" value="" id="direccion" class="form-control"> <!-- required -->
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="telefono" class="col-form-label col-md-2">Teléfono:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" name="telefono" value="" id="telefono" class="form-control"> <!-- required -->
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="email" class="col-form-label col-md-2">Email:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" name="email" value="" id="email" class="form-control"> <!-- required -->
                                     </div>
                                 </div>
                                 <h4>
-                                    <button type="submit" id="crearCategoria" class="btn btn-secondary">Crear Categoría</button>
+                                    <button type="submit" id="crearProveedor" class="btn btn-secondary">Crear Proveedor</button>
                                     <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 
                                 <input type="hidden" name="id" value="" id="id" class="form-control">
+                                <input type="hidden" name="tipoPersona" value="Proveedor" id="tipoPersona" class="form-control">
                             </form>
 
                         </div>
@@ -90,6 +125,6 @@
 
     <?php require 'layout/cdn.php'; ?>
 
-    <script src="js/categoria.js"></script>
+    <script src="js/proveedor.js"></script>
 </body>
 </html>

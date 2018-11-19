@@ -4,6 +4,8 @@ function init() {
     limpiarForm();
     mostrarForm(false);
     listar();
+
+    select();
 }
 init();
 
@@ -75,7 +77,7 @@ $('#formulario').on('submit', function(e) {
 
 function guardar(e) {
     e.preventDefault();
-    $('#crearCategoria').attr('disabled', true);
+    $('#crearProveedor').attr('disabled', true);
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
@@ -116,6 +118,10 @@ function eliminar(id) {
     })
 }
 
+function select() {
+    $('#tipoDocumento').val('DNI'); $('#tipoDocumento').selectpicker('refresh');
+}
+
 /*************** weas ***************/
 
 function cancelarForm() {
@@ -143,6 +149,8 @@ function mostrarForm(posta) {
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
         $('#crearProveedor').attr('disabled', true);
+
+        $('#tipoDocumento').val($('option:first', select).val());
     }
 }
 

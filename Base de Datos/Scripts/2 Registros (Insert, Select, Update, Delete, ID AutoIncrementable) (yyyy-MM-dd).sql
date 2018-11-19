@@ -21,4 +21,6 @@ insert into categorias values(5,'Categoría 5','descripción 5',1);
 
 insert into articulos (id_categoria,codigo,nombre,stock,descripcion,imagen,estado) values(1,'123456789','Impresora Empson L300',50,null,null,1);
 
+insert into personas (tipo_persona,nombre,tipo_documento,num_documento,direccion,telefono,email) values('Proveedor','Inversiones Santa Cruz SAC','RUC','2236157773',null,null,null);
+
 commit;

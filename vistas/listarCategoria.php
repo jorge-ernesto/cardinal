@@ -54,7 +54,7 @@
 
                 <div id="formularioRegistros">
                     <div class="card bg-dark text-white">
-                        <div class="card-header">Clientes</div>
+                        <div class="card-header">Categorías</div>
                         <div class="card-body">
 
                             <form method="post" id="formulario"> <!-- novalidate -->

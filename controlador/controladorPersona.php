@@ -23,15 +23,14 @@ switch($action) {
         while ($obj = $respuesta->fetch_object()) {
             $listJson[] = array(
                 '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
-                '1' => $obj->tipo_persona,
-                '2' => $obj->nombre,
-                '3' => $obj->tipo_documento,
-                '4' => $obj->num_documento,
-                '5' => $obj->direccion,
-                '6' => $obj->telefono,
-                '7' => $obj->email,
-                '8' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
-                '9' => '<a class="btn btn-sm btn-dark" href="javascript:eliminar(' . $obj->id . ')">eliminar</a>',
+                '1' => $obj->nombre,
+                '2' => $obj->tipo_documento,
+                '3' => $obj->num_documento,
+                '4' => $obj->direccion,
+                '5' => $obj->telefono,
+                '6' => $obj->email,
+                '7' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
+                '8' => '<a class="btn btn-sm btn-dark" href="javascript:eliminar(' . $obj->id . ')">eliminar</a>',
             );
         }
 
