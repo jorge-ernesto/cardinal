@@ -1,9 +1,9 @@
 <?php
 
 require '../modelos/articulo.php';
-require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se puede instanciar
+require_once '../conexion/conexion.php';
 
-$id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Obtiene la variable desde articulo.js para poder buscar, guardar, desactivar y activar
+$id = isset($_POST['id']) ? clearString($_POST['id']) : '';
 $idCategoria = isset($_POST['categoria']) ? clearString($_POST['categoria']) : '';
 $codigo = isset($_POST['codigo']) ? clearString($_POST['codigo']) : '';
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
@@ -12,14 +12,14 @@ $descripcion = isset($_POST['descripcion']) ? clearString($_POST['descripcion'])
 $imagen = isset($_POST['file']) ? clearString($_POST['file']) : '';
 
 $objDaoArt = new articulo();
-$action = $_GET['action']; // String action = request.getParameter("action");
+$action = $_GET['action'];
 
 switch($action) {
     case 'listar';
         $respuesta = $objDaoArt->listar();
 
-        $listJson = array(); // Declaramos un array
-        while ($obj = $respuesta->fetch_object()) { // Recorremos todos los registros que obtenemos de la tabla categoria
+        $listJson = array();
+        while ($obj = $respuesta->fetch_object()) {
             $listJson[] = array(
                 '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
                 '1' => $obj->nombre,
@@ -38,7 +38,7 @@ switch($action) {
             );
         }
 
-        $json = array( // Declaramos un array
+        $json = array(
             'sEcho' => 1,
             'iTotalRecords' => count($listJson),
             'iTotalDisplayRecords' => count($listJson),

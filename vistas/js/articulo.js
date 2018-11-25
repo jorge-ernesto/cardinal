@@ -77,8 +77,8 @@ $('#formulario').on('submit', function(e) {
 });
 
 function guardar(e) {
-    e.preventDefault(); // avoid to execute the actual submit of the form
-    $('#crearArticulo').attr('disabled', true); // Si usamos boolean no usar comillas simples
+    e.preventDefault();
+    $('#crearArticulo').attr('disabled', true);
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({

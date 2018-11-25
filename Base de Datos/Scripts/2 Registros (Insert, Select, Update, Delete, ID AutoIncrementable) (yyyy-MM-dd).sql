@@ -24,4 +24,12 @@ insert into articulos (id_categoria,codigo,nombre,stock,descripcion,imagen,estad
 insert into personas (tipo_persona,nombre,tipo_documento,num_documento,direccion,telefono,email) values('Proveedor','Inversiones Santa Cruz SAC','RUC','2236157773',null,null,null);
 insert into personas (tipo_persona,nombre,tipo_documento,num_documento,direccion,telefono,email) values('Proveedor','Inversiones Iglesias SAC','RUC','20415689234','aaa','aaa','aaa@gmail.com');
 
+insert into permisos (nombre) values('Escritorio');
+insert into permisos (nombre) values('Almacén');
+insert into permisos (nombre) values('Compras');
+insert into permisos (nombre) values('Ventas');
+insert into permisos (nombre) values('Acceso');
+insert into permisos (nombre) values('Consulta Compras');
+insert into permisos (nombre) values('Consulta Ventas');
+
 commit;

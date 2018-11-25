@@ -13,6 +13,7 @@
                 <li class="nav-item"><a class="nav-link" href="listarCategoria.php">Categorías</a></li>
                 <li class="nav-item"><a class="nav-link" href="listarArticulo.php">Artículos</a></li>
                 <li class="nav-item"><a class="nav-link" href="listarProveedor.php">Proveedores</a></li>
+                <li class="nav-item"><a class="nav-link" href="listarPermiso.php">Permisos</a></li>
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item">
                     <a class="nav-link disabled d-none" href="#">Disabled</a>
