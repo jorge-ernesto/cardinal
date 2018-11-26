@@ -29,7 +29,6 @@ insert into permisos (nombre) values('Almacén');
 insert into permisos (nombre) values('Compras');
 insert into permisos (nombre) values('Ventas');
 insert into permisos (nombre) values('Acceso');
-insert into permisos (nombre) values('Consulta Compras');
-insert into permisos (nombre) values('Consulta Ventas');
+insert into permisos (nombre) values('Consultas');
 
 commit;
