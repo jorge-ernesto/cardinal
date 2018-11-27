@@ -71,11 +71,13 @@ switch($action) {
             }
         }
 
+        $cipher = hash("SHA256", $password); // Hash SHA256
+
         if (empty($id)) {
-            $respuesta = $objDaoUsu->guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen);
+            $respuesta = $objDaoUsu->guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen);
             echo $respuesta ? 'Usuario creado con éxito' : 'No se pudo crear usuario';
         } else {
-            $respuesta = $objDaoUsu->editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen);
+            $respuesta = $objDaoUsu->editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen);
             echo $respuesta ? 'Usuario editado con éxito' : 'No se pudo editar usuario';
         }
     break;

@@ -31,4 +31,6 @@ insert into permisos (nombre) values('Ventas');
 insert into permisos (nombre) values('Acceso');
 insert into permisos (nombre) values('Consultas');
 
+insert into usuarios (nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,username,password,imagen,estado) values('Jorge Ernesto','DNI','73704296',null,null,null,'Administrador','admin','5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5','1543300033.jpg',1);
+
 commit;

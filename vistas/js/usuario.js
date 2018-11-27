@@ -5,6 +5,8 @@ function init() {
     mostrarForm(false);
     listar();
 
+    select();
+
     $('#fileShow').hide();
 }
 init();
@@ -67,7 +69,7 @@ function buscar(id) {
         $('#direccion').val(data.direccion);
         $('#telefono').val(data.telefono);
         $('#email').val(data.email);
-        $('#cargo').val(data.cargo);
+        $('#cargo').val(data.cargo); $('#cargo').selectpicker('refresh');
         $('#username').val(data.username);
         $('#password').val(data.password);
         $('#fileCurrent').val(data.imagen);
@@ -94,7 +96,7 @@ function guardar(e) {
             limpiarForm();
             mostrarForm(false);
             tabla.ajax.reload();
-            if (data == 'Artículo creado con éxito' || data == 'Artículo editado con éxito') {
+            if (data == 'Usuario creado con éxito' || data == 'Usuario editado con éxito') {
                 swal(data, 'You clicked the button!', 'success')
             } else {
                 swal(data, 'You clicked the button!', 'error')
@@ -141,6 +143,11 @@ function activar(id) {
     })
 }
 
+function select() {
+    $('#tipoDocumento').val('DNI'); $('#tipoDocumento').selectpicker('refresh');
+    $('#cargo').val('Usuario'); $('#cargo').selectpicker('refresh');
+}
+
 /*************** weas ***************/
 
 function cancelarForm() {
@@ -156,12 +163,13 @@ function limpiarForm() {
     $('#direccion').val('');
     $('#telefono').val('');
     $('#email').val('');
-    $('#cargo').val('');
+    // $('#cargo').val('');
     $('#username').val('');
     $('#password').val('');
     $('#file').val('');
 
     $('#tipoDocumento').val($('option:first', select).val());
+    $('#cargo').val($('option:first', select).val());
     $('#fileCurrent').val('');
     $('#fileShow').hide(); $('#fileShow').attr("src" ,"");
 }

@@ -129,7 +129,7 @@ function cancelarForm() {
 }
 
 function limpiarForm() {
-    $('#id').val('');    
+    $('#id').val('');
     $('#nombre').val('');
     // $('#tipoDocumento').val('');
     $('#numDocumento').val('');
