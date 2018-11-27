@@ -61,7 +61,6 @@ function buscar(id) {
 
         mostrarForm(true);
         $('#id').val(data.id);
-        // $('#tipoPersona').val(data.tipo_persona);
         $('#nombre').val(data.nombre);
         $('#tipoDocumento').val(data.tipo_documento); $('#tipoDocumento').selectpicker('refresh');
         $('#numDocumento').val(data.num_documento);
@@ -130,14 +129,15 @@ function cancelarForm() {
 }
 
 function limpiarForm() {
-    $('#id').val('');
-    // $('#tipoPersona').val('');
+    $('#id').val('');    
     $('#nombre').val('');
-    $('#tipoDocumento').val('');
+    // $('#tipoDocumento').val('');
     $('#numDocumento').val('');
     $('#direccion').val('');
     $('#telefono').val('');
     $('#email').val('');
+
+    $('#tipoDocumento').val($('option:first', select).val());
 }
 
 function mostrarForm(posta) {
@@ -149,8 +149,6 @@ function mostrarForm(posta) {
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
         $('#crearProveedor').attr('disabled', true);
-
-        $('#tipoDocumento').val($('option:first', select).val());
     }
 }
 

@@ -5,8 +5,6 @@ function init() {
     mostrarForm(false);
     listar();
 
-    select();
-
     $('#fileShow').hide();
 }
 init();
@@ -17,7 +15,7 @@ function listar() {
         "serverSide": false,
         ajax: {
             method: 'get',
-            url: '../controlador/controladorArticulo.php?action=listar',
+            url: '../controlador/controladorUsuario.php?action=listar',
             dataType: 'json',
             error: function(e) {
                 console.log(e.responseText);
@@ -58,18 +56,22 @@ function listar() {
 wea();
 
 function buscar(id) {
-    $.post('../controlador/controladorArticulo.php?action=buscar', {id:id}, function(data) {
+    $.post('../controlador/controladorUsuario.php?action=buscar', {id:id}, function(data) {
         data = JSON.parse(data);
 
         mostrarForm(true);
         $('#id').val(data.id);
-        $('#categoria').val(data.id_categoria); $('#categoria').selectpicker('refresh');
-        $('#codigo').val(data.codigo);
         $('#nombre').val(data.nombre);
-        $('#stock').val(data.stock);
-        $('#descripcion').val(data.descripcion);
+        $('#tipoDocumento').val(data.tipo_documento); $('#tipoDocumento').selectpicker('refresh');
+        $('#numDocumento').val(data.num_documento);
+        $('#direccion').val(data.direccion);
+        $('#telefono').val(data.telefono);
+        $('#email').val(data.email);
+        $('#cargo').val(data.cargo);
+        $('#username').val(data.username);
+        $('#password').val(data.password);
         $('#fileCurrent').val(data.imagen);
-        $('#fileShow').show(); $('#fileShow').attr("src" ,"../files/articulos/" + data.imagen);
+        $('#fileShow').show(); $('#fileShow').attr("src" ,"../files/usuarios/" + data.imagen);
     });
 }
 
@@ -85,7 +87,7 @@ function guardar(e) {
     $.ajax({
         data: formData,
         method: 'post',
-        url: '../controlador/controladorArticulo.php?action=guardar',
+        url: '../controlador/controladorUsuario.php?action=guardar',
         contentType: false,
         processData: false,
         success: function(data) {
@@ -112,7 +114,7 @@ function desactivar(id) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.value) {
-            $.post('../controlador/controladorArticulo.php?action=desactivar', {id:id}, function(data) {
+            $.post('../controlador/controladorUsuario.php?action=desactivar', {id:id}, function(data) {
                 tabla.ajax.reload();
                 swal(data, 'You clicked the button!', 'success')
             });
@@ -131,29 +133,12 @@ function activar(id) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.value) {
-            $.post('../controlador/controladorArticulo.php?action=activar', {id:id}, function(data) {
+            $.post('../controlador/controladorUsuario.php?action=activar', {id:id}, function(data) {
                 tabla.ajax.reload();
                 swal(data, 'You clicked the button!', 'success')
             });
         }
     })
-}
-
-function select() {
-    $.post('../controlador/controladorCategoria.php?action=select', function(data) {
-        $('#categoria').html(data);
-        $('#categoria').selectpicker('refresh');
-    });
-}
-
-function generarBarcode() {
-    codigo = $('#codigo').val();
-    JsBarcode('#barcode', codigo);
-    $('#exampleModal').modal('show');
-}
-
-function imprimirBarcode() {
-    $('#print').printArea();
 }
 
 /*************** weas ***************/
@@ -165,14 +150,18 @@ function cancelarForm() {
 
 function limpiarForm() {
     $('#id').val('');
-    // $('#categoria').val('');
-    $('#codigo').val('');
     $('#nombre').val('');
-    $('#stock').val('');
-    $('#descripcion').val('');
+    // $('#tipoDocumento').val('');
+    $('#numDocumento').val('');
+    $('#direccion').val('');
+    $('#telefono').val('');
+    $('#email').val('');
+    $('#cargo').val('');
+    $('#username').val('');
+    $('#password').val('');
     $('#file').val('');
 
-    $('#categoria').val($('option:first', select).val());
+    $('#tipoDocumento').val($('option:first', select).val());
     $('#fileCurrent').val('');
     $('#fileShow').hide(); $('#fileShow').attr("src" ,"");
 }

@@ -43,6 +43,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="listarPermiso.php">Permisos</a>
+                        <a class="dropdown-item" href="listarUsuario.php">Usuarios</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
