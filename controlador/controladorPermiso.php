@@ -1,7 +1,7 @@
 <?php
 
 require '../modelos/permiso.php';
-require '../conexion/conexion.php';
+require_once '../conexion/conexion.php';
 
 $objDaoPer = new permiso();
 $action = $_GET['action'];
