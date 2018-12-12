@@ -1,7 +1,7 @@
 <?php
 
 $conexion = new mysqli('localhost','root','','cardinal');
-mysqli_query($conexion, 'set names utf8'); // En php es utf8
+mysqli_query($conexion, 'set names utf8'); // En php es utf8, no utf-8
 
 if (mysqli_connect_errno()) { // Si tenemos un error en la conexión
     printf('Error estableciendo conexión con la base de datos: ', myqsli_connect_error());
@@ -23,7 +23,7 @@ function findById($sql) {
 
 function clearString($str) {
     global $conexion;
-    $str = mysqli_real_escape_string($conexion,trim($str)); // Escapamos los caracteres especiales de una cadena, usamos la codificación utf8
+    $str = mysqli_real_escape_string($conexion, trim($str)); // Escapamos los caracteres especiales de una cadena, usamos la codificación utf8
     return htmlspecialchars($str); // Retornamos la variable $str
 }
 

@@ -1,7 +1,7 @@
 <?php
 
 require '../modelos/permiso.php';
-require_once '../conexion/conexion.php';
+require '../conexion/conexion.php';
 
 $objDaoPer = new permiso();
 $action = $_GET['action'];
@@ -14,7 +14,7 @@ switch($action) {
         while ($obj = $respuesta->fetch_object()) {
             $listJson[] = array(
                 '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
-                '1' => $obj->nombre                
+                '1' => $obj->nombre
             );
         }
 

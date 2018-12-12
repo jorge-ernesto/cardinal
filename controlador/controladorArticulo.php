@@ -1,7 +1,7 @@
 <?php
 
 require '../modelos/articulo.php';
-require_once '../conexion/conexion.php';
+require '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
 $idCategoria = isset($_POST['categoria']) ? clearString($_POST['categoria']) : '';

@@ -1,7 +1,7 @@
 <?php
 
 require '../modelos/usuario.php';
-require_once '../conexion/conexion.php';
+require '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
@@ -13,7 +13,7 @@ $email = isset($_POST['email']) ? clearString($_POST['email']) : '';
 $cargo = isset($_POST['cargo']) ? clearString($_POST['cargo']) : '';
 $username = isset($_POST['username']) ? clearString($_POST['username']) : '';
 $password = isset($_POST['password']) ? clearString($_POST['password']) : '';
-$imagen = isset($_POST['imagen']) ? clearString($_POST['imagen']) : '';
+$imagen = isset($_POST['file']) ? clearString($_POST['file']) : '';
 
 $objDaoUsu = new usuario();
 $action = $_GET['action'];

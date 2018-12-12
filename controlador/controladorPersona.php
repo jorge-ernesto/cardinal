@@ -1,7 +1,7 @@
 <?php
 
 require '../modelos/persona.php';
-require_once '../conexion/conexion.php';
+require '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
 $tipoPersona = isset($_POST['tipoPersona']) ? clearString($_POST['tipoPersona']) : '';
