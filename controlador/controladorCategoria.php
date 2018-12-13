@@ -47,7 +47,7 @@ switch($action) {
     case 'guardar':
         if (empty($id)) {
             $respuesta = $objDaoCat->guardar($nombre, $descripcion);
-            echo $respuesta ? 'Categoría creada con éxito' : 'No se pudo crear categoría';
+            echo $respuesta ? 'Categoría creada con éxito' : 'No se pudo crear categoría'; // Si respuesta es true entonces respuesta será 'Categoría creada con éxito' sino 'No se pudo crear categoría'
         } else {
             $respuesta = $objDaoCat->editar($id, $nombre, $descripcion);
             echo $respuesta ? 'Categoría editada con éxito' : 'No se pudo editar categoría';

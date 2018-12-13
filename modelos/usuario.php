@@ -29,14 +29,14 @@ class usuario {
         $lastId = executeWithFindByLastId($sql);
 
         $numeroElementos = 0;
-        $posta = true;
+        $respuesta = true;
         while($numeroElementos < count($permisos)) {
             $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
                             values('$lastId', '$permisos[$numeroElementos]')";
-            execute($sqlPermisos) ? $posta = true : $posta = false;
+            execute($sqlPermisos) ? $respuesta = true : $respuesta = false;
             $numeroElementos = $numeroElementos + 1;
         }
-        return $posta;
+        return $respuesta;
     }
 
     public function editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen) {
@@ -60,8 +60,11 @@ class usuario {
         return execute($sql);
     }
 
-    public function listar_usuarios_permisos() {
-
+    public function listar_usuarios_permisos($id) {
+        $sql = "select *
+                from   usuarios_permisos
+                where  id = '$id'";
+        return execute($sql);
     }
 
 }

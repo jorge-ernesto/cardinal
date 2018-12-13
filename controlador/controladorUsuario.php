@@ -71,7 +71,7 @@ switch($action) {
             }
         }
 
-        $cipher = hash("SHA512", $password); // Hash SHA512
+        $cipher = hash("SHA512", $password);
 
         if (empty($id)) {
             $respuesta = $objDaoUsu->guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen, $_POST['permisos']);
