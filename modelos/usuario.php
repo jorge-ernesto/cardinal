@@ -60,7 +60,7 @@ class usuario {
         return execute($sql);
     }
 
-    public function listar_usuarios_permisos($id) {
+    public function permisosMarcados($id) {
         $sql = "select *
                 from   usuarios_permisos
                 where  id = '$id'";
