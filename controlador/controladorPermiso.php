@@ -1,6 +1,6 @@
 <?php
 
-require '../modelos/permiso.php';
+require_once '../modelos/permiso.php';
 require_once '../conexion/conexion.php';
 
 $objDaoPer = new permiso();

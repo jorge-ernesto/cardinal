@@ -1,6 +1,6 @@
 <?php
 
-require '../conexion/conexion.php';
+require_once '../conexion/conexion.php';
 
 class articulo {
 
@@ -49,7 +49,6 @@ class articulo {
                 where  id = '$id'";
         return execute($sql);
     }
-
 }
 
 ?>

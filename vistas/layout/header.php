@@ -34,7 +34,7 @@
                         Ventas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">wea</a>
+                        <!-- <a class="dropdown-item" href="#">wea</a> -->
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -51,7 +51,7 @@
                         Consultas
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">wea</a>
+                        <!-- <a class="dropdown-item" href="#">wea</a> -->
                     </div>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>

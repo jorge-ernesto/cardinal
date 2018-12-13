@@ -140,7 +140,7 @@ function activar(id) {
 }
 
 function select() {
-    $.post('../controlador/controladorCategoria.php?action=select', function(data) {
+    $.post('../controlador/controladorArticulo.php?action=select', function(data) {
         $('#categoria').html(data);
         $('#categoria').selectpicker('refresh');
     });

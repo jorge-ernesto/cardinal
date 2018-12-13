@@ -1,6 +1,6 @@
 <?php
 
-require '../modelos/usuario.php';
+require_once '../modelos/usuario.php';
 require_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
@@ -90,6 +90,13 @@ switch($action) {
     case 'activar';
         $respuesta = $objDaoUsu->activar($id);
         echo $respuesta ? 'Usuario activado con éxito' : 'No se puede activar usuario';
+    break;
+
+    case 'permisos';
+        require_once '../modelos/permiso.php';
+        $objDaoPer = new Permiso();
+
+        $respuesta = $objDaoPer->listar();
     break;
 }
 

@@ -70,7 +70,7 @@
                                     <label for="categoria" class="col-form-label col-md-2">Categoría:</label> <!-- col-md-4 -->
                                     <div class="col-md-5"> <!-- col-md-8 -->
                                         <select name="categoria" id="categoria" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
-                                            <!-- <option value="" id=""></option> -->
+                                            <!-- <option value="" id="" data-subtext=""></option> -->
                                         </select>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                 </button>
                             </div>
                             <div class="modal-body" id="print">
-                                <svg id="barcode"></svg>                                
+                                <svg id="barcode"></svg>
                             </div>
                             <div class="modal-footer">
                                 <a class="btn btn-sm btn-success" href="javascript:imprimirBarcode()">Imprimir</a>

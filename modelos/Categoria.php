@@ -1,6 +1,6 @@
 <?php
 
-require '../conexion/conexion.php';
+require_once '../conexion/conexion.php';
 
 class categoria {
 
@@ -48,14 +48,13 @@ class categoria {
         return execute($sql);
     }
 
-    public function select() {
+    public function select() { // Solo se listan las categorias activas
         $sql = "select   id,nombre,descripcion
                 from     categorias
                 where    estado = 1
                 order by id";
         return execute($sql);
     }
-
 }
 
 ?>

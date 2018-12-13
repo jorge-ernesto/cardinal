@@ -1,6 +1,6 @@
 <?php
 
-require '../modelos/persona.php';
+require_once '../modelos/persona.php';
 require_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';

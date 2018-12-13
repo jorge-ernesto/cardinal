@@ -117,7 +117,7 @@
                                 <div class="row form-group">
                                     <label for="cargo" class="col-form-label col-md-2">Cargo:</label>
                                     <div class="col-md-5">
-                                            <select name="cargo" id="cargo" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
+                                        <select name="cargo" id="cargo" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
                                             <option value="Usuario" id="Usuario">Usuario</option>
                                             <option value="Administrador" id="Administrador">Administrador</option>
                                         </select>
@@ -133,6 +133,14 @@
                                     <label for="password" class="col-form-label col-md-2">Password:</label>
                                     <div class="col-md-5">
                                         <input type="password" name="password" value="" id="password" class="form-control" required> <!-- required -->
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="permiso" class="col-form-label col-md-2">Permiso:</label>
+                                    <div class="col-md-5">
+                                        <ul style="list-style: none;" id="permiso">
+                                            <!-- <li></li> -->
+                                        </ul>
                                     </div>
                                 </div>
                                 <div class="form-group row clearfix">

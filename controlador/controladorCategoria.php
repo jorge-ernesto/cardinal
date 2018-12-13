@@ -1,6 +1,6 @@
 <?php
 
-require '../modelos/categoria.php';
+require_once '../modelos/categoria.php';
 require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se puede instanciar, clearString
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Determina si una variable está definida y no es null // Obtiene la variable desde categoria.js para poder buscar, guardar, desactivar y activar
@@ -62,13 +62,6 @@ switch($action) {
     case 'activar';
         $respuesta = $objDaoCat->activar($id);
         echo $respuesta ? 'Categoría activada con éxito' : 'No se puede activar categoría';
-    break;
-
-    case 'select';
-        $respuesta = $objDaoCat->select();
-        while ($obj = $respuesta->fetch_object()) {
-            echo '<option value="'. $obj->id .'" id="'. $obj->id .'" data-subtext="'. $obj->descripcion .'">'. $obj->nombre .'</option>';
-        }
     break;
 }
 

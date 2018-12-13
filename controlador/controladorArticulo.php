@@ -1,6 +1,6 @@
 <?php
 
-require '../modelos/articulo.php';
+require_once '../modelos/articulo.php';
 require_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
@@ -80,6 +80,16 @@ switch($action) {
     case 'activar';
         $respuesta = $objDaoArt->activar($id);
         echo $respuesta ? 'Artículo activado con éxito' : 'No se puede activar artículo';
+    break;
+
+    case 'select';
+        require_once '../modelos/categoria.php';
+        $objDaoCat = new categoria();
+
+        $respuesta = $objDaoCat->select();
+        while ($obj = $respuesta->fetch_object()) {
+            echo '<option value="'. $obj->id .'" id="'. $obj->id .'" data-subtext="'. $obj->descripcion .'">'. $obj->nombre .'</option>';
+        }
     break;
 }
 
