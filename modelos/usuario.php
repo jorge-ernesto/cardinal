@@ -21,10 +21,22 @@ class usuario {
         return findById($sql);
     }
 
-    public function guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen) {
+    public function guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen, $permisos) { // $permisos solo lo usamos para insertar en usuarios_permisos
         $sql = "insert into usuarios (nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,username,password,imagen,estado)
                 values('$nombre','$tipoDocumento','$numDocumento','$direccion','$telefono','$email','$cargo','$username','$password','$imagen','1')";
-        return execute($sql);
+        // return execute($sql);
+
+        $lastId = executeWithFindByLastId($sql);
+
+        $numeroElementos = 0;
+        $posta = true;
+        while($numeroElementos < count($permisos)) {
+            $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
+                            values('$lastId', '$permisos[$numeroElementos]')";
+            execute($sqlPermisos) ? $posta = true : $posta = false;
+            $numeroElementos = $numeroElementos + 1;
+        }
+        return $posta;
     }
 
     public function editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen) {

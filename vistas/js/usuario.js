@@ -15,7 +15,7 @@ init();
 function listar() {
     tabla = $('#table_id').DataTable({
         "processing": true,
-        "serverSide": true,
+        "serverSide": false,
         ajax: {
             method: 'get',
             url: '../controlador/controladorUsuario.php?action=listar',

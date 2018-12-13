@@ -74,7 +74,7 @@ switch($action) {
         $cipher = hash("SHA512", $password); // Hash SHA512
 
         if (empty($id)) {
-            $respuesta = $objDaoUsu->guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen);
+            $respuesta = $objDaoUsu->guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen, $_POST['permisos']);
             echo $respuesta ? 'Usuario creado con éxito' : 'No se pudo crear usuario';
         } else {
             $respuesta = $objDaoUsu->editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen);
