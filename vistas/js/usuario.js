@@ -6,7 +6,7 @@ function init() {
     listar();
 
     select();
-    permisos();
+    checkboxes();
 
     $('#fileShow').hide();
 }
@@ -149,8 +149,8 @@ function select() {
     $('#cargo').val('Usuario'); $('#cargo').selectpicker('refresh');
 }
 
-function permisos() {
-    $.post('../controlador/controladorUsuario.php?action=permisos', function(data) {
+function checkboxes() {
+    $.post('../controlador/controladorUsuario.php?action=checkboxes', function(data) {
         $('#permisos').html(data);
     });
 }

@@ -60,6 +60,10 @@ class usuario {
         return execute($sql);
     }
 
+    public function listar_usuarios_permisos() {
+
+    }
+
 }
 
 ?>

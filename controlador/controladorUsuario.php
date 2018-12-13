@@ -92,7 +92,7 @@ switch($action) {
         echo $respuesta ? 'Usuario activado con éxito' : 'No se puede activar usuario';
     break;
 
-    case 'permisos';
+    case 'checkboxes';
         require_once '../modelos/permiso.php';
         $objDaoPer = new permiso();
 
