@@ -6,6 +6,7 @@ function init() {
     listar();
 
     select();
+    permisos();
 
     $('#fileShow').hide();
 }
@@ -146,6 +147,12 @@ function activar(id) {
 function select() {
     $('#tipoDocumento').val('DNI'); $('#tipoDocumento').selectpicker('refresh');
     $('#cargo').val('Usuario'); $('#cargo').selectpicker('refresh');
+}
+
+function permisos() {
+    $.post('../controlador/controladorUsuario.php?action=permisos', function(data) {
+        $('#permisos').html(data);
+    });
 }
 
 /*************** weas ***************/

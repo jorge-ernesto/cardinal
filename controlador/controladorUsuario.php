@@ -94,9 +94,15 @@ switch($action) {
 
     case 'permisos';
         require_once '../modelos/permiso.php';
-        $objDaoPer = new Permiso();
+        $objDaoPer = new permiso();
 
         $respuesta = $objDaoPer->listar();
+        while ($obj = $respuesta->fetch_object()) {
+            echo '<div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="permisos[]" value="'. $obj->id .'" id="customCheck_'.$obj->id.'" class="custom-control-input">
+                      <label class="custom-control-label" for="customCheck_'.$obj->id.'">'. $obj->nombre .'</label>
+                  </div>';
+        }
     break;
 }
 

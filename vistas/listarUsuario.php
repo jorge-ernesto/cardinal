@@ -136,11 +136,16 @@
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label for="permiso" class="col-form-label col-md-2">Permiso:</label>
+                                    <label for="permisos" class="col-form-label col-md-2">Permiso:</label>
                                     <div class="col-md-5">
-                                        <ul style="list-style: none;" id="permiso">
-                                            <!-- <li></li> -->
-                                        </ul>
+                                        <span id="permisos">
+                                            <!--
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="" value="" id="customCheck1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                                            </div>
+                                            -->
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row clearfix">
