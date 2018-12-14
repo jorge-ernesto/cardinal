@@ -120,24 +120,25 @@ switch($action) {
 
     case 'login';
         require_once '../modelos/permiso.php';
-        $objDaoPer = new permiso();
+        $objDaoPer2 = new permiso();
 
         /*****/
 
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $cipher = hash("SHA512", $password);
+        $cipher2 = hash("SHA512", $password);
 
         /*****/
 
-        $respuesta = $objDaoPer->login($username, $cipher);
+        $respuesta = $objDaoPer2->login($username, $cipher2);
         $obj = $respuesta->fetch_object();
-        if (isset($obj)) { // Determina si una variable está definida y no es null
+        if (isset($obj)) { // Determina si una variable no es null
             $_SESSION['id'] = $obj->id; // Declaramos variables de sesión
             $_SESSION['nombre'] = $obj->nombre;
             $_SESSION['username'] = $obj->username;
             $_SESSION['imagen'] = $obj->imagen;
         }
+        echo json_encode($obj);
     break;
 }
 

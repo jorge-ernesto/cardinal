@@ -42,5 +42,7 @@
     </div><!-- .container -->
 
     <?php require 'layout/cdn.php'; ?>
+
+    <script src="js/login.js"></script>
 </body>
 </html>
