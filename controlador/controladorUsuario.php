@@ -117,6 +117,28 @@ switch($action) {
                   </div>';
         }
     break;
+
+    case 'login';
+        require_once '../modelos/permiso.php';
+        $objDaoPer = new permiso();
+
+        /*****/
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $cipher = hash("SHA512", $password);
+
+        /*****/
+
+        $respuesta = $objDaoPer->login($username, $cipher);
+        $obj = $respuesta->fetch_object();
+        if (isset($obj)) { // Determina si una variable está definida y no es null
+            $_SESION['id'] = $obj->id; // Declaramos variables de sesión
+            $_SESION['nombre'] = $obj->nombre;
+            $_SESION['username'] = $obj->username;
+            $_SESION['imagen'] = $obj->imagen;
+        }
+    break;
 }
 
 ?>

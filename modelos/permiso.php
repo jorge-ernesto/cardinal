@@ -21,6 +21,13 @@ class permiso {
         return execute($sql);
     }
 
+    public function login($username, $password) {
+        $sql = "select id,nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,username,imagen
+                from   usuarios
+                where  username = '$username' and password = '$password' and estado = 1";
+        return execute($sql);
+    }
+
 }
 
 ?>
