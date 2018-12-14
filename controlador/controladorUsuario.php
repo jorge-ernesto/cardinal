@@ -47,10 +47,10 @@ switch($action) {
         }
 
         $json = array(
-            'sEcho' => 1,
-            'iTotalRecords' => count($listJson),
-            'iTotalDisplayRecords' => count($listJson),
-            'aaData' => $listJson
+            'draw' => 1,
+            'recordsTotal' => count($listJson),
+            'recordsFiltered' => count($listJson),
+            'data' => $listJson
         );
         echo json_encode($json);
     break;
@@ -103,6 +103,10 @@ switch($action) {
                       <label class="custom-control-label" for="customCheck_'.$obj->id.'">'. $obj->nombre .'</label>
                   </div>';
         }
+
+        $id = $_GET['id'];
+        $permisosMarcados = $objDaoPer->permisosMarcados($id);
+        $listPermisosMarcados = array();
     break;
 }
 
