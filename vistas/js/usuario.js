@@ -17,7 +17,7 @@ function listar() {
         "processing": true,
         "serverSide": false,
         ajax: {
-            method: 'get',
+            method: 'post',
             url: '../controlador/controladorUsuario.php?action=listar',
             dataType: 'json',
             error: function(e) {
@@ -76,6 +76,10 @@ function buscar(id) {
         $('#fileCurrent').val(data.imagen);
         $('#fileShow').show(); $('#fileShow').attr("src" ,"../files/usuarios/" + data.imagen);
     });
+
+    $.post('../controlador/controladorUsuario.php?action=permisos&id=' + id, function(data) { // Lo que se envia a través de la url se obtiene por el método get
+        $('#permisos').html(data);
+    });
 }
 
 $('#formulario').on('submit', function(e) {
@@ -84,7 +88,7 @@ $('#formulario').on('submit', function(e) {
 
 function guardar(e) {
     e.preventDefault();
-    $('#crearArticulo').attr('disabled', true);
+    $('#crearUsuario').attr('disabled', true);
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
@@ -150,7 +154,7 @@ function select() {
 }
 
 function permisos() {
-    $.post('../controlador/controladorUsuario.php?action=permisos', function(data) {
+    $.post('../controlador/controladorUsuario.php?action=permisos&id=', function(data) { // Lo que se envia a través de la url se obtiene por el método get
         $('#permisos').html(data);
     });
 }
@@ -179,17 +183,19 @@ function limpiarForm() {
     $('#cargo').val($('option:first', select).val());
     $('#fileCurrent').val('');
     $('#fileShow').hide(); $('#fileShow').attr("src" ,"");
+
+    $('input[name="permisos[]"]').attr('checked', false); // Referenciamos cada input que tenga name="item_id[]"
 }
 
 function mostrarForm(posta) {
     if (posta == true) {
         $('#listadoRegistros').hide();
         $('#formularioRegistros').show();
-        $('#crearArticulo').attr('disabled', false);
+        $('#crearUsuario').attr('disabled', false);
     } else {
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
-        $('#crearArticulo').attr('disabled', true);
+        $('#crearUsuario').attr('disabled', true);
     }
 }
 

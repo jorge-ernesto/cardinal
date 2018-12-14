@@ -14,7 +14,7 @@ function listar() {
         "processing": true,
         "serverSide": false,
         ajax: {
-            method: 'get',
+            method: 'post',
             url: '../controlador/controladorPersona.php?action=listarProveedor',
             dataType: 'json',
             error: function(e) {

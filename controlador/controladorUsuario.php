@@ -96,17 +96,26 @@ switch($action) {
         require_once '../modelos/permiso.php';
         $objDaoPer = new permiso();
 
+        /*****/
+
+        $listPermisosMarcados = array();
+
+        $id = $_GET['id'];
+        $respuesta2 = $objDaoPer->permisosMarcados($id);
+        while ($obj2 = $respuesta2->fetch_object()) {
+            array_push($listPermisosMarcados, $obj2->id_permiso);
+        }
+
+        /*****/
+
         $respuesta = $objDaoPer->listar();
         while ($obj = $respuesta->fetch_object()) {
+            $checked = in_array($obj->id, $listPermisosMarcados) ? 'checked' : ''; // Función para determinar si algún permiso de listar() {{id en la tabla permisos}} estan dentro de los permisos de permisosMarcados() {{id_permiso en la tabla usuarios_permisos}}
             echo '<div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="permisos[]" value="'. $obj->id .'" id="customCheck_'.$obj->id.'" class="custom-control-input">
+                      <input type="checkbox" name="permisos[]" value="'. $obj->id .'" id="customCheck_'.$obj->id.'" class="custom-control-input" '. $checked .'>
                       <label class="custom-control-label" for="customCheck_'.$obj->id.'">'. $obj->nombre .'</label>
                   </div>';
         }
-
-        $id = $_GET['id'];
-        $permisosMarcados = $objDaoPer->permisosMarcados($id);
-        $listPermisosMarcados = array();
     break;
 }
 

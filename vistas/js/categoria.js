@@ -12,7 +12,7 @@ function listar() {
         "processing": true,
         "serverSide": false,
         ajax: {
-            method: 'get',
+            method: 'post',
             url: '../controlador/controladorCategoria.php?action=listar',
             dataType: 'json',
             error: function(e) {
@@ -74,9 +74,9 @@ function guardar(e) {
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
-        data: formData,
+        data: formData, // Las variables por el método que se especifique
         method: 'post',
-        url: '../controlador/controladorCategoria.php?action=guardar',
+        url: '../controlador/controladorCategoria.php?action=guardar', // Lo que se envia a través de la url se obtiene por el método get
         contentType: false,
         processData: false,
         success: function(data) {

@@ -11,7 +11,7 @@ function listar() {
         "processing": true,
         "serverSide": false,
         ajax: {
-            method: 'get',
+            method: 'post',
             url: '../controlador/controladorPermiso.php?action=listar',
             dataType: 'json',
             error: function(e) {
