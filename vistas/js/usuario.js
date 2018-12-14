@@ -184,7 +184,7 @@ function limpiarForm() {
     $('#fileCurrent').val('');
     $('#fileShow').hide(); $('#fileShow').attr("src" ,"");
 
-    $('input[name="permisos[]"]').attr('checked', false); // Referenciamos cada input que tenga name="item_id[]"
+    $('input[name="permisos[]"]').attr('checked', false); // Referenciamos cada input que tenga name="permisos[]"
 }
 
 function mostrarForm(posta) {

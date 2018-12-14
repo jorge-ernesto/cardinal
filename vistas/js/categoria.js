@@ -74,7 +74,7 @@ function guardar(e) {
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
-        data: formData, // Las variables por el método que se especifique
+        data: formData, // Lo que se envie a través de variables se obtiene por el método que se especifique
         method: 'post',
         url: '../controlador/controladorCategoria.php?action=guardar', // Lo que se envia a través de la url se obtiene por el método get
         contentType: false,
