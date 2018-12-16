@@ -5,6 +5,7 @@ session_start();
 if (!isset($_SESSION['nombre'])) { // Si la variable es null
     header('Location: login.php');
 } else {
+    if ($SESSION['almacen'] == 1) {
 
 ?>
 
@@ -106,6 +107,9 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
 <?php
 
+    } else {
+        require 'layout/error_404.php'
+    }    
 }
 ob_end_flush();
 
