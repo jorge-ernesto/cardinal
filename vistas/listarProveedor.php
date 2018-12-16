@@ -2,9 +2,10 @@
 
 ob_start();
 session_start();
-if (!isset($_SESSION['nombre'])) {
+if (!isset($_SESSION['nombre'])) { // Si la variable es null
     header('Location: login.php');
 } else {
+    if ($_SESSION['compras'] == 1) {
 
 ?>
 
@@ -141,6 +142,9 @@ if (!isset($_SESSION['nombre'])) {
 
 <?php
 
+    } else {
+        header('Location: error_404.php');
+    }    
 }
 ob_end_flush();
 
