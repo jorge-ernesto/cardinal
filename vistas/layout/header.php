@@ -102,7 +102,7 @@ if (strlen(session_id()) < 1) { // Si no existe ningun variable de session
             <?php } ?>
             <ul class="navbar-nav navbar-right">                
                 <li class="dropdown"> <!-- dropdown show -->                                        
-                    <a class="btn btn-outline-primary dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['nombre']; ?></a>
+                    <a id="dropdownMenuLink" class="btn btn-outline-primary dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['nombre']; ?></a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                        
                         <a class="dropdown-item" href="../controlador/controladorUsuario.php?action=signOut">Sign Out</a>

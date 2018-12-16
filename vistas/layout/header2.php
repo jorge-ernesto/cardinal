@@ -6,10 +6,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link active" href="home.php">Home <span class="sr-only">(current)</span></a>
-                </li>
+            <ul class="navbar-nav mr-auto">                
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item">
                     <a class="nav-link disabled d-none" href="#">Disabled</a>
@@ -21,14 +18,12 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             -->
-            <ul class="navbar-nav navbar-right">
-                <li class="dropdown"> <!-- dropdown show -->
-                    <a class="btn btn-outline-primary dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
+            <ul class="navbar-nav navbar-right">                
+                <li class="dropdown"> <!-- dropdown show -->                                        
+                    <a id="dropdownMenuLink" class="btn btn-outline-primary dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Out</a>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <form method="post" id="formularioLogout">
-                            <button type="submit" id="signOut" class="dropdown-item">Sign Out</button>                            
-                        </form>                        
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                        
+                        <a class="dropdown-item" href="../controlador/controladorUsuario.php?action=signOut">Sign Out</a>
                     </div>
                 </li>
             </ul>
