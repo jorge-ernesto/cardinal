@@ -113,10 +113,10 @@ switch($action) {
         $respuesta = $objDaoPer->listar();
         while ($obj = $respuesta->fetch_object()) {
             $checked = in_array($obj->id, $listPermisosMarcados) ? 'checked' : ''; // Método para determinar si algún permiso de listar() {{id en la tabla permisos}} estan dentro de $listPermisosMarcados {{id_permiso en la tabla usuarios_permisos}}
-            echo '<div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="permisos[]" value="'. $obj->id .'" id="customCheck_'.$obj->id.'" class="custom-control-input" '. $checked .'>
-                      <label class="custom-control-label" for="customCheck_'.$obj->id.'">'. $obj->nombre .'</label>
-                  </div>';
+            echo '  <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="permisos[]" value="'. $obj->id .'" id="customCheck_'.$obj->id.'" class="custom-control-input" '. $checked .'>
+                        <label class="custom-control-label" for="customCheck_'.$obj->id.'">'. $obj->nombre .'</label>
+                    </div>';
         }
     break;
 
