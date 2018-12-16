@@ -1,3 +1,13 @@
+<?php
+
+ob_start();
+session_start();
+if (!isset($_SESSION['nombre'])) {
+    header('Location: login.php');
+} else {
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,3 +39,10 @@
     <?php require 'layout/cdn.php'; ?>
 </body>
 </html>
+
+<?php
+
+}
+ob_end_flush();
+
+?>

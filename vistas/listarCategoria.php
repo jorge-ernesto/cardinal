@@ -1,3 +1,13 @@
+<?php
+
+ob_start();
+session_start();
+if (!isset($_SESSION['nombre'])) {
+    header('Location: login.php');
+} else {
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,3 +103,10 @@
     <script src="js/categoria.js"></script>
 </body>
 </html>
+
+<?php
+
+}
+ob_end_flush();
+
+?>
