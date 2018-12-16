@@ -1,3 +1,11 @@
+<?php 
+
+if (strlen(session_id()) < 1) { // Si no existe ningun variable de session    
+    session_start(); // Iniciamos las variables de session
+}
+
+?>
+
 <header th:fragment="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">App Angular</a>
@@ -7,53 +15,77 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link active" href="home.php">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Almacén
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="listarCategoria.php">Categorías</a>
-                        <a class="dropdown-item" href="listarArticulo.php">Artículos</a>
-                        <!-- <div class="dropdown-divider"></div> -->
-                        <!-- <a class="dropdown-item" href="#">wea</a> -->
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Compras
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="listarProveedor.php">Proveedores</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ventas
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <!-- <a class="dropdown-item" href="#">wea</a> -->
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Acceso
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="listarPermiso.php">Permisos</a>
-                        <a class="dropdown-item" href="listarUsuario.php">Usuarios</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Consultas
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <!-- <a class="dropdown-item" href="#">wea</a> -->
-                    </div>
-                </li>
+                <?php
+                if ($_SESSION['escritorio'] == 1) {
+                    echo '  <li class="nav-item active">
+                                <a class="nav-link active" href="home.php">Home <span class="sr-only">(current)</span></a>
+                            </li>';
+                    }                
+                ?>
+                <?php
+                if ($_SESSION['almacen'] == 1) {
+                    echo '  <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Almacén
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="listarCategoria.php">Categorías</a>
+                                    <a class="dropdown-item" href="listarArticulo.php">Artículos</a>
+                                    <!-- <div class="dropdown-divider"></div> -->
+                                    <!-- <a class="dropdown-item" href="#">wea</a> -->
+                                </div>
+                            </li>';
+                    }                
+                ?> 
+                <?php
+                if ($_SESSION['compras'] == 1) {
+                    echo '  <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Compras
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="listarProveedor.php">Proveedores</a>
+                                </div>
+                            </li>';
+                    }                
+                ?>
+                <?php
+                if ($_SESSION['ventas'] == 1) {
+                    echo '  <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Ventas
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- <a class="dropdown-item" href="#">wea</a> -->
+                                </div>
+                            </li>';
+                    }                
+                ?>
+                <?php
+                if ($_SESSION['acceso'] == 1) {
+                    echo '  <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Acceso
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="listarPermiso.php">Permisos</a>
+                                    <a class="dropdown-item" href="listarUsuario.php">Usuarios</a>
+                                </div>
+                            </li>';
+                    }                
+                ?> 
+                <?php
+                if ($_SESSION['consultas'] == 1) {
+                    echo '  <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Consultas
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <!-- <a class="dropdown-item" href="#">wea</a> -->
+                                </div>
+                            </li>';
+                    }                
+                ?>                
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item">
                     <a class="nav-link disabled d-none" href="#">Disabled</a>
