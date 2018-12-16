@@ -2,7 +2,7 @@
 
 ob_start();
 session_start();
-if (!isset($_SESSION['nombre'])) {
+if (!isset($_SESSION['nombre'])) { // Si la variable es null
     header('Location: login.php');
 } else {
 
