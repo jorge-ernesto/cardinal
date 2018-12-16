@@ -18,7 +18,7 @@
                     <div class="card-header">Error: Acceso Denegado!</div>
                     <div class="card-body">
                         <h5 class="card-title">
-                            Los sentimos <span th:text="${#authentication.name}"></span>,
+                            Los sentimos <?php echo $_SESSION['nombre']; ?>,
                             NO tienes permisos para acceder a este recurso.
                         </h5>
                         <a class="btn btn-outline-light" href="home.php">Ir a home</a>                        
