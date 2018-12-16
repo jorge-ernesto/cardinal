@@ -160,6 +160,12 @@ switch($action) {
         }
         echo json_encode($obj);
     break;
+
+    case 'signOut':
+        session_unset(); // Limpiamos las variables de sesión
+        session_destroy(); // Destruimos las variables de sesión
+        header('Location: ../vistas/login.php');
+    break;
 }
 
 ?>

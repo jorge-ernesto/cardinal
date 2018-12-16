@@ -96,15 +96,16 @@ if (strlen(session_id()) < 1) { // Si no existe ningun variable de session
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
-            -->
-            <ul class="navbar-nav navbar-right">
-                <li class="dropdown"> <!-- dropdown show -->
-                    <a class="btn btn-outline-primary dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
+            -->            
+            <?php if ($_SESSION['imagen'] != null) { ?>
+                <img src="../files/usuarios/<?php echo $_SESSION['imagen'] ?>" class="mr-2" width="50"></img>
+            <?php } ?>
+            <ul class="navbar-nav navbar-right">                
+                <li class="dropdown"> <!-- dropdown show -->                                        
+                    <a class="btn btn-outline-primary dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['nombre']; ?></a>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <form method="post" id="formularioLogout">
-                            <button type="submit" id="signOut" class="dropdown-item">Sign Out</button>                            
-                        </form>                        
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                        
+                        <a class="dropdown-item" href="../controlador/controladorUsuario.php?action=signOut">Sign Out</a>
                     </div>
                 </li>
             </ul>
