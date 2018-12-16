@@ -91,10 +91,23 @@ if (strlen(session_id()) < 1) { // Si no existe ningun variable de session
                     <a class="nav-link disabled d-none" href="#">Disabled</a>
                 </li>
             </ul>
+            <!--
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
+            -->
+            <ul class="navbar-nav navbar-right">
+                <li class="dropdown"> <!-- dropdown show -->
+                    <a class="btn btn-outline-primary dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign In</a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <form method="post" id="formularioLogout">
+                            <button type="submit" id="signOut" class="dropdown-item">Sign Out</button>                            
+                        </form>                        
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
 </header>

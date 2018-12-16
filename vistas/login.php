@@ -19,7 +19,7 @@
                     <div class="card-header">Por favor Sign In!</div>
                     <div class="card-body">
 
-                        <form method="post" id="formulario"> <!-- novalidate -->
+                        <form method="post" id="formularioLogin"> <!-- novalidate -->
                             <div class="form-group col-sm-6">
                                 <input type="text" name="username" value="" id="username" class="form-control" placeholder="Username" autofocus required> <!-- required -->
                             </div>
