@@ -112,7 +112,7 @@ switch($action) {
 
         $respuesta = $objDaoPer->listar();
         while ($obj = $respuesta->fetch_object()) {
-            $checked = in_array($obj->id, $listPermisosMarcados) ? 'checked' : ''; // Función para determinar si algún permiso de listar() {{id en la tabla permisos}} estan dentro de los permisos de permisosMarcados() {{id_permiso en la tabla usuarios_permisos}}
+            $checked = in_array($obj->id, $listPermisosMarcados) ? 'checked' : ''; // Método para determinar si algún permiso de listar() {{id en la tabla permisos}} estan dentro de $listPermisosMarcados {{id_permiso en la tabla usuarios_permisos}}
             echo '<div class="custom-control custom-checkbox">
                       <input type="checkbox" name="permisos[]" value="'. $obj->id .'" id="customCheck_'.$obj->id.'" class="custom-control-input" '. $checked .'>
                       <label class="custom-control-label" for="customCheck_'.$obj->id.'">'. $obj->nombre .'</label>
@@ -122,23 +122,41 @@ switch($action) {
 
     case 'login';
         require_once '../modelos/permiso.php';
-        $objDaoPer2 = new permiso();
+        $objDaoPer = new permiso();
 
         /*****/
 
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $cipher2 = hash("SHA512", $password);
+        $cipher = hash("SHA512", $password);
 
         /*****/
 
-        $respuesta = $objDaoPer2->login($username, $cipher2);
+        $respuesta = $objDaoPer->login($username, $cipher);
         $obj = $respuesta->fetch_object();
         if (isset($obj)) { // Determina si una variable no es null
             $_SESSION['id'] = $obj->id; // Declaramos variables de sesión
             $_SESSION['nombre'] = $obj->nombre;
             $_SESSION['username'] = $obj->username;
             $_SESSION['imagen'] = $obj->imagen;
+
+            /****/
+
+            $listPermisosMarcados = array();
+
+            $respuestaPermisos = $objDaoPer->permisosMarcados($obj->id);
+            while ($objPermisos = $respuestaPermisos->fetch_object()) {
+                array_push($listPermisosMarcados, $objPermisos->id_permiso);
+            }
+
+            $_SESSION['escritorio'] = in_array(1, $listPermisosMarcados) ? 1 : 0 ; // Método para determinar si 1 esta dentro de $listPermisosMarcados
+            $_SESSION['almacen'] = in_array(2, $listPermisosMarcados) ? 1 : 0 ;
+            $_SESSION['compras'] = in_array(3, $listPermisosMarcados) ? 1 : 0 ;
+            $_SESSION['ventas'] = in_array(4, $listPermisosMarcados) ? 1 : 0 ;
+            $_SESSION['acceso'] = in_array(5, $listPermisosMarcados) ? 1 : 0 ;
+            $_SESSION['consultas'] = in_array(6, $listPermisosMarcados) ? 1 : 0 ;            
+
+            /****/       
         }
         echo json_encode($obj);
     break;

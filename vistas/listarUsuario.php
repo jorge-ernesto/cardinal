@@ -1,10 +1,10 @@
 <?php
 
-ob_start();
-session_start();
-if (!isset($_SESSION['nombre'])) {
-    header('Location: login.php');
-} else {
+// ob_start();
+// session_start();
+// if (!isset($_SESSION['nombre'])) {
+//     header('Location: login.php');
+// } else {
 
 ?>
 
@@ -217,7 +217,7 @@ if (!isset($_SESSION['nombre'])) {
 
 <?php
 
-}
-ob_end_flush();
+// }
+// ob_end_flush();
 
 ?>
