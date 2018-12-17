@@ -4,8 +4,7 @@ require_once '../conexion/conexion.php';
 
 class articulo {
 
-    public function __construct() {
-    }
+    public function __construct() { }
 
     public function listar() {
         $sql = "select     a.id,c.nombre as categoria,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen,a.estado

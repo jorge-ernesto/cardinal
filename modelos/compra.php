@@ -20,9 +20,10 @@ class usuario {
         return findById($sql);
     }
 
-    public function guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen, $permisos) { // $permisos solo lo usamos para insertar y editar en usuarios_permisos // $permisos es un array con el id de todos los permisos marcados
-        $sql = "insert into usuarios (nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,username,password,imagen,estado)
-                values('$nombre','$tipoDocumento','$numDocumento','$direccion','$telefono','$email','$cargo','$username','$password','$imagen','1')";
+    public function guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $totalCompra, 
+                            $idArticulo, $cantidad, $precioCompra, $precioVenta) { // $idArticulo es un array con el id de todos los articulos a comprar
+        $sql = "insert into compras (id_proveedor,id_usuario,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,impuesto,total_compra,estado)
+                values('$idProveedor','$idUsuario',$tipoComprobante,$serieComprobante,$numComprobante,$fechaHora,$impuesto,$totalCompra,'1')";
         $lastId = executeWithFindByLastId($sql);
         // return execute($sql);
 
@@ -30,7 +31,7 @@ class usuario {
 
         $numeroElementos = 0;
         $posta = true;
-        while ($numeroElementos < count($permisos)) {
+        while ($numeroElementos < count($idArticulo)) {
             $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
                             values('$lastId', '$permisos[$numeroElementos]')";
             execute($sqlPermisos) ? $posta = true : $posta = false;

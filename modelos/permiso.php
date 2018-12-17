@@ -4,8 +4,7 @@ require_once '../conexion/conexion.php';
 
 class permiso {
 
-    public function __construct() {
-    }
+    public function __construct() { }
 
     public function listar() {
         $sql = "select   *

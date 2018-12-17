@@ -4,8 +4,7 @@ require_once '../conexion/conexion.php';
 
 class persona {
 
-    public function __construct() {
-    }
+    public function __construct() { }
 
     public function listarProveedor() {
         $sql = "select   *

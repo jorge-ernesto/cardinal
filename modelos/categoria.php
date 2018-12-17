@@ -4,8 +4,7 @@ require_once '../conexion/conexion.php';
 
 class categoria {
 
-    public function __construct() {
-    }
+    public function __construct() { }
 
     public function listar() {
         $sql = "select   *
