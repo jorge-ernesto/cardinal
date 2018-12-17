@@ -123,11 +123,6 @@ function select() {
 
 /*************** weas ***************/
 
-function cancelarForm() {
-    limpiarForm();
-    mostrarForm(false);
-}
-
 function limpiarForm() {
     $('#id').val('');
     $('#nombre').val('');
@@ -150,6 +145,11 @@ function mostrarForm(posta) {
         $('#formularioRegistros').hide();
         $('#crearProveedor').attr('disabled', true);
     }
+}
+
+function cancelarForm() {
+    limpiarForm();
+    mostrarForm(false);
 }
 
 function wea() {

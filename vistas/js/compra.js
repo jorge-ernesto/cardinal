@@ -4,10 +4,6 @@ function init() {
     limpiarForm();
     mostrarForm(false);
     listar();
-
-    select();
-
-    $('#fileShow').hide();
 }
 init();
 
@@ -17,7 +13,7 @@ function listar() {
         "serverSide": false,
         ajax: {
             method: 'post',
-            url: '../controlador/controladorArticulo.php?action=listar',
+            url: '../controlador/controladorCompra.php?action=listar',
             dataType: 'json',
             error: function(e) {
                 console.log(e.responseText);
@@ -58,18 +54,13 @@ function listar() {
 wea();
 
 function buscar(id) {
-    $.post('../controlador/controladorArticulo.php?action=buscar', {id:id}, function(data) {
+    $.post('../controlador/controladorCompra.php?action=buscar', {id:id}, function(data) {
         data = JSON.parse(data);
 
         mostrarForm(true);
         $('#id').val(data.id);
-        $('#categoria').val(data.id_categoria); $('#categoria').selectpicker('refresh');
-        $('#codigo').val(data.codigo);
         $('#nombre').val(data.nombre);
-        $('#stock').val(data.stock);
         $('#descripcion').val(data.descripcion);
-        $('#fileCurrent').val(data.imagen);
-        $('#fileShow').show(); $('#fileShow').attr("src" ,"../files/articulos/" + data.imagen);
     });
 }
 
@@ -78,21 +69,21 @@ $('#formulario').on('submit', function(e) {
 });
 
 function guardar(e) {
-    e.preventDefault();
-    $('#crearArticulo').attr('disabled', true);
+    e.preventDefault(); // avoid to execute the actual submit of the form
+    $('#crearCompra').attr('disabled', true); // Si usamos boolean no usar comillas simples
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
-        data: formData,
+        data: formData, // Lo que se envie a través de variables se obtiene por el método que se especifique
         method: 'post',
-        url: '../controlador/controladorArticulo.php?action=guardar',
+        url: '../controlador/controladorCompra.php?action=guardar', // Lo que se envia a través de la url se obtiene por el método get
         contentType: false,
         processData: false,
         success: function(data) {
             limpiarForm();
             mostrarForm(false);
             tabla.ajax.reload();
-            if (data == 'Artículo creado con éxito' || data == 'Artículo editado con éxito') {
+            if (data == 'Compra creada con éxito') {
                 swal(data, 'You clicked the button!', 'success')
             } else {
                 swal(data, 'You clicked the button!', 'error')
@@ -101,7 +92,7 @@ function guardar(e) {
     });
 }
 
-function desactivar(id) {
+function anular(id) {
     swal({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -112,75 +103,37 @@ function desactivar(id) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.value) {
-            $.post('../controlador/controladorArticulo.php?action=desactivar', {id:id}, function(data) {
+            $.post('../controlador/controladorCompra.php?action=anular', {id:id}, function(data) {
                 tabla.ajax.reload();
                 swal(data, 'You clicked the button!', 'success')
             });
         }
     })
-}
-
-function activar(id) {
-    swal({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.value) {
-            $.post('../controlador/controladorArticulo.php?action=activar', {id:id}, function(data) {
-                tabla.ajax.reload();
-                swal(data, 'You clicked the button!', 'success')
-            });
-        }
-    })
-}
-
-function select() {
-    $.post('../controlador/controladorArticulo.php?action=select', function(data) {
-        $('#categoria').html(data);
-        $('#categoria').selectpicker('refresh');
-    });
-}
-
-function generarBarcode() {
-    codigo = $('#codigo').val();
-    JsBarcode('#barcode', codigo);
-    $('#exampleModal').modal('show');
-}
-
-function imprimirBarcode() {
-    $('#print').printArea();
 }
 
 /*************** weas ***************/
 
 function limpiarForm() {
     $('#id').val('');
-    // $('#categoria').val('');
-    $('#codigo').val('');
-    $('#nombre').val('');
-    $('#stock').val('');
-    $('#descripcion').val('');
-    $('#file').val('');
-
-    $('#categoria').val($('option:first', select).val());
-    $('#fileCurrent').val('');
-    $('#fileShow').hide(); $('#fileShow').attr("src" ,"");
+    $('#idProveedor').val('');
+    $('#idUsuario').val('');
+//    $('#tipoComprobante').val('');
+//    $('#serieComprobante').val('');
+    $('#numComprobante').val('');
+    $('#fechaHora').val('');
+    $('#impuesto').val('');
+    $('#totalCompra').val('');
 }
 
 function mostrarForm(posta) {
     if (posta == true) {
         $('#listadoRegistros').hide();
         $('#formularioRegistros').show();
-        $('#crearArticulo').attr('disabled', false);
+        $('#crearCompra').attr('disabled', false);
     } else {
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
-        $('#crearArticulo').attr('disabled', true);
+        $('#crearCompra').attr('disabled', true);
     }
 }
 

@@ -132,11 +132,6 @@ function activar(id) {
 
 /*************** weas ***************/
 
-function cancelarForm() {
-    limpiarForm();
-    mostrarForm(false);
-}
-
 function limpiarForm() {
     $('#id').val('');
     $('#nombre').val('');
@@ -153,6 +148,11 @@ function mostrarForm(posta) {
         $('#formularioRegistros').hide();
         $('#crearCategoria').attr('disabled', true);
     }
+}
+
+function cancelarForm() {
+    limpiarForm();
+    mostrarForm(false);
 }
 
 function wea() {

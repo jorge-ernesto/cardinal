@@ -161,11 +161,6 @@ function permisos() {
 
 /*************** weas ***************/
 
-function cancelarForm() {
-    limpiarForm();
-    mostrarForm(false);
-}
-
 function limpiarForm() {
     $('#id').val('');
     $('#nombre').val('');
@@ -197,6 +192,11 @@ function mostrarForm(posta) {
         $('#formularioRegistros').hide();
         $('#crearUsuario').attr('disabled', true);
     }
+}
+
+function cancelarForm() {
+    limpiarForm();
+    mostrarForm(false);
 }
 
 function wea() {

@@ -64,7 +64,7 @@ switch($action) {
             $precioVenta = $_POST['precioVenta'];
             $respuesta = $objDaoCom->guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $totalCompra,
                                              $idArticulo, $cantidad, $precioCompra, $precioVenta);
-            echo $respuesta ? 'Venta creada con éxito' : 'No se pudo crear venta';
+            echo $respuesta ? 'Compra creada con éxito' : 'No se pudo crear compra';
         } else {
             
         }
@@ -72,7 +72,7 @@ switch($action) {
 
     case 'anular';
         $respuesta = $objDaoCom->desactivar($id);
-        echo $respuesta ? 'Venta anulada con éxito' : 'No se puede anular venta';
+        echo $respuesta ? 'Compra anulada con éxito' : 'No se puede anular compra';
     break;  
 }
 
