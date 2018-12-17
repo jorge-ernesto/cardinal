@@ -7,23 +7,30 @@ class usuario {
     public function __construct() { }
 
     public function listar() {
-        $sql = "select   *
-                from     usuarios
-                order by id";
+        $sql = "select       c.id,date(c.fecha_hora),c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
+                             c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
+                             c.impuesto,c.total_compra,c.estado
+                from         compras c
+                inner join   personas p   on c.id_proveedor = p.id
+                inner join   usuarios u   on c.id_usuario = u.id";
         return execute($sql);
     }
 
     public function buscar($id) {
-        $sql = "select *
-                from   usuarios
-                where  id = '$id'";
+        $sql = "select       c.id,date(c.fecha_hora),c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
+                             c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
+                             c.impuesto,c.total_compra,c.estado
+                from         compras c
+                inner join   personas p   on c.id_proveedor = p.id
+                inner join   usuarios u   on c.id_usuario = u.id
+                where        c.id = '$id'";
         return findById($sql);
     }
 
     public function guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $totalCompra,
                             $idArticulo, $cantidad, $precioCompra, $precioVenta) {
         $sql = "insert into compras (id_proveedor,id_usuario,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,impuesto,total_compra,estado)
-                values('$idProveedor','$idUsuario',$tipoComprobante,$serieComprobante,$numComprobante,$fechaHora,$impuesto,$totalCompra,'1')";
+                values('$idProveedor','$idUsuario',$tipoComprobante,$serieComprobante,$numComprobante,$fechaHora,$impuesto,$totalCompra,'Aceptado')";
         $lastId = executeWithFindByLastId($sql);
         // return execute($sql);
 
@@ -40,41 +47,9 @@ class usuario {
         return $posta;
     }
 
-    public function editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen, $permisos) {
-        $sql = "update usuarios
-                set    nombre = '$nombre',tipo_documento = '$tipoDocumento',num_documento = '$numDocumento',direccion = '$direccion',telefono = '$telefono',email = '$email',cargo = '$cargo',username = '$username',password = '$password',imagen = '$imagen'
-                where  id = '$id'";
-        execute($sql);
-        // return execute($sql);
-
-        /****/
-
-        $sqlDelete = "delete from usuarios_permisos where id_usuario = '$id'";
-        execute($sqlDelete);
-
-        /****/
-
-        $numeroElementos = 0;
-        $posta = true;
-        while ($numeroElementos < count($permisos)) {
-            $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
-                            values('$id', '$permisos[$numeroElementos]')";
-            execute($sqlPermisos) ? $posta = true : $posta = false;
-            $numeroElementos = $numeroElementos + 1;
-        }
-        return $posta;
-    }
-
-    public function desactivar($id) {
-        $sql = "update usuarios
-                set    estado = '0'
-                where  id = '$id'";
-        return execute($sql);
-    }
-
-    public function activar($id) {
-        $sql = "update usuarios
-                set    estado = '1'
+    public function anular($id) {
+        $sql = "update compras
+                set    estado = 'Anulado'
                 where  id = '$id'";
         return execute($sql);
     }
