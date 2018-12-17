@@ -84,19 +84,11 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="proveedor" class="col-form-label col-md-2">Proveedor:</label> <!-- col-md-4 -->
                                     <div class="col-md-5"> <!-- col-md-8 -->
-                                        <select name="proveedor" id="proveedor" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
-                                            <!-- <option value="" id="" data-subtext=""></option> -->
+                                        <select name="proveedor" id="proveedor" class="form-control selectpicker" data-live-search="true">
+                                            <!-- <option value="" id=""></option> -->
                                         </select>
                                     </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label for="usuario" class="col-form-label col-md-2">Usuario:</label>
-                                    <div class="col-md-5">
-                                        <select name="usuario" id="usuario" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
-                                            <!-- <option value="" id="" data-subtext=""></option> -->
-                                        </select>
-                                    </div>
-                                </div>
+                                </div>                                
                                 <div class="row form-group">
                                     <label for="tipoComprobante" class="col-form-label col-md-2">Tipo de comprobante:</label>
                                     <div class="col-md-5">

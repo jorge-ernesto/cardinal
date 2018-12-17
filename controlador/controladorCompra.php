@@ -76,6 +76,16 @@ switch($action) {
         $respuesta = $objDaoCom->desactivar($id);
         echo $respuesta ? 'Compra anulada con éxito' : 'No se puede anular compra';
     break;
+
+    case 'selectProveedor':
+        require_once '../modelos/Persona.php';
+        $objDaoPer = new Persona();
+
+        $respuesta = $objDaoPer->listarProveedor();
+        while ($obj = $respuesta->fetch_object()) {
+            echo '<option value="'. $obj->id .'" id="'. $obj->id .'">'. $obj->nombre .'</option>';
+        }
+    break;
 }
 
 ?>

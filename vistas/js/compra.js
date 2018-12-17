@@ -4,6 +4,8 @@ function init() {
     limpiarForm();
     mostrarForm(false);
     listar();
+    
+    select();
 }
 init();
 
@@ -109,6 +111,13 @@ function anular(id) {
             });
         }
     })
+}
+
+function select() {
+    $.post('../controlador/controladorCompra.php?action=selectProveedor', function(data) {
+        $('#proveedor').html(data);
+        $('#proveedor').selectpicker('refresh');
+    });
 }
 
 /*************** weas ***************/
