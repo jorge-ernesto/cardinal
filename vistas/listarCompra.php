@@ -76,7 +76,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                 </div>
 
                 <div id="formularioRegistros">
-                    <div class="card bg-light" style="border-color: #773CB8">
+                    <div class="card bg-light" style="border-color: #773CB8;">
                         <div class="card-header">Compras</div>
                         <div class="card-body">
 
@@ -134,7 +134,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="productos" class="col-form-label col-md-2">Productos:</label>
                                     <div class="col-md-5">
-                                        <a class="btn btn-outline-primary" href="javascript:ver()">Productos</a>
+                                        <a class="btn" style="border-color: #773CB8; color: #773CB8;" href="javascript:ver()">Productos</a>
                                     </div>
                                 </div>
 
@@ -186,8 +186,8 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 								<!-- Fin Contenido Detalle Venta -->
 
                                 <h4>
-                                    <button type="submit" id="crear" class="btn btn-secondary">Crear Compra</button>
-                                    <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
+                                    <button type="submit" id="crear" class="btn" style="background-color: #773CB8; color: #fff;">Crear Compra</button>
+                                    <a class="btn" style="background-color: #773CB8; color: #fff;" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 
                                 <input type="hidden" name="id" value="" id="id" class="form-control">
