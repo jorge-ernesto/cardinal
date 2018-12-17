@@ -139,51 +139,50 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 </div>
 
                                 <!-- Contenido Detalle Venta  -->
-								<table class="d-none">
-									<thead>
-									</thead>
-									<tbody id="detalleVenta">
-										<tr id="row_{ID}">
-											<td class="d-none">
-												<input type="hidden" name="item_id[]" value="{ID}"></input>
-											</td>
-											<td>{NOMBRE}</td>
-											<td>{PRECIO}</td>
-											<td>
-												<input class="form-control col-sm-4" id="cantidad_{ID}" type="number" name="cantidad[]" value="1" min="1" onchange="funcionAyuda.calcularImporte({ID}, {PRECIO}, this.value);"></input>
-											</td>
-											<td>
-												<span id="totalImporte_{ID}">0</span>
-											</td>
-											<td>
-												<a class="btn btn-sm btn-danger" href="#" onclick="funcionAyuda.eliminarLineaDetalleVenta({ID});">
-													<i class="icon-trash"></i>
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
+                                <table class="d-none">
+                                    <thead>
+                                    </thead>
+                                    <tbody id="detalleVenta">
+                                        <tr id="row_${pro[0]}">
+                                            <td class="d-none">
+                                                <input type="hidden" name="item_id[]" value="${pro[0]}"></input>
+                                            </td>
+                                            <td>${pro[1]}</td>
+                                            <td>${pro[2]}</td>
+                                            <td class="col-3">
+                                                <input class="form-control" id="cantidad_${pro[0]}" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(${pro[0]}, ${pro[2]}, this.value);"></input>
+                                            </td>  
+                                            <td>
+                                                <span id="totalImporte_${pro[0]}">${pro[2]}</span>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-danger" onclick="eliminar( ${pro[0]} );">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-								<table class="table table-bordered table-striped table-hover table-sm">
-									<thead>
-										<tr>
-											<th class="d-none">ID</th>
-											<th>Nombre</th>
-											<th>Precio</th>
-											<th>Cantidad</th>
-											<th>Total</th>
-											<th>Eliminar</th>
-										</tr>
-									</thead>
-									<tbody id="cargarDetalleVenta">
+                                <table class="table table-bordered table-striped table-hover table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th class="d-none">ID</th>
+                                            <th>Nombre</th>
+                                            <th>Precio compra</th>
+                                            <th>Precio venta</th>
+                                            <th>Cantidad</th>
+                                            <th>Total</th>
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="cargarDetalleVenta">
 
-									</tbody>
-								</table>
+                                    </tbody>
+                                </table>
 
-								<h5 class="float-right clearfix"> Total <!-- id="margin85" -->
-									<span class="badge badge-dark" id="granTotal">Total</span>
-								</h5>
-								<!-- Fin Contenido Detalle Venta -->
+                                <h5 class="float-right clearfix"> Total <!-- id="margin85" -->
+                                    <span name="total" class="badge badge-dark" id="granTotal">Total</span>
+                                </h5>
+                                <!-- Fin Contenido Detalle Venta -->
 
                                 <h4>
                                     <button type="submit" id="crear" class="btn" style="background-color: #773CB8; color: #fff;">Crear Compra</button>
