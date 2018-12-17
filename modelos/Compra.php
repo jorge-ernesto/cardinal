@@ -7,7 +7,7 @@ class usuario {
     public function __construct() { }
 
     public function listar() {
-        $sql = "select       c.id,date(c.fecha_hora),c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
+        $sql = "select       c.id,date(c.fecha_hora) as fecha,p.nombre as proveedor,u.nombre as usuario,
                              c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
                              c.impuesto,c.total_compra,c.estado
                 from         compras c
@@ -17,7 +17,7 @@ class usuario {
     }
 
     public function buscar($id) {
-        $sql = "select       c.id,date(c.fecha_hora),c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
+        $sql = "select       c.id,date(c.fecha_hora),p.nombre as proveedor,u.nombre as usuario,
                              c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
                              c.impuesto,c.total_compra,c.estado
                 from         compras c
