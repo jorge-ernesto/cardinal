@@ -2,7 +2,7 @@
 
 require_once '../conexion/conexion.php';
 
-class permiso {
+class Permiso {
 
     public function __construct() { }
 

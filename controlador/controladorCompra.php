@@ -1,11 +1,13 @@
 <?php
 
+session_start();
+
 require_once '../modelos/Compra.php';
 require_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
 $idProveedor = isset($_POST['idProveedor']) ? clearString($P_POST['idProveedor']) : '';
-$idUsuario = isset($_POST['idUsuario']) ? clearString($P_POST['idUsuario']) : '';
+$idUsuario = $_SESSION['id'];
 $tipoComprobante = isset($_POST['tipoComprobante']) ? clearString($P_POST['tipoComprobante']) : '';
 $serieComprobante = isset($_POST['serieComprobante']) ? clearString($P_POST['serieComprobante']) : '';
 $numComprobante = isset($_POST['numComprobante']) ? clearString($P_POST['numComprobante']) : '';
@@ -18,7 +20,7 @@ $action = $_GET['action'];
 
 switch($action) {
     case 'listar';
-        $respuesta = $objDaoCat->listar();
+        $respuesta = $objDaoCom->listar();
 
         $listJson = array();
         while ($obj = $respuesta->fetch_object()) {

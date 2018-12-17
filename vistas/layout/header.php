@@ -1,6 +1,6 @@
 <?php 
 
-if (strlen(session_id()) < 1) { // Si no existe ningun variable de session    
+if (strlen(session_id()) < 1) { // Si no existe ningun variable de session, validamos por que headder es llamado en todas las vistas 
     session_start(); // Iniciamos las variables de session
 }
 
@@ -45,6 +45,7 @@ if (strlen(session_id()) < 1) { // Si no existe ningun variable de session
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="listarProveedor.php">Proveedores</a>
+                                    <a class="dropdown-item" href="listarCompra.php">Compras</a>
                                 </div>
                             </li>';
                     }                

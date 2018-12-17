@@ -2,7 +2,7 @@
 
 require_once '../conexion/conexion.php';
 
-class categoria {
+class Categoria {
 
     public function __construct() { }
 

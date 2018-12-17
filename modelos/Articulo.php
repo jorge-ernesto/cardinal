@@ -2,7 +2,7 @@
 
 require_once '../conexion/conexion.php';
 
-class articulo {
+class Articulo {
 
     public function __construct() { }
 
