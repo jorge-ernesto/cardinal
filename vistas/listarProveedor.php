@@ -84,7 +84,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="tipoDocumento" class="col-form-label col-md-2">Documento:</label>
                                     <div class="col-md-5">
-                                        <select name="tipoDocumento" id="tipoDocumento" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
+                                        <select name="tipoDocumento" id="tipoDocumento" class="form-control selectpicker" data-live-search="true">
                                             <option value="DNI" id="DNI">DNI</option>
                                             <option value="RUC" id="RUC">RUC</option>
                                             <option value="CEDULA" id="CEDULA">CEDULA</option>
@@ -144,7 +144,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
     } else {
         require 'error_404.php';
-    }    
+    }
 }
 ob_end_flush();
 

@@ -30,7 +30,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                         <div class="card-header">Categorías</div>
                         <div class="card-body text-primary"> <!-- card-body -->
 
-                            <h5 class="card-title">Listado de categorías</h5>
+                            <h5 class="card-title">Listado de compras</h5>
                             <div class="table-responsive">
                                 <table id="table_id" class="table table-bordered table-striped"> <!-- <table class="table table-sm table-bordered table-striped table-hover table-responsive"> -->
                                     <thead> <!-- class="thead-dark" -->
@@ -68,7 +68,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 </table>
                             </div>
                             <h4>
-                                <a id="wea" class="btn btn-primary mr-2" href="javascript:mostrarForm(true)">Crear Categoría</a>
+                                <a id="wea" class="btn btn-primary mr-2" href="javascript:mostrarForm(true)">Crear Compra</a>
                             </h4>
 
                         </div>
@@ -77,24 +77,34 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
                 <div id="formularioRegistros">
                     <div class="card bg-dark text-white">
-                        <div class="card-header">Categorías</div>
+                        <div class="card-header">Compras</div>
                         <div class="card-body">
 
                             <form method="post" id="formulario"> <!-- novalidate -->
                                 <div class="row form-group">
-                                    <label for="nombre" class="col-form-label col-md-2">Nombre:</label> <!-- col-md-4 -->
+                                    <label for="proveedor" class="col-form-label col-md-2">Proveedor:</label> <!-- col-md-4 -->
                                     <div class="col-md-5"> <!-- col-md-8 -->
-                                        <input type="text" name="nombre" value="" id="nombre" class="form-control" required> <!-- required -->
+                                        <select name="proveedor" id="proveedor" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
+                                            <!-- <option value="" id="" data-subtext=""></option> -->
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label for="descripcion" class="col-form-label col-md-2">Descripción:</label>
+                                    <label for="usuario" class="col-form-label col-md-2">Usuario:</label>
                                     <div class="col-md-5">
-                                        <input type="text" name="descripcion" value="" id="descripcion" class="form-control"> <!-- required -->
+                                        <select name="usuario" id="usuario" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
+                                            <!-- <option value="" id="" data-subtext=""></option> -->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="fechaHora" class="col-form-label col-md-2">Fecha:</label>
+                                    <div class="col-md-5">
+                                        <input type="date" name="fechaHora" value="" id="fechaHora" class="form-control" required> <!-- required -->
                                     </div>
                                 </div>
                                 <h4>
-                                    <button type="submit" id="crearCategoria" class="btn btn-secondary">Crear Categoría</button>
+                                    <button type="submit" id="crearCategoria" class="btn btn-secondary">Crear Compra</button>
                                     <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 
@@ -121,7 +131,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
     } else {
         require 'error_404.php';
-    }    
+    }
 }
 ob_end_flush();
 

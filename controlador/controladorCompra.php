@@ -68,14 +68,14 @@ switch($action) {
                                              $idArticulo, $cantidad, $precioCompra, $precioVenta);
             echo $respuesta ? 'Compra creada con éxito' : 'No se pudo crear compra';
         } else {
-            
+
         }
     break;
 
     case 'anular';
         $respuesta = $objDaoCom->desactivar($id);
         echo $respuesta ? 'Compra anulada con éxito' : 'No se puede anular compra';
-    break;  
+    break;
 }
 
 ?>
