@@ -40,7 +40,7 @@ class usuario {
         $posta = true;
         while ($contador < count($idArticulo)) {
             $sqlDetalle = "insert into detalle_compras (id_compra, id_articulo, cantidad, precio_compra, precio_venta)
-                            values('$lastId', '$idArticulo[$contador]', $cantidad[$contador], $precioCompra['$contador'], $precioVenta['$contador'])";
+                            values('$lastId', '$idArticulo[$contador]', $cantidad[$contador], $precioCompra[$contador], $precioVenta[$contador])";
             execute($sqlDetalle) ? $posta = true : $posta = false;
             $contador = $contador + 1;
         }
