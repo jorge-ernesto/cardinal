@@ -19,8 +19,8 @@ class usuario {
                 where  id = '$id'";
         return findById($sql);
     }
-
-    public function guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen, $permisos) { // $permisos solo lo usamos para insertar y editar en usuarios_permisos // $permisos es un array con el id de todos los permisos marcados
+    
+    public function guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen, $permisos) {
         $sql = "insert into usuarios (nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,username,password,imagen,estado)
                 values('$nombre','$tipoDocumento','$numDocumento','$direccion','$telefono','$email','$cargo','$username','$password','$imagen','1')";
         $lastId = executeWithFindByLastId($sql);
