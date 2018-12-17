@@ -172,7 +172,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     <img src="" id="fileShow" class="float-right" width="66" height="66"></img>
 			                    </div>
                                 <h4>
-                                    <button type="submit" id="crearUsuario" class="btn btn-secondary">Crear Usuario</button>
+                                    <button type="submit" id="crear" class="btn btn-secondary">Crear Usuario</button>
                                     <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 

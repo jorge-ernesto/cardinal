@@ -82,7 +82,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     </div>
                                 </div>
                                 <h4>
-                                    <button type="submit" id="crearCategoria" class="btn btn-secondary">Crear Categoría</button>
+                                    <button type="submit" id="crear" class="btn btn-secondary">Crear Categoría</button>
                                     <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 
@@ -109,7 +109,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
     } else {
         require 'error_404.php';
-    }    
+    }
 }
 ob_end_flush();
 

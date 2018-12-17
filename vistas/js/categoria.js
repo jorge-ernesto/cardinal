@@ -70,7 +70,7 @@ $('#formulario').on('submit', function(e) {
 
 function guardar(e) {
     e.preventDefault(); // avoid to execute the actual submit of the form
-    $('#crearCategoria').attr('disabled', true); // Si usamos boolean no usar comillas simples
+    $('#crear').attr('disabled', true); // Si usamos boolean no usar comillas simples
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
@@ -142,11 +142,11 @@ function mostrarForm(posta) {
     if (posta == true) {
         $('#listadoRegistros').hide();
         $('#formularioRegistros').show();
-        $('#crearCategoria').attr('disabled', false);
+        $('#crear').attr('disabled', false);
     } else {
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
-        $('#crearCategoria').attr('disabled', true);
+        $('#crear').attr('disabled', true);
     }
 }
 

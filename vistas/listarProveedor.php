@@ -116,7 +116,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     </div>
                                 </div>
                                 <h4>
-                                    <button type="submit" id="crearProveedor" class="btn btn-secondary">Crear Proveedor</button>
+                                    <button type="submit" id="crear" class="btn btn-secondary">Crear Proveedor</button>
                                     <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 

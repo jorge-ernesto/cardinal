@@ -123,7 +123,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     <img src="" id="fileShow" class="float-right" width="120" height="66"></img>
 			                    </div>
                                 <h4>
-                                    <button type="submit" id="crearArtículo" class="btn btn-secondary">Crear Artículo</button>
+                                    <button type="submit" id="crear" class="btn btn-secondary">Crear Artículo</button>
                                     <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 
@@ -171,7 +171,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
     } else {
         require 'error_404.php';
-    }    
+    }
 }
 ob_end_flush();
 

@@ -79,7 +79,7 @@ $('#formulario').on('submit', function(e) {
 
 function guardar(e) {
     e.preventDefault();
-    $('#crearArticulo').attr('disabled', true);
+    $('#crear').attr('disabled', true);
     var formData = new FormData($('#formulario')[0]);
 
     $.ajax({
@@ -176,11 +176,11 @@ function mostrarForm(posta) {
     if (posta == true) {
         $('#listadoRegistros').hide();
         $('#formularioRegistros').show();
-        $('#crearArticulo').attr('disabled', false);
+        $('#crear').attr('disabled', false);
     } else {
         $('#listadoRegistros').show();
         $('#formularioRegistros').hide();
-        $('#crearArticulo').attr('disabled', true);
+        $('#crear').attr('disabled', true);
     }
 }
 

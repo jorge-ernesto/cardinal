@@ -76,7 +76,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                 </div>
 
                 <div id="formularioRegistros">
-                    <div class="card bg-dark text-white">
+                    <div class="card bg-light" style="border-color: #773CB8">
                         <div class="card-header">Compras</div>
                         <div class="card-body">
 
@@ -137,8 +137,56 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                         <a class="btn btn-outline-primary" href="javascript:ver()">Productos</a>
                                     </div>
                                 </div>
+
+                                <!-- Contenido Detalle Venta  -->
+								<table class="d-none">
+									<thead>
+									</thead>
+									<tbody id="detalleVenta">
+										<tr id="row_{ID}">
+											<td class="d-none">
+												<input type="hidden" name="item_id[]" value="{ID}"></input>
+											</td>
+											<td>{NOMBRE}</td>
+											<td>{PRECIO}</td>
+											<td>
+												<input class="form-control col-sm-4" id="cantidad_{ID}" type="number" name="cantidad[]" value="1" min="1" onchange="funcionAyuda.calcularImporte({ID}, {PRECIO}, this.value);"></input>
+											</td>
+											<td>
+												<span id="totalImporte_{ID}">0</span>
+											</td>
+											<td>
+												<a class="btn btn-sm btn-danger" href="#" onclick="funcionAyuda.eliminarLineaDetalleVenta({ID});">
+													<i class="icon-trash"></i>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<table class="table table-bordered table-striped table-hover table-sm">
+									<thead>
+										<tr>
+											<th class="d-none">ID</th>
+											<th>Nombre</th>
+											<th>Precio</th>
+											<th>Cantidad</th>
+											<th>Total</th>
+											<th>Eliminar</th>
+										</tr>
+									</thead>
+									<tbody id="cargarDetalleVenta">
+
+									</tbody>
+								</table>
+
+								<h5 class="float-right clearfix"> Total <!-- id="margin85" -->
+									<span class="badge badge-dark" id="granTotal">Total</span>
+								</h5>
+								<!-- Fin Contenido Detalle Venta -->
+
                                 <h4>
-                                    <button type="submit" id="crearCategoria" class="btn btn-secondary">Crear Compra</button>
+                                    <button type="submit" id="crear" class="btn btn-secondary">Crear Compra</button>
                                     <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
                                 </h4>
 
