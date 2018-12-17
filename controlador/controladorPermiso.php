@@ -1,9 +1,9 @@
 <?php
 
-require_once '../modelos/permiso.php';
+require_once '../modelos/Permiso.php';
 require_once '../conexion/conexion.php';
 
-$objDaoPer = new permiso();
+$objDaoPer = new Permiso();
 $action = $_GET['action'];
 
 switch($action) {

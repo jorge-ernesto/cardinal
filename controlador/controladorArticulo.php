@@ -1,6 +1,6 @@
 <?php
 
-require_once '../modelos/articulo.php';
+require_once '../modelos/Articulo.php';
 require_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
@@ -11,7 +11,7 @@ $stock = isset($_POST['stock']) ? clearString($_POST['stock']) : '';
 $descripcion = isset($_POST['descripcion']) ? clearString($_POST['descripcion']) : '';
 $imagen = isset($_POST['file']) ? clearString($_POST['file']) : '';
 
-$objDaoArt = new articulo();
+$objDaoArt = new Articulo();
 $action = $_GET['action'];
 
 switch($action) {
@@ -83,8 +83,8 @@ switch($action) {
     break;
 
     case 'select';
-        require_once '../modelos/categoria.php';
-        $objDaoCat = new categoria();
+        require_once '../modelos/Categoria.php';
+        $objDaoCat = new Categoria();
 
         $respuesta = $objDaoCat->select();
         while ($obj = $respuesta->fetch_object()) {

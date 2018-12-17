@@ -1,6 +1,6 @@
 <?php
 
-require_once '../modelos/persona.php';
+require_once '../modelos/Persona.php';
 require_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
@@ -12,7 +12,7 @@ $direccion = isset($_POST['direccion']) ? clearString($_POST['direccion']) : '';
 $telefono = isset($_POST['telefono']) ? clearString($_POST['telefono']) : '';
 $email = isset($_POST['email']) ? clearString($_POST['email']) : '';
 
-$objDaoPer = new persona();
+$objDaoPer = new Persona();
 $action = $_GET['action'];
 
 switch($action) {

@@ -1,23 +1,19 @@
 <?php
 
-session_start();
-
-require_once '../modelos/Usuario.php';
+require_once '../modelos/Compra.php';
 require_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
-$nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
-$tipoDocumento = isset($_POST['tipoDocumento']) ? clearString($_POST['tipoDocumento']) : '';
-$numDocumento = isset($_POST['numDocumento']) ? clearString($_POST['numDocumento']) : '';
-$direccion = isset($_POST['direccion']) ? clearString($_POST['direccion']) : '';
-$telefono = isset($_POST['telefono']) ? clearString($_POST['telefono']) : '';
-$email = isset($_POST['email']) ? clearString($_POST['email']) : '';
-$cargo = isset($_POST['cargo']) ? clearString($_POST['cargo']) : '';
-$username = isset($_POST['username']) ? clearString($_POST['username']) : '';
-// $password = isset($_POST['password']) ? clearString($_POST['password']) : '';
-$imagen = isset($_POST['file']) ? clearString($_POST['file']) : '';
+$idProveedor = isset($_POST['idProveedor']) ? clearString($P_POST['idProveedor']) : '';
+$idUsuario = isset($_POST['idUsuario']) ? clearString($P_POST['idUsuario']) : '';
+$tipoComprobante = isset($_POST['tipoComprobante']) ? clearString($P_POST['tipoComprobante']) : '';
+$serieComprobante = isset($_POST['serieComprobante']) ? clearString($P_POST['serieComprobante']) : '';
+$numComprobante = isset($_POST['numComprobante']) ? clearString($P_POST['numComprobante']) : '';
+$fechaHora = isset($_POST['fechaHora']) ? clearString($P_POST['fechaHora']) : '';
+$impuesto = isset($_POST['impuesto']) ? clearString($P_POST['impuesto']) : '';
+$totalCompra = isset($_POST['totalCompra']) ? clearString($P_POST['totalCompra']) : '';
 
-$objDaoUsu = new Usuario();
+$objDaoCompra = new Compra();
 $action = $_GET['action'];
 
 switch($action) {
@@ -124,8 +120,8 @@ switch($action) {
     break;
 
     case 'login';
-        require_once '../modelos/Permiso.php';
-        $objDaoPer = new Permiso();
+        require_once '../modelos/permiso.php';
+        $objDaoPer = new permiso();
 
         /*****/
 
