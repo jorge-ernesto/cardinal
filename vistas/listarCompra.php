@@ -100,17 +100,41 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="tipoComprobante" class="col-form-label col-md-2">Tipo de comprobante:</label>
                                     <div class="col-md-5">
-                                        <select name="tipoDocumento" id="tipoDocumento" class="form-control selectpicker" data-live-search="true">
-                                            <option value="Boleta" id="Boleta">DNI</option>
-                                            <option value="Factura" id="Factura">RUC</option>
-                                            <option value="Ticket" id="Ticket">CEDULA</option>
+                                        <select name="tipoComprobante" id="tipoComprobante" class="form-control selectpicker" data-live-search="true">
+                                            <option value="Boleta">Boleta</option>
+                                            <option value="Factura">Factura</option>
+                                            <option value="Ticket">Ticket</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="serieComprobante" class="col-form-label col-md-2">Serie de comprobante:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" name="serieComprobante" value="001" id="serieComprobante" class="form-control" maxlength="3" required> <!-- required -->
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="numComprobante" class="col-form-label col-md-2">Numero de comprobante:</label>
+                                    <div class="col-md-5">
+                                        <input type="text" name="numComprobante" value="001" id="numComprobante" class="form-control" maxlength="10" required> <!-- required -->
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <label for="fechaHora" class="col-form-label col-md-2">Fecha:</label>
                                     <div class="col-md-5">
                                         <input type="date" name="fechaHora" value="" id="fechaHora" class="form-control" required> <!-- required -->
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="impuesto" class="col-form-label col-md-2">Impuesto:</label>
+                                    <div class="col-md-5">
+                                        <input type="number" name="impuesto" value="" id="impuesto" class="form-control" max="100" required> <!-- required -->
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <label for="productos" class="col-form-label col-md-2">Productos:</label>
+                                    <div class="col-md-5">
+                                        <a class="btn btn-outline-primary" href="javascript:ver()">Productos</a>
                                     </div>
                                 </div>
                                 <h4>
@@ -121,6 +145,27 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <input type="hidden" name="id" value="" id="id" class="form-control">
                             </form>
 
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
                         </div>
                     </div>
                 </div>
