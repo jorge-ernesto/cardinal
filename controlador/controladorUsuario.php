@@ -77,7 +77,7 @@ switch($action) {
         $cipher = hash("SHA512", $password);
 
         if (empty($id)) {
-            $permisos = $_POST['permisos']; // $permisos solo lo usamos para insertar y editar en usuarios_permisos // $permisos es un array con el id de todos los permisos marcados
+            $permisos = $_POST['permisos']; // $permisos es un array con el id de todos los permisos marcados
             $respuesta = $objDaoUsu->guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen, $permisos);
             echo $respuesta ? 'Usuario creado con éxito' : 'No se pudo crear usuario';
         } else {

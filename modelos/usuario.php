@@ -30,7 +30,7 @@ class usuario {
 
         $contador = 0;
         $posta = true;
-        while ($contador < count($permisos)) {
+        while ($contador < count($permisos)) { // $permisos es un array con el id de todos los permisos marcados
             $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
                             values('$lastId', '$permisos[$contador]')";
             execute($sqlPermisos) ? $posta = true : $posta = false;

@@ -21,7 +21,7 @@ class usuario {
     }
 
     public function guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $totalCompra,
-                            $idArticulo, $cantidad, $precioCompra, $precioVenta) { // $idArticulo es un array con el id de todos los articulos a comprar
+                            $idArticulo, $cantidad, $precioCompra, $precioVenta) {
         $sql = "insert into compras (id_proveedor,id_usuario,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,impuesto,total_compra,estado)
                 values('$idProveedor','$idUsuario',$tipoComprobante,$serieComprobante,$numComprobante,$fechaHora,$impuesto,$totalCompra,'1')";
         $lastId = executeWithFindByLastId($sql);
@@ -31,8 +31,8 @@ class usuario {
 
         $contador = 0;
         $posta = true;
-        while ($contador < count($idArticulo)) {
-            $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
+        while ($contador < count($idArticulo)) {// $idArticulo es un array con el id de todos los articulos a comprar
+            $sqlPermisos = "insert into detalle_compras (id_compra, id_articulo, cantidad, precio_compra, precio_venta)
                             values('$lastId', '$permisos[$contador]')";
             execute($sqlPermisos) ? $posta = true : $posta = false;
             $contador = $contador + 1;
