@@ -26,14 +26,14 @@ class usuario {
         $lastId = executeWithFindByLastId($sql);
         // return execute($sql);
 
-        /****/
+        /**** $permisos es un array con el id de todos los permisos marcados *****/
 
         $contador = 0;
         $posta = true;
-        while ($contador < count($permisos)) { // $permisos es un array con el id de todos los permisos marcados
-            $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
+        while ($contador < count($permisos)) {
+            $sqlDetalle = "insert into usuarios_permisos (id_usuario, id_permiso)
                             values('$lastId', '$permisos[$contador]')";
-            execute($sqlPermisos) ? $posta = true : $posta = false;
+            execute($sqlDetalle) ? $posta = true : $posta = false;
             $contador = $contador + 1;
         }
         return $posta;
@@ -56,9 +56,9 @@ class usuario {
         $contador = 0;
         $posta = true;
         while ($contador < count($permisos)) {
-            $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
+            $sqlDetalle = "insert into usuarios_permisos (id_usuario, id_permiso)
                             values('$id', '$permisos[$contador]')";
-            execute($sqlPermisos) ? $posta = true : $posta = false;
+            execute($sqlDetalle) ? $posta = true : $posta = false;
             $contador = $contador + 1;
         }
         return $posta;

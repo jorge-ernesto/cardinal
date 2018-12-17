@@ -27,14 +27,14 @@ class usuario {
         $lastId = executeWithFindByLastId($sql);
         // return execute($sql);
 
-        /****/
+        /**** $idArticulo es un array con el id de todos los articulos a comprar *****/
 
         $contador = 0;
         $posta = true;
-        while ($contador < count($idArticulo)) {// $idArticulo es un array con el id de todos los articulos a comprar
-            $sqlPermisos = "insert into detalle_compras (id_compra, id_articulo, cantidad, precio_compra, precio_venta)
-                            values('$lastId', '$permisos[$contador]')";
-            execute($sqlPermisos) ? $posta = true : $posta = false;
+        while ($contador < count($idArticulo)) {
+            $sqlDetalle = "insert into detalle_compras (id_compra, id_articulo, cantidad, precio_compra, precio_venta)
+                            values('$lastId', '$idArticulo[$contador]', $cantidad[$contador], $precioCompra['$contador'], $precioVenta['$contador'])";
+            execute($sqlDetalle) ? $posta = true : $posta = false;
             $contador = $contador + 1;
         }
         return $posta;
