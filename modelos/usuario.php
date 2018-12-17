@@ -19,7 +19,7 @@ class usuario {
                 where  id = '$id'";
         return findById($sql);
     }
-    
+
     public function guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen, $permisos) {
         $sql = "insert into usuarios (nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,username,password,imagen,estado)
                 values('$nombre','$tipoDocumento','$numDocumento','$direccion','$telefono','$email','$cargo','$username','$password','$imagen','1')";
@@ -28,13 +28,13 @@ class usuario {
 
         /****/
 
-        $numeroElementos = 0;
+        $contador = 0;
         $posta = true;
-        while ($numeroElementos < count($permisos)) {
+        while ($contador < count($permisos)) {
             $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
-                            values('$lastId', '$permisos[$numeroElementos]')";
+                            values('$lastId', '$permisos[$contador]')";
             execute($sqlPermisos) ? $posta = true : $posta = false;
-            $numeroElementos = $numeroElementos + 1;
+            $contador = $contador + 1;
         }
         return $posta;
     }
@@ -53,13 +53,13 @@ class usuario {
 
         /****/
 
-        $numeroElementos = 0;
+        $contador = 0;
         $posta = true;
-        while ($numeroElementos < count($permisos)) {
+        while ($contador < count($permisos)) {
             $sqlPermisos = "insert into usuarios_permisos (id_usuario, id_permiso)
-                            values('$id', '$permisos[$numeroElementos]')";
+                            values('$id', '$permisos[$contador]')";
             execute($sqlPermisos) ? $posta = true : $posta = false;
-            $numeroElementos = $numeroElementos + 1;
+            $contador = $contador + 1;
         }
         return $posta;
     }
