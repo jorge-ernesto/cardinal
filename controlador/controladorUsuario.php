@@ -14,7 +14,7 @@ $telefono = isset($_POST['telefono']) ? clearString($_POST['telefono']) : '';
 $email = isset($_POST['email']) ? clearString($_POST['email']) : '';
 $cargo = isset($_POST['cargo']) ? clearString($_POST['cargo']) : '';
 $username = isset($_POST['username']) ? clearString($_POST['username']) : '';
-$password = isset($_POST['password']) ? clearString($_POST['password']) : '';
+// $password = isset($_POST['password']) ? clearString($_POST['password']) : '';
 $imagen = isset($_POST['file']) ? clearString($_POST['file']) : '';
 
 $objDaoUsu = new usuario();
@@ -73,6 +73,7 @@ switch($action) {
             }
         }
 
+        $password = $_POST['password'];
         $cipher = hash("SHA512", $password);
 
         if (empty($id)) {
