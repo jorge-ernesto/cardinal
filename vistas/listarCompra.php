@@ -98,6 +98,16 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     </div>
                                 </div>
                                 <div class="row form-group">
+                                    <label for="tipoComprobante" class="col-form-label col-md-2">Tipo de comprobante:</label>
+                                    <div class="col-md-5">
+                                        <select name="tipoDocumento" id="tipoDocumento" class="form-control selectpicker" data-live-search="true">
+                                            <option value="Boleta" id="Boleta">DNI</option>
+                                            <option value="Factura" id="Factura">RUC</option>
+                                            <option value="Ticket" id="Ticket">CEDULA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
                                     <label for="fechaHora" class="col-form-label col-md-2">Fecha:</label>
                                     <div class="col-md-5">
                                         <input type="date" name="fechaHora" value="" id="fechaHora" class="form-control" required> <!-- required -->

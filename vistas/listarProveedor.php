@@ -82,17 +82,17 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label for="tipoDocumento" class="col-form-label col-md-2">Documento:</label>
+                                    <label for="tipoDocumento" class="col-form-label col-md-2">Tipo de documento:</label>
                                     <div class="col-md-5">
                                         <select name="tipoDocumento" id="tipoDocumento" class="form-control selectpicker" data-live-search="true">
-                                            <option value="DNI" id="DNI">DNI</option>
-                                            <option value="RUC" id="RUC">RUC</option>
-                                            <option value="CEDULA" id="CEDULA">CEDULA</option>
+                                            <option value="DNI">DNI</option>
+                                            <option value="RUC">RUC</option>
+                                            <option value="CEDULA">CEDULA</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label for="numDocumento" class="col-form-label col-md-2">Número:</label>
+                                    <label for="numDocumento" class="col-form-label col-md-2">Número de documento:</label>
                                     <div class="col-md-5">
                                         <input type="text" name="numDocumento" value="" id="numDocumento" class="form-control"> <!-- required -->
                                     </div>
