@@ -54,8 +54,9 @@ function listar() {
             'copy', 'csv', 'excel', 'pdf', 'print', 'pageLength'
         ]
     });
+    
+    wea();
 }
-wea();
 
 function buscar(id) {
     $.post('../controlador/controladorArticulo.php?action=buscar', {id:id}, function(data) {

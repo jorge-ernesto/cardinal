@@ -124,9 +124,9 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     </div>
                                 </div>
                                 <div class="row form-group">
-                                    <label for="productos" class="col-form-label col-md-2">Productos:</label>
+                                    <label for="productos" class="col-form-label col-md-2">Artículos:</label>
                                     <div class="col-md-5">
-                                        <a class="btn" style="border-color: #773CB8; color: #773CB8;" href="javascript:ver()">Productos</a>
+                                        <a class="btn" style="border-color: #773CB8; color: #773CB8;" href="javascript:ver()">Artículos</a>                                        
                                     </div>
                                 </div>
 
@@ -189,21 +189,50 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Artículos</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                ...
+                                
+                                <h5 class="card-title">Listado de artículos</h5>
+                                <div class="table-responsive">
+                                    <table id="table_id_2" class="table table-bordered table-striped"> <!-- <table class="table table-sm table-bordered table-striped table-hover table-responsive"> -->
+                                        <thead> <!-- class="thead-dark" -->
+                                            <tr>
+                                                <th>id</th>
+                                                <th>nombre</th>
+                                                <th>descripcion</th>
+                                                <th>categoria</th>
+                                                <th>codigo</th>
+                                                <th>stock</th>
+                                                <th>imagen</th>
+                                                <th>agregar</th>                                            
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>                                                                                        
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn" style="background-color: #773CB8; color: #fff;" data-dismiss="modal">Close</button>                                
                             </div>
                         </div>
                     </div>

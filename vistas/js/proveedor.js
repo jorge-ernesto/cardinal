@@ -52,8 +52,9 @@ function listar() {
             'copy', 'csv', 'excel', 'pdf', 'print', 'pageLength'
         ]
     });
+    
+    wea();
 }
-wea();
 
 function buscar(id) {
     $.post('../controlador/controladorPersona.php?action=buscar', {id:id}, function(data) {

@@ -87,7 +87,7 @@ switch($action) {
         }
     break;
     
-    case 'listarArticulos':
+    case 'listarArticulosActivos':
         require_once '../modelos/Articulo.php';
         $objDaoArt = new Articulo();
         

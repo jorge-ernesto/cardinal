@@ -49,8 +49,9 @@ function listar() {
             'copy', 'csv', 'excel', 'pdf', 'print', 'pageLength'
         ]
     });
+    
+    wea();
 }
-wea();
 
 /*************** weas ***************/
 

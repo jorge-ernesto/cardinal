@@ -3,7 +3,7 @@ var tabla;
 function init() {
     limpiarForm();
     mostrarForm(false);
-    listar();
+    listar();    
     
     select();
 }
@@ -52,8 +52,9 @@ function listar() {
             'copy', 'csv', 'excel', 'pdf', 'print', 'pageLength'
         ]
     });
+    
+    wea();
 }
-wea();
 
 function buscar(id) {
     $.post('../controlador/controladorCompra.php?action=buscar', {id:id}, function(data) {
@@ -120,6 +121,76 @@ function select() {
     });
     
     $('#tipoComprobante').val('Boleta'); $('#tipoComprobante').selectpicker('refresh');
+}
+
+function ver() {
+    listarArticulosActivos();
+    $('#exampleModal').modal('show');    
+}
+
+function listarArticulosActivos() {
+    tabla2 = $('#table_id_2').DataTable({
+        "processing": true,
+        "serverSide": false,
+        ajax: {
+            method: 'post',
+            url: '../controlador/controladorCompra.php?action=listarArticulosActivos',
+            dataType: 'json',
+            error: function(e) {
+                console.log(e.responseText);
+            }
+        },
+        language: {
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        },
+        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+        "pageLength": 10,
+        dom: 'Bfrtip', // Blfrtip
+        buttons: [
+            'pageLength'
+        ]
+    });
+    
+    var div3 = $('<div class="row">\n\
+                 <div id="div5" class="col-sm-12 col-md-7">\n\
+                 </div>\n\
+                 <div id="div6" class="col-sm-12 col-md-5">\n\
+                 </div>\n\
+                 </div>');
+    $('#table_id_2').before(div3);    
+    $('#table_id_2_wrapper .dt-buttons').appendTo('#div5');
+    $('#table_id_2_filter').appendTo('#div6');
+
+    var div4 = $('<div class="row">\n\
+                 <div id="div7" class="col-sm-12 col-md-5">\n\
+                 </div>\n\
+                 <div id="div8" class="col-sm-12 col-md-7">\n\
+                 </div>\n\
+                 </div>');
+    $('#table_id_2').after(div4);
+    $('#table_id_2_info').appendTo('#div7');
+    $('#table_id_2_paginate').appendTo('#div8');    
 }
 
 /*************** weas ***************/

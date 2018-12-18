@@ -50,8 +50,9 @@ function listar() {
             'copy', 'csv', 'excel', 'pdf', 'print', 'pageLength'
         ]
     });
+    
+    wea();
 }
-wea();
 
 function buscar(id) {
     $.post('../controlador/controladorCategoria.php?action=buscar', {id:id}, function(data) {
