@@ -14,6 +14,16 @@ class Articulo {
                 order by   a.id";
         return execute($sql);
     }
+    
+    public function listarArticulosActivos() {
+        $sql = "select     a.id,c.nombre as categoria,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen,a.estado
+                from       articulos a
+                inner join categorias c
+                on         a.id_categoria = c.id
+                order by   a.id
+                where      a.estado = 1";
+        return execute($sql);
+    }
 
     public function buscar($id) {
         $sql = "select *

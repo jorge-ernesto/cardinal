@@ -86,6 +86,35 @@ switch($action) {
             echo '<option value="'. $obj->id .'" id="'. $obj->id .'">'. $obj->nombre .'</option>';
         }
     break;
+    
+    case 'listarArticulos':
+        require_once '../modelos/Articulo.php';
+        $objDaoArt = new Articulo();
+        
+        $respuesta = $objDaoArt->listarArticulosActivos();
+
+        $listJson = array();
+        while ($obj = $respuesta->fetch_object()) {
+            $listJson[] = array(
+                '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
+                '1' => $obj->nombre,
+                '2' => $obj->descripcion,
+                '3' => $obj->categoria,
+                '4' => $obj->codigo,
+                '5' => $obj->stock,
+                '6' => '<img src="../files/articulos/' . $obj->imagen . '" width="50"></img>',
+                '7' => '<a class="btn btn-sm btn-primary" href="javascript:agregar(' . $obj->id . ')">agregar</a>'                
+            );
+        }
+
+        $json = array(
+            'draw' => 1,
+            'recordsTotal' => count($listJson),
+            'recordsFiltered' => count($listJson),
+            'data' => $listJson
+        );
+        echo json_encode($json);
+    break;
 }
 
 ?>

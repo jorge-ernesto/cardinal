@@ -118,17 +118,19 @@ function select() {
         $('#proveedor').html(data);
         $('#proveedor').selectpicker('refresh');
     });
+    
+    $('#tipoComprobante').val('Boleta'); $('#tipoComprobante').selectpicker('refresh');
 }
 
 /*************** weas ***************/
 
 function limpiarForm() {
     $('#id').val('');
-    $('#idProveedor').val('');
+//    $('#idProveedor').val('');
     $('#idUsuario').val('');
-//    $('#tipoComprobante').val('');
+    $('#tipoComprobante').val('');
 //    $('#serieComprobante').val('');
-    $('#numComprobante').val('');
+//    $('#numComprobante').val('');
     $('#fechaHora').val('');
     $('#impuesto').val('');
     $('#totalCompra').val('');
