@@ -115,12 +115,12 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     <label for="fechaHora" class="col-form-label col-md-2">Fecha:</label>
                                     <div class="col-md-5">
                                         <input type="date" name="fechaHora" value="" id="fechaHora" class="form-control" disabled> <!-- required -->
-                                    </div>		                        
+                                    </div>
                                 </div>
                                 <div class="row form-group">
                                     <label for="impuesto" class="col-form-label col-md-2">Impuesto:</label>
                                     <div class="col-md-5">
-                                        <input type="number" name="impuesto" value="" id="impuesto" class="form-control" max="100" required> <!-- required -->
+                                        <input type="number" name="impuesto" value="18" min="18" max="100" id="impuesto" class="form-control" required> <!-- required -->
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -172,7 +172,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 </table>
 
                                 <h5 class="float-right clearfix"> Total <!-- id="margin85" -->
-                                    <span name="total" class="badge badge-dark" id="granTotal">Total</span>
+                                    <span name="granTotal" class="badge badge-dark" id="granTotal">Total</span>
                                 </h5>
                                 <!-- Fin Contenido Detalle Venta -->
 

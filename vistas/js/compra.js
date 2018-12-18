@@ -6,7 +6,8 @@ function init() {
     listar(); 
     listarArticulosActivos();
     
-    select();
+    select();    
+    date();
 }
 init();
 
@@ -198,12 +199,12 @@ function listarArticulosActivos() {
 function limpiarForm() {
     $('#id').val('');
 //    $('#idProveedor').val('');
-    $('#idUsuario').val('');
-    $('#tipoComprobante').val('');
+//    $('#idUsuario').val('');
+//    $('#tipoComprobante').val('');
 //    $('#serieComprobante').val('');
 //    $('#numComprobante').val('');
-    $('#fechaHora').val('');
-    $('#impuesto').val('');
+//    $('#fechaHora').val('');
+//    $('#impuesto').val('');
     $('#totalCompra').val('');
 }
 
@@ -250,4 +251,14 @@ function wea() {
 
     $('.dt-buttons button').removeClass('btn-secondary');
     $('.dt-buttons button').addClass('btn-primary');
+}
+
+function date() {
+    Date.prototype.toDateInputValue = (function() {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0,10);
+    });
+
+    $('#fechaHora').val(new Date().toDateInputValue());
 }

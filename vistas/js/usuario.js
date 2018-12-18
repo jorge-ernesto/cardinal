@@ -6,8 +6,7 @@ function init() {
     listar();
 
     select();
-    permisos();
-
+    permisos();    
     $('#fileShow').hide();
 }
 init();

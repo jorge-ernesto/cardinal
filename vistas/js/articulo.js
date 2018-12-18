@@ -6,7 +6,6 @@ function init() {
     listar();
 
     select();
-
     $('#fileShow').hide();
 }
 init();
