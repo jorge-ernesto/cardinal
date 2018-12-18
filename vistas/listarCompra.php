@@ -126,7 +126,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="productos" class="col-form-label col-md-2">Artículos:</label>
                                     <div class="col-md-5">
-                                        <a class="btn" style="border-color: #773CB8; color: #773CB8;" href="javascript:ver()">Artículos</a>                                        
+                                        <a class="btn" style="border-color: #773CB8; color: #773CB8;" href="javascript:ver()">Artículos</a>
                                     </div>
                                 </div>
 

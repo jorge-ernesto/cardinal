@@ -3,7 +3,8 @@ var tabla;
 function init() {
     limpiarForm();
     mostrarForm(false);
-    listar();    
+    listar(); 
+    listarArticulosActivos();
     
     select();
 }
@@ -123,8 +124,7 @@ function select() {
     $('#tipoComprobante').val('Boleta'); $('#tipoComprobante').selectpicker('refresh');
 }
 
-function ver() {
-    listarArticulosActivos();
+function ver() {    
     $('#exampleModal').modal('show');    
 }
 
