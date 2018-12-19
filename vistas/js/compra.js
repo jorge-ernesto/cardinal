@@ -271,28 +271,72 @@ function date() {
 /*************** weas ***************/
 
 function agregar(id, nombre) {
-    // if (hasProducto(id)) {
-    //     incrementaCantidad(id, precio);
-    //     return false; // No ejecuta el siguiente método, como un else
-    // }
+    if (hasProducto(id)) {
+        incrementaCantidad(id);
+        return false; // No ejecuta el siguiente método, como un else
+    }
 
-        var response = '<tr id="row_'+ id +'">' +
-                            '<td class="d-none">' +
-                                '<input type="hidden" name="item_id[]" value="'+ id +'"></input>' +
-                            '</td>' +
-                            '<td>'+ nombre +'</td>' +
-                            '<td>${pro[2]}</td>' +
-                            '<td>${pro[3]}</td>' +
-                            '<td style="width: 120px;">' +
-                                '<input class="form-control col-sm-8" id="cantidad_${pro[0]}" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(${pro[0]}, ${pro[2]}, this.value);"></input>' +
-                            '</td>' +
-                            '<td>' +
-                                '<span id="totalImporte_${pro[0]}">${pro[2]}</span>' +
-                            '</td>' +
-                            '<td>' +
-                                '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar( ${pro[0]} );">Eliminar</button>' +
-                            '</td>' +
-                        '</tr>';
+    var response = '<tr id="row_'+ id +'">' +
+                        '<td class="d-none">' +
+                            '<input type="hidden" name="item_id[]" value="'+ id +'"></input>' +
+                        '</td>' +
+                        '<td>'+ nombre +'</td>' +
+                        '<td style="width: 150px;">' +
+                            '<input class="form-control col-sm-8" id="precioCompra_'+ id +'" type="number" name="precioCompra[]" value="1" min="1" onchange="calcularImporte(' + id + ');"></input>' +
+                        '</td>' +
+                        '<td style="width: 150px;">' +
+                            '<input class="form-control col-sm-8" id="precioVenta_'+ id +'" type="number" name="precioVenta[]" value="1" min="1"></input>' +
+                        '</td>' +
+                        '<td style="width: 120px;">' +
+                            '<input class="form-control col-sm-8" id="cantidad_'+ id +'" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(' + id + ');"></input>' +
+                        '</td>' +
+                        '<td>' +
+                            '<span id="totalImporte_'+ id +'">1</span>' +
+                        '</td>' +
+                        '<td>' +
+                            '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar(' + id + ');">Eliminar</button>' +
+                        '</td>' +
+                    '</tr>';
 
     $('#cargarDetalleVenta').append(response);            
+        
+    calcularImporte(id);
+}
+
+function eliminar(id) {                        
+    $('#row_' + id).remove();
+    calcularGranTotal();
+}  
+
+function calcularImporte(id) {
+    var precio = $('#precioCompra_' + id).val();
+    var cantidad = $('#cantidad_' + id).val(); 
+    $('#totalImporte_' + id).text((parseFloat(precio) * parseInt(cantidad)).toFixed(2));
+    calcularGranTotal();
+}
+
+function calcularGranTotal() {
+    var total = 0;
+    $('span[id^="totalImporte_"]').each(function() { // All elements with a title attribute value starting with "totalImporte_"
+        total += parseFloat($(this).text());
+    });
+    $('#granTotal').text(total.toFixed(2));
+}
+
+function hasProducto(id) {
+    var resultado = false;
+
+    $('input[name="item_id[]"]').each(function() { // Referenciamos cada input que tenga name="item_id[]"
+        if( parseInt(id) == parseInt($(this).val()) ) {
+            resultado = true;
+        }
+    });
+
+    return resultado;
+}
+
+function incrementaCantidad(id) {
+    var cantidad = $('#cantidad_' + id).val() ? parseInt($('#cantidad_' + id).val()) : 0;
+    $('#cantidad_' + id).val(++cantidad);
+    calcularImporte(id);
 }
