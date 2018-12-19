@@ -19,7 +19,8 @@ insert into categorias values(3,'Categoría 3','descripción 3',1);
 insert into categorias values(4,'Categoría 4','descripción 4',1);
 insert into categorias values(5,'Categoría 5','descripción 5',1);
 
-insert into articulos (id_categoria,codigo,nombre,stock,descripcion,imagen,estado) values(1,'123456789','Impresora Empson L300',50,null,null,1);
+insert into articulos (id_categoria,codigo,nombre,stock,descripcion,imagen,estado) values(1,'123456788','Impresora Empson L300',50,null,'1491149398.jpeg',1);
+insert into articulos (id_categoria,codigo,nombre,stock,descripcion,imagen,estado) values(1,'123456789','Cable impresora x2mt',50,null,'1485910808.jpg',1);
 
 insert into personas (tipo_persona,nombre,tipo_documento,num_documento,direccion,telefono,email) values('Proveedor','Inversiones Santa Cruz SAC','RUC','2236157773',null,null,null);
 insert into personas (tipo_persona,nombre,tipo_documento,num_documento,direccion,telefono,email) values('Proveedor','Inversiones Iglesias SAC','RUC','20415689234','aaa','aaa','aaa@gmail.com');
