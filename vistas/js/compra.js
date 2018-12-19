@@ -87,6 +87,7 @@ function guardar(e) {
         processData: false,
         success: function(data) {
             cancelarCompra();
+            mostrarForm(false);
             tabla.ajax.reload();
             if (data == 'Compra creada con éxito') {                
                 swal(data, 'You clicked the button!', 'success')
@@ -241,7 +242,7 @@ function cancelarCompra() {
     calcularGranTotal();
     
     $('#granTotal').text('Total');
-    $('#granTotal2').val('Total');
+    $('#granTotal2').val('');
 }
 
 function wea() {
