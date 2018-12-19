@@ -36,7 +36,7 @@ switch($action) {
                 '8' => $obj->total_compra,
                 '9' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
                 '10' => ($obj->estado == "Aceptado") ?
-                       '<a class="btn btn-sm btn-dark" href="javascript:anular(' . $obj->id . ')">anular</a>' :
+                       '<a class="btn btn-sm" style="background-color: #773CB8; color: #fff;" href="javascript:anular(' . $obj->id . ')">anular</a>' :
                        '<h6><span class="badge badge-outline-dark">Anulado</span></h6>',
                 '11' => ($obj->estado == "Aceptado") ?
                        '<h6><span class="badge badge-outline-primary">Aceptado</span></h6>' :
@@ -73,7 +73,7 @@ switch($action) {
     break;
 
     case 'anular';
-        $respuesta = $objDaoCom->desactivar($id);
+        $respuesta = $objDaoCom->anular($id);
         echo $respuesta ? 'Compra anulada con éxito' : 'No se puede anular compra';
     break;
 
