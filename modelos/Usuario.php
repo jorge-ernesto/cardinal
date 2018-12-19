@@ -32,7 +32,7 @@ class Usuario {
         $posta = true;
         while ($contador < count($permisos)) {
             $sqlDetalle = "insert into usuarios_permisos (id_usuario, id_permiso)
-                            values('$lastId', '$permisos[$contador]')";
+                            values('$lastId','$permisos[$contador]')";
             execute($sqlDetalle) ? $posta = true : $posta = false;
             $contador = $contador + 1;
         }

@@ -6,14 +6,14 @@ require_once '../modelos/Compra.php';
 require_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
-$idProveedor = isset($_POST['idProveedor']) ? clearString($P_POST['idProveedor']) : '';
+$idProveedor = isset($_POST['proveedor']) ? clearString($_POST['proveedor']) : '';
 $idUsuario = $_SESSION['id'];
-$tipoComprobante = isset($_POST['tipoComprobante']) ? clearString($P_POST['tipoComprobante']) : '';
-$serieComprobante = isset($_POST['serieComprobante']) ? clearString($P_POST['serieComprobante']) : '';
-$numComprobante = isset($_POST['numComprobante']) ? clearString($P_POST['numComprobante']) : '';
-$fechaHora = isset($_POST['fechaHora']) ? clearString($P_POST['fechaHora']) : '';
-$impuesto = isset($_POST['impuesto']) ? clearString($P_POST['impuesto']) : '';
-$totalCompra = isset($_POST['totalCompra']) ? clearString($P_POST['totalCompra']) : '';
+$tipoComprobante = isset($_POST['tipoComprobante']) ? clearString($_POST['tipoComprobante']) : '';
+$serieComprobante = isset($_POST['serieComprobante']) ? clearString($_POST['serieComprobante']) : '';
+$numComprobante = isset($_POST['numComprobante']) ? clearString($_POST['numComprobante']) : '';
+$fechaHora = isset($_POST['fechaHora']) ? clearString($_POST['fechaHora']) : '';
+$impuesto = isset($_POST['impuesto']) ? clearString($_POST['impuesto']) : '';
+$granTotal = isset($_POST['granTotal']) ? clearString($_POST['$granTotal']) : '';
 
 $objDaoCom = new Compra();
 $action = $_GET['action'];
@@ -60,11 +60,11 @@ switch($action) {
 
     case 'guardar':
         if (empty($id)) {
-            $idArticulo = $_POST['idArticulo']; // $idArticulo es un array con el id de todos los articulos a comprar
+            $idArticulo = $_POST['item_id']; // $idArticulo es un array con el id de todos los articulos a comprar
             $cantidad = $_POST['cantidad'];
             $precioCompra = $_POST['precioCompra'];
             $precioVenta = $_POST['precioVenta'];
-            $respuesta = $objDaoCom->guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $totalCompra,
+            $respuesta = $objDaoCom->guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $granTotal,
                                              $idArticulo, $cantidad, $precioCompra, $precioVenta);
             echo $respuesta ? 'Compra creada con éxito' : 'No se pudo crear compra';
         } else {

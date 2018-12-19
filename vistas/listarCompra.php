@@ -102,13 +102,13 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="serieComprobante" class="col-form-label col-md-2">Serie de comprobante:</label>
                                     <div class="col-md-5">
-                                        <input type="text" name="serieComprobante" value="001" id="serieComprobante" class="form-control" maxlength="3" disabled> <!-- required -->
+                                        <input type="text" name="serieComprobante" value="Synthesis 001" id="serieComprobante" class="form-control" maxlength="13" readonly> <!-- required -->
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <label for="numComprobante" class="col-form-label col-md-2">Número de comprobante:</label>
                                     <div class="col-md-5">
-                                        <input type="text" name="numComprobante" value="Autogenerado" id="numComprobante" class="form-control" maxlength="10" disabled> <!-- required -->
+                                        <input type="text" name="numComprobante" value="Autogenerado" id="numComprobante" class="form-control" maxlength="10" readonly> <!-- required -->
                                     </div>
                                 </div>
                                 <div class="row form-group">

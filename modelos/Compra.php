@@ -27,10 +27,10 @@ class Compra {
         return findById($sql);
     }
 
-    public function guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $totalCompra,
+    public function guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $granTotal,
                             $idArticulo, $cantidad, $precioCompra, $precioVenta) {
         $sql = "insert into compras (id_proveedor,id_usuario,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,impuesto,total_compra,estado)
-                values('$idProveedor','$idUsuario',$tipoComprobante,$serieComprobante,$numComprobante,$fechaHora,$impuesto,$totalCompra,'Aceptado')";
+                values('$idProveedor','$idUsuario','$tipoComprobante','$serieComprobante','$numComprobante','$fechaHora','$impuesto','$granTotal','Aceptado')";
         $lastId = executeWithFindByLastId($sql);
         // return execute($sql);
 
@@ -40,7 +40,7 @@ class Compra {
         $posta = true;
         while ($contador < count($idArticulo)) {
             $sqlDetalle = "insert into detalle_compras (id_compra, id_articulo, cantidad, precio_compra, precio_venta)
-                            values('$lastId', '$idArticulo[$contador]', $cantidad[$contador], $precioCompra[$contador], $precioVenta[$contador])";
+                           values('$lastId','$idArticulo[$contador]','$cantidad[$contador]','$precioCompra[$contador]','$precioVenta[$contador]')";
             execute($sqlDetalle) ? $posta = true : $posta = false;
             $contador = $contador + 1;
         }
