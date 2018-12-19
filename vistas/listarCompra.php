@@ -82,9 +82,9 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
                             <form method="post" id="formulario"> <!-- novalidate -->
                                 <div class="row form-group">
-                                    <label for="proveedor" class="col-form-label col-md-2">Proveedor:</label> <!-- col-md-4 -->
+                                    <label for="idProveedor" class="col-form-label col-md-2">Proveedor:</label> <!-- col-md-4 -->
                                     <div class="col-md-5"> <!-- col-md-8 -->
-                                        <select name="proveedor" id="proveedor" class="form-control selectpicker" data-live-search="true">
+                                        <select name="idProveedor" id="idProveedor" class="form-control selectpicker" data-live-search="true">
                                             <!-- <option value="" id=""></option> -->
                                         </select>
                                     </div>
@@ -114,7 +114,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="fechaHora" class="col-form-label col-md-2">Fecha:</label>
                                     <div class="col-md-5">
-                                        <input type="date" name="fechaHora" value="" id="fechaHora" class="form-control" disabled> <!-- required -->
+                                        <input type="date" name="fechaHora" value="" id="fechaHora" class="form-control" readonly> <!-- required -->
                                     </div>
                                 </div>
                                 <div class="row form-group">
@@ -173,8 +173,9 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     </tbody>
                                 </table>
 
-                                <h5 class="float-right clearfix"> Total <!-- id="margin85" -->
-                                    <span name="granTotal" class="badge badge-dark" id="granTotal">Total</span>
+                                <h5 class="float-right clearfix"> Total <!-- id="margin85" -->                                    
+                                    <span class="badge badge-dark" id="granTotal">Total</span>
+                                    <input type="hidden" name="granTotal2" value="" id="granTotal2" class="form-control">
                                 </h5>
                                 <!-- Fin Contenido Detalle Venta -->
 

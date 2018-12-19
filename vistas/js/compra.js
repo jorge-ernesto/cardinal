@@ -119,8 +119,8 @@ function anular(id) {
 
 function select() {
     $.post('../controlador/controladorCompra.php?action=selectProveedor', function(data) {
-        $('#proveedor').html(data);
-        $('#proveedor').selectpicker('refresh');
+        $('#idProveedor').html(data);
+        $('#idProveedor').selectpicker('refresh');
     });
     
     $('#tipoComprobante').val('Boleta'); $('#tipoComprobante').selectpicker('refresh');
@@ -211,7 +211,7 @@ function limpiarForm() {
 //    $('#fechaHora').val('');
 //    $('#impuesto').val('');
 
-    $('#proveedor').val($('option:first', select).val());
+    $('#idProveedor').val($('option:first', select).val());
     $('#tipoComprobante').val($('option:first', select).val());
 }
 
@@ -233,7 +233,7 @@ function cancelarForm() {
 }
 
 function cancelarCompra() {    
-    $('#proveedor').val($('option:first', select).val());
+    $('#idProveedor').val($('option:first', select).val());
     $('#tipoComprobante').val($('option:first', select).val());
     
     $('tr[id^="row_"]').each(function() { // Referenciamos cada input que tenga name="item_id[]"        
@@ -242,6 +242,7 @@ function cancelarCompra() {
     calcularGranTotal();
     
     $('#granTotal').text('Total');
+    $('#granTotal2').val('Total');
 }
 
 function wea() {
@@ -335,6 +336,7 @@ function calcularGranTotal() {
         total += parseFloat($(this).text());
     });
     $('#granTotal').text(total.toFixed(2));
+    $('#granTotal2').val(total.toFixed(2));
 }
 
 function hasProducto(id) {

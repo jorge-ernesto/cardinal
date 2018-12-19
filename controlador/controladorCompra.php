@@ -6,14 +6,14 @@ require_once '../modelos/Compra.php';
 require_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
-$idProveedor = isset($_POST['proveedor']) ? clearString($_POST['proveedor']) : '';
+$idProveedor = isset($_POST['idProveedor']) ? clearString($_POST['idProveedor']) : '';
 $idUsuario = $_SESSION['id'];
 $tipoComprobante = isset($_POST['tipoComprobante']) ? clearString($_POST['tipoComprobante']) : '';
 $serieComprobante = isset($_POST['serieComprobante']) ? clearString($_POST['serieComprobante']) : '';
 $numComprobante = isset($_POST['numComprobante']) ? clearString($_POST['numComprobante']) : '';
 $fechaHora = isset($_POST['fechaHora']) ? clearString($_POST['fechaHora']) : '';
 $impuesto = isset($_POST['impuesto']) ? clearString($_POST['impuesto']) : '';
-$granTotal = isset($_POST['granTotal']) ? clearString($_POST['$granTotal']) : '';
+$granTotal = isset($_POST['granTotal2']) ? clearString($_POST['granTotal2']) : '';
 
 $objDaoCom = new Compra();
 $action = $_GET['action'];
