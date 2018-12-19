@@ -131,6 +131,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 </div>
 
                                 <!-- Contenido Detalle Venta  -->
+                                <!--
                                 <table class="d-none">
                                     <thead>
                                     </thead>
@@ -153,6 +154,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                         </tr>
                                     </tbody>
                                 </table>
+                                -->
 
                                 <table class="table table-bordered table-striped table-hover table-sm">
                                     <thead>
@@ -232,7 +234,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn" style="background-color: #773CB8; color: #fff;" data-dismiss="modal">Close</button>                                
+                                <button type="button" class="btn" style="background-color: #773CB8; color: #fff;" data-dismiss="modal">Atras</button>                                
                             </div>
                         </div>
                     </div>

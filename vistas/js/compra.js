@@ -1,4 +1,5 @@
 var tabla;
+var tabla2;
 
 function init() {
     limpiarForm();
@@ -192,6 +193,10 @@ function listarArticulosActivos() {
     $('#table_id_2').after(div4);
     $('#table_id_2_info').appendTo('#div7');
     $('#table_id_2_paginate').appendTo('#div8');    
+
+
+    $('#table_id_2_wrapper .dt-buttons button').removeClass('btn-secondary');
+    $('#table_id_2_wrapper .dt-buttons button').addClass('btn-primary');
 }
 
 /*************** weas ***************/
@@ -261,4 +266,33 @@ function date() {
     });
 
     $('#fechaHora').val(new Date().toDateInputValue());
+}
+
+/*************** weas ***************/
+
+function agregar(id) {
+    // if (hasProducto(id)) {
+    //     incrementaCantidad(id, precio);
+    //     return false; // No ejecuta el siguiente método, como un else
+    // }
+
+        var response = ' <tr id="row_'+ id +'">' +
+                            '<td class="d-none">' +
+                                '<input type="hidden" name="item_id[]" value="'+ id +'"></input>' +
+                            '</td>' +
+                            '<td>${pro[1]}</td>' +
+                            '<td>${pro[2]}</td>' +
+                            '<td>${pro[3]}</td>' +
+                            '<td class="col-3">' +
+                                '<input class="form-control" id="cantidad_${pro[0]}" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(${pro[0]}, ${pro[2]}, this.value);"></input>' +
+                            '</td>' +
+                            '<td>' +
+                                '<span id="totalImporte_${pro[0]}">${pro[2]}</span>' +
+                            '</td>' +
+                            '<td>' +
+                                '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar( ${pro[0]} );">Eliminar</button>' +
+                            '</td>' +
+                        '</tr>';
+
+    $('#cargarDetalleVenta').append(response);            
 }
