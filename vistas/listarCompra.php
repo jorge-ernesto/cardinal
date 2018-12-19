@@ -142,7 +142,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                             </td>
                                             <td>${pro[1]}</td>
                                             <td>${pro[2]}</td>
-                                            <td class="col-3">
+                                            <td class="col-sm-4">
                                                 <input class="form-control" id="cantidad_${pro[0]}" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(${pro[0]}, ${pro[2]}, this.value);"></input>
                                             </td>  
                                             <td>

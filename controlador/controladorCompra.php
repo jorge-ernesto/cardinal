@@ -103,7 +103,7 @@ switch($action) {
                 '4' => $obj->codigo,
                 '5' => $obj->stock,
                 '6' => '<img src="../files/articulos/' . $obj->imagen . '" width="50"></img>',
-                '7' => '<a class="btn btn-sm btn-primary" href="javascript:agregar(' . $obj->id . ')">agregar</a>'
+                '7' => '<a class="btn btn-sm btn-primary" href="javascript:agregar('. $obj->id .',\''. $obj->nombre .'\')">agregar</a>'
             );
         }
 

@@ -270,21 +270,21 @@ function date() {
 
 /*************** weas ***************/
 
-function agregar(id) {
+function agregar(id, nombre) {
     // if (hasProducto(id)) {
     //     incrementaCantidad(id, precio);
     //     return false; // No ejecuta el siguiente método, como un else
     // }
 
-        var response = ' <tr id="row_'+ id +'">' +
+        var response = '<tr id="row_'+ id +'">' +
                             '<td class="d-none">' +
                                 '<input type="hidden" name="item_id[]" value="'+ id +'"></input>' +
                             '</td>' +
-                            '<td>${pro[1]}</td>' +
+                            '<td>'+ nombre +'</td>' +
                             '<td>${pro[2]}</td>' +
                             '<td>${pro[3]}</td>' +
-                            '<td class="col-3">' +
-                                '<input class="form-control" id="cantidad_${pro[0]}" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(${pro[0]}, ${pro[2]}, this.value);"></input>' +
+                            '<td>' +
+                                '<input class="form-control col-sm-4" id="cantidad_${pro[0]}" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(${pro[0]}, ${pro[2]}, this.value);"></input>' +
                             '</td>' +
                             '<td>' +
                                 '<span id="totalImporte_${pro[0]}">${pro[2]}</span>' +
