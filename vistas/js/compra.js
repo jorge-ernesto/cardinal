@@ -283,8 +283,8 @@ function agregar(id, nombre) {
                             '<td>'+ nombre +'</td>' +
                             '<td>${pro[2]}</td>' +
                             '<td>${pro[3]}</td>' +
-                            '<td>' +
-                                '<input class="form-control col-sm-4" id="cantidad_${pro[0]}" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(${pro[0]}, ${pro[2]}, this.value);"></input>' +
+                            '<td style="width: 120px;">' +
+                                '<input class="form-control col-sm-8" id="cantidad_${pro[0]}" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(${pro[0]}, ${pro[2]}, this.value);"></input>' +
                             '</td>' +
                             '<td>' +
                                 '<span id="totalImporte_${pro[0]}">${pro[2]}</span>' +

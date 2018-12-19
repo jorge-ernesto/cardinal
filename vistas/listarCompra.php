@@ -136,7 +136,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     <thead>
                                     </thead>
                                     <tbody id="detalleVenta">
-                                        <tr id="row_${pro[0]}">
+                                        <tr id="row_${pro[0]}"> /***** semana_08_wea *****/
                                             <td class="d-none">
                                                 <input type="hidden" name="item_id[]" value="${pro[0]}"></input>
                                             </td>
