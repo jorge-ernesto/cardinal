@@ -296,13 +296,13 @@ function agregar(id, nombre) {
                         '</td>' +
                         '<td>'+ nombre +'</td>' +
                         '<td style="width: 150px;">' +
-                            '<input class="form-control col-sm-8" id="precioCompra_'+ id +'" type="number" name="precioCompra[]" value="1" min="1" onchange="calcularImporte(' + id + ');"></input>' +
+                            '<input class="form-control col-sm-8" id="precioCompra_'+ id +'" type="number" name="precioCompra[]" value="1" min="1" step="any" onchange="calcularImporte(' + id + ');" required></input>' +
                         '</td>' +
                         '<td style="width: 150px;">' +
-                            '<input class="form-control col-sm-8" id="precioVenta_'+ id +'" type="number" name="precioVenta[]" value="1" min="1"></input>' +
+                            '<input class="form-control col-sm-8" id="precioVenta_'+ id +'" type="number" name="precioVenta[]" value="1" min="1" step="any" required></input>' +
                         '</td>' +
                         '<td style="width: 120px;">' +
-                            '<input class="form-control col-sm-8" id="cantidad_'+ id +'" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(' + id + ');"></input>' +
+                            '<input class="form-control col-sm-8" id="cantidad_'+ id +'" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(' + id + ');" required></input>' +
                         '</td>' +
                         '<td>' +
                             '<span id="totalImporte_'+ id +'">1</span>' +
