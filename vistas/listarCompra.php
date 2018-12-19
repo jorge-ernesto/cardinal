@@ -136,7 +136,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     <thead>
                                     </thead>
                                     <tbody id="detalleVenta">
-                                        <tr id="row_${pro[0]}"> /***** semana_08_wea *****/
+                                        <tr id="row_${pro[0]}"> /***** Esto es de semana_08_wea, lo demás de capriccio *****/
                                             <td class="d-none">
                                                 <input type="hidden" name="item_id[]" value="${pro[0]}"></input>
                                             </td>
@@ -151,7 +151,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                             <td>
                                                 <button type="button" class="btn btn-sm btn-danger" onclick="eliminar( ${pro[0]} );">Eliminar</button>
                                             </td>
-                                        </tr>
+                                        </tr> /***** Esto es de semana_08_wea, lo demás de capriccio *****/
                                     </tbody>
                                 </table>
                                 -->
@@ -180,7 +180,8 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
                                 <h4>
                                     <button type="submit" id="crear" class="btn" style="background-color: #773CB8; color: #fff;">Crear Compra</button>
-                                    <a class="btn" style="background-color: #773CB8; color: #fff;" href="javascript:cancelarForm(false)">Atras</a>
+                                    <a class="btn" style="background-color: #773CB8; color: #fff;" href="javascript:cancelarCompra()">Cancelar Compra</a>
+                                    <a class="btn" style="background-color: #773CB8; color: #fff;" href="javascript:cancelarForm()">Atras</a>
                                 </h4>
 
                                 <input type="hidden" name="id" value="" id="id" class="form-control">

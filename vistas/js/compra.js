@@ -210,7 +210,9 @@ function limpiarForm() {
 //    $('#numComprobante').val('');
 //    $('#fechaHora').val('');
 //    $('#impuesto').val('');
-    $('#totalCompra').val('');
+
+    $('#proveedor').val($('option:first', select).val());
+    $('#tipoComprobante').val($('option:first', select).val());
 }
 
 function mostrarForm(posta) {
@@ -228,6 +230,18 @@ function mostrarForm(posta) {
 function cancelarForm() {
     limpiarForm();
     mostrarForm(false);
+}
+
+function cancelarCompra() {    
+    $('#proveedor').val($('option:first', select).val());
+    $('#tipoComprobante').val($('option:first', select).val());
+    
+    $('tr[id^="row_"]').each(function() { // Referenciamos cada input que tenga name="item_id[]"        
+        $(this).remove();
+    });
+    calcularGranTotal();
+    
+    $('#granTotal').text('Total');
 }
 
 function wea() {

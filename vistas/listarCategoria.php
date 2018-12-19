@@ -83,7 +83,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 </div>
                                 <h4>
                                     <button type="submit" id="crear" class="btn btn-secondary">Crear Categoría</button>
-                                    <a class="btn btn-secondary" href="javascript:cancelarForm(false)">Atras</a>
+                                    <a class="btn btn-secondary" href="javascript:cancelarForm()">Atras</a>
                                 </h4>
 
                                 <input type="hidden" name="id" value="" id="id" class="form-control">
