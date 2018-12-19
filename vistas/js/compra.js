@@ -86,16 +86,15 @@ function guardar(e) {
         contentType: false,
         processData: false,
         success: function(data) {
-            limpiarForm();
-            mostrarForm(false);
+            cancelarCompra();
             tabla.ajax.reload();
-            if (data == 'Compra creada con éxito') {
+            if (data == 'Compra creada con éxito') {                
                 swal(data, 'You clicked the button!', 'success')
-            } else {
+            } else {                
                 swal(data, 'You clicked the button!', 'error')
             }
         }
-    });
+    });       
 }
 
 function anular(id) {
