@@ -59,17 +59,21 @@ switch($action) {
     break;
 
     case 'guardar':
-        if (empty($id)) {
-            $idArticulo = $_POST['item_id']; // $idArticulo es un array con el id de todos los articulos a comprar
-            $cantidad = $_POST['cantidad'];
-            $precioCompra = $_POST['precioCompra'];
-            $precioVenta = $_POST['precioVenta'];
-            $respuesta = $objDaoCom->guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $granTotal,
-                                             $idArticulo, $cantidad, $precioCompra, $precioVenta);
-            echo $respuesta ? 'Compra creada con éxito' : 'No se pudo crear compra';
+        if (empty($_POST['item_id'])) {
+            echo 'No se pudo crear compra';
         } else {
-
-        }
+            if (empty($id)) {
+                $idArticulo = $_POST['item_id']; // $idArticulo es un array con el id de todos los articulos a comprar
+                $cantidad = $_POST['cantidad'];
+                $precioCompra = $_POST['precioCompra'];
+                $precioVenta = $_POST['precioVenta'];
+                $respuesta = $objDaoCom->guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $granTotal,
+                                                 $idArticulo, $cantidad, $precioCompra, $precioVenta);
+                echo $respuesta ? 'Compra creada con éxito' : 'No se pudo crear compra';
+            } else {
+                
+            }
+        }        
     break;
 
     case 'anular';
