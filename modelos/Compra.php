@@ -34,6 +34,14 @@ class Compra {
         $lastId = executeWithFindByLastId($sql);
         // return execute($sql);
 
+        /*****/
+                
+        $numComprobanteFormateado = str_pad($lastId, 10, '0', STR_PAD_LEFT);
+        $sqlUpdate = "update compras
+                      set num_comprobante = '$numComprobanteFormateado'
+                      where id = '$lastId'";
+        execute($sqlUpdate);
+        
         /**** $idArticulo es un array con el id de todos los articulos a comprar *****/
 
         $contador = 0;
