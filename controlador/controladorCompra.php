@@ -60,7 +60,7 @@ switch($action) {
 
     case 'guardar':
         if (empty($_POST['item_id'])) {
-            echo 'No se pudo crear compra';
+            echo 'Error: La compra debe tener productos para ser creada';
         } else {
             if (empty($id)) {
                 $idArticulo = $_POST['item_id']; // $idArticulo es un array con el id de todos los articulos a comprar
