@@ -50,24 +50,6 @@ function listar() {
         ]
     });
     
-    wea();
-}
-
-/*************** weas ***************/
-
-function mostrarForm(posta) {
-    if (posta == true) {
-        $('#listadoRegistros').hide();
-        $('#formularioRegistros').show();
-        $('#crearCategoria').attr('disabled', false);
-    } else {
-        $('#listadoRegistros').show();
-        $('#formularioRegistros').hide();
-        $('#crearCategoria').attr('disabled', true);
-    }
-}
-
-function wea() {
     var div = $('<div class="row">\n\
                  <div id="div" class="col-sm-12 col-md-7">\n\
                  </div>\n\
@@ -87,10 +69,22 @@ function wea() {
                  </div>');
     $('#table_id').after(div2);
     $('#table_id_info').appendTo('#div3');
-    $('#table_id_paginate').appendTo('#div4');
-
-    // $('.dt-buttons').addClass('mb-2');
+    $('#table_id_paginate').appendTo('#div4');    
 
     $('.dt-buttons button').removeClass('btn-secondary');
     $('.dt-buttons button').addClass('btn-primary');
+}
+
+/*************** weas ***************/
+
+function mostrarForm(posta) {
+    if (posta == true) {
+        $('#listadoRegistros').hide();
+        $('#formularioRegistros').show();
+        $('#crearCategoria').attr('disabled', false);
+    } else {
+        $('#listadoRegistros').show();
+        $('#formularioRegistros').hide();
+        $('#crearCategoria').attr('disabled', true);
+    }
 }

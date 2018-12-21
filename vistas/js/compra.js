@@ -56,7 +56,29 @@ function listar() {
         ]
     });
     
-    wea();
+    var div = $('<div class="row">\n\
+                 <div id="div" class="col-sm-12 col-md-7">\n\
+                 </div>\n\
+                 <div id="div2" class="col-sm-12 col-md-5">\n\
+                 </div>\n\
+                 </div>');
+    $('#table_id').before(div);
+    $('#wea').appendTo('#div');
+    $('.dt-buttons').appendTo('#div');
+    $('#table_id_filter').appendTo('#div2');
+
+    var div2 = $('<div class="row">\n\
+                 <div id="div3" class="col-sm-12 col-md-5">\n\
+                 </div>\n\
+                 <div id="div4" class="col-sm-12 col-md-7">\n\
+                 </div>\n\
+                 </div>');
+    $('#table_id').after(div2);
+    $('#table_id_info').appendTo('#div3');
+    $('#table_id_paginate').appendTo('#div4');    
+
+    $('.dt-buttons button').removeClass('btn-secondary');
+    $('.dt-buttons button').addClass('btn-primary');
 }
 
 function buscar(id) {
@@ -149,6 +171,23 @@ function select() {
     });
     
     $('#tipoComprobante').val('Boleta'); $('#tipoComprobante').selectpicker('refresh');
+}
+
+function date() {
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    $('#fechaHora').val(today);
+    
+    /*
+    Date.prototype.toDateInputValue = (function() {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0,10);
+    });
+    $('#fechaHora2').val(new Date().toDateInputValue());
+    */       
 }
 
 function ver() {    
@@ -276,51 +315,6 @@ function cancelarForm() {
     $('#divArticulos').show();
     $('#crear').show();  
     $('#cancelarCompra').show();
-}
-
-function wea() {
-    var div = $('<div class="row">\n\
-                 <div id="div" class="col-sm-12 col-md-7">\n\
-                 </div>\n\
-                 <div id="div2" class="col-sm-12 col-md-5">\n\
-                 </div>\n\
-                 </div>');
-    $('#table_id').before(div);
-    $('#wea').appendTo('#div');
-    $('.dt-buttons').appendTo('#div');
-    $('#table_id_filter').appendTo('#div2');
-
-    var div2 = $('<div class="row">\n\
-                 <div id="div3" class="col-sm-12 col-md-5">\n\
-                 </div>\n\
-                 <div id="div4" class="col-sm-12 col-md-7">\n\
-                 </div>\n\
-                 </div>');
-    $('#table_id').after(div2);
-    $('#table_id_info').appendTo('#div3');
-    $('#table_id_paginate').appendTo('#div4');
-
-    // $('.dt-buttons').addClass('mb-2');
-
-    $('.dt-buttons button').removeClass('btn-secondary');
-    $('.dt-buttons button').addClass('btn-primary');
-}
-
-function date() {
-    var now = new Date();
-    var day = ("0" + now.getDate()).slice(-2);
-    var month = ("0" + (now.getMonth() + 1)).slice(-2);
-    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
-    $('#fechaHora').val(today);
-    
-    /*
-    Date.prototype.toDateInputValue = (function() {
-        var local = new Date(this);
-        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-        return local.toJSON().slice(0,10);
-    });
-    $('#fechaHora2').val(new Date().toDateInputValue());
-    */       
 }
 
 /*************** weas ***************/
