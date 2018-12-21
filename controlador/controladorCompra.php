@@ -13,7 +13,7 @@ $serieComprobante = isset($_POST['serieComprobante']) ? clearString($_POST['seri
 $numComprobante = isset($_POST['numComprobante']) ? clearString($_POST['numComprobante']) : '';
 $fechaHora = isset($_POST['fechaHora']) ? clearString($_POST['fechaHora']) : '';
 $impuesto = isset($_POST['impuesto']) ? clearString($_POST['impuesto']) : '';
-$granTotal = isset($_POST['granTotal2']) ? clearString($_POST['granTotal2']) : '';
+$granTotal2 = isset($_POST['granTotal2']) ? clearString($_POST['granTotal2']) : '';
 
 $objDaoCom = new Compra();
 $action = $_GET['action'];
@@ -79,7 +79,7 @@ switch($action) {
                             '<span id="totalImporte_'. $obj->id_articulo .'">'. number_format($obj->cantidad * $obj->precio_compra, 2, ".", "") .'</span>' .
                         '</td>' .
                         '<td>' .
-                            '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar(' . $obj->id_articulo . ');">Eliminar</button>' .
+                            '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar2();">Eliminar</button>' .
                         '</td>' .
                     '</tr>';
         }
@@ -94,7 +94,7 @@ switch($action) {
                 $cantidad = $_POST['cantidad'];
                 $precioCompra = $_POST['precioCompra'];
                 $precioVenta = $_POST['precioVenta'];
-                $respuesta = $objDaoCom->guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $granTotal,
+                $respuesta = $objDaoCom->guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $granTotal2,
                                                  $idArticulo, $cantidad, $precioCompra, $precioVenta);
                 echo $respuesta ? 'Compra creada con éxito' : 'No se pudo crear compra';
             } else {

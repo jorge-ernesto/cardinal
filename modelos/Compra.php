@@ -38,10 +38,10 @@ class Compra {
         return execute($sql);
     }
 
-    public function guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $granTotal,
+    public function guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $granTotal2,
                             $idArticulo, $cantidad, $precioCompra, $precioVenta) {
         $sql = "insert into compras (id_proveedor,id_usuario,tipo_comprobante,serie_comprobante,num_comprobante,fecha_hora,impuesto,total_compra,estado)
-                values('$idProveedor','$idUsuario','$tipoComprobante','$serieComprobante','$numComprobante','$fechaHora','$impuesto','$granTotal','Aceptado')";
+                values('$idProveedor','$idUsuario','$tipoComprobante','$serieComprobante','$numComprobante','$fechaHora','$impuesto','$granTotal2','Aceptado')";
         $lastId = executeWithFindByLastId($sql);
         // return execute($sql);
 

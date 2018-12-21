@@ -239,6 +239,21 @@ function limpiarForm() {
     $('#tipoComprobante').val($('option:first', select).val());
 }
 
+function cancelarCompra() {
+    $('#id').val('');
+    $('#impuesto').val('0');
+    $('#idProveedor').val($('option:first', select).val());
+    $('#tipoComprobante').val($('option:first', select).val());
+    
+    $('tr[id^="row_"]').each(function() {
+        $(this).remove();
+    });
+    calcularGranTotal();
+    
+    $('#granTotal').text('Total');
+    $('#granTotal2').val('');
+}
+
 function mostrarForm(posta) {
     if (posta == true) {
         $('#listadoRegistros').hide();
@@ -252,23 +267,15 @@ function mostrarForm(posta) {
 }
 
 function cancelarForm() {
-    limpiarForm();
+    cancelarCompra(); // limpiarForm();
     mostrarForm(false);
-}
-
-function cancelarCompra() {
-    $('#id').val('');
-    $('#impuesto').val('0');
-    $('#idProveedor').val($('option:first', select).val());
-    $('#tipoComprobante').val($('option:first', select).val());
     
-    $('tr[id^="row_"]').each(function() { // Referenciamos cada input que tenga name="item_id[]"        
-        $(this).remove();
-    });
-    calcularGranTotal();
-    
-    $('#granTotal').text('Total');
-    $('#granTotal2').val('');
+    /****/
+                
+    $('#impuesto').attr('readonly', false);
+    $('#divArticulos').show();
+    $('#crear').show();  
+    $('#cancelarCompra').show();
 }
 
 function wea() {
@@ -353,7 +360,11 @@ function agregar(id, nombre) {
 function eliminar(id) {                        
     $('#row_' + id).remove();
     calcularGranTotal();
-}  
+} 
+
+function eliminar2() {
+    swal('Error: No puedes eliminar el detalle de la compra', 'You clicked the button!', 'error')
+}
 
 function calcularImporte(id) {
     var precio = $('#precioCompra_' + id).val();
