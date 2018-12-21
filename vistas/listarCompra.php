@@ -44,7 +44,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                             <th>numero</th>
                                             <th>impuesto</th>
                                             <th>total</th>
-                                            <th>editar</th>
+                                            <th>detalle</th>
                                             <th>anular</th>
                                             <th>estado</th>
                                         </tr>
@@ -123,7 +123,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                         <input type="number" name="impuesto" value="0" min="0" max="100" id="impuesto" class="form-control" required> <!-- required -->
                                     </div>
                                 </div>
-                                <div class="row form-group">
+                                <div id="divArticulos" class="row form-group">
                                     <label for="productos" class="col-form-label col-md-2">Artículos:</label>
                                     <div class="col-md-5">
                                         <a class="btn" style="border-color: #773CB8; color: #773CB8;" href="javascript:ver()">Artículos</a>

@@ -64,10 +64,20 @@ function buscar(id) {
         data = JSON.parse(data);
 
         mostrarForm(true);
-        $('#id').val(data.id);
-        $('#nombre').val(data.nombre);
-        $('#descripcion').val(data.descripcion);
-    });
+        $('#id').val(data.id);        
+        $('#idProveedor').val(data.id_proveedor); $('#idProveedor').selectpicker('refresh');
+        $('#tipoComprobante').val(data.tipo_comprobante); $('#tipoComprobante').selectpicker('refresh');        
+        $('#serieComprobante').val(data.serie_comprobante);
+        $('#numComprobante').val(data.num_comprobante);
+        $('#fechaHora').val(data.fecha); // fecha es fecha_hora en la tabla, fue formateada en la consulta
+        $('#impuesto').val(data.impuesto);
+                
+        /****/
+                
+        $('#impuesto').attr('readonly', true);
+        $('#divArticulos').hide();
+        $('#crear').hide();        
+    });        
 }
 
 $('#formulario').on('submit', function(e) {

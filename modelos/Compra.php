@@ -7,23 +7,36 @@ class Compra {
     public function __construct() { }
 
     public function listar() {
-        $sql = "select       c.id,date(c.fecha_hora) as fecha,p.nombre as proveedor,u.nombre as usuario,
-                             c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
-                             c.impuesto,c.total_compra,c.estado
-                from         compras c
-                inner join   personas p   on c.id_proveedor = p.id
-                inner join   usuarios u   on c.id_usuario = u.id";
-        return execute($sql);
-    }
-
-    public function buscar($id) {
-        $sql = "select       c.id,date(c.fecha_hora),p.nombre as proveedor,u.nombre as usuario,
+        $sql = "select       c.id,date(c.fecha_hora) as fecha,c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
                              c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
                              c.impuesto,c.total_compra,c.estado
                 from         compras c
                 inner join   personas p   on c.id_proveedor = p.id
                 inner join   usuarios u   on c.id_usuario = u.id
-                where        c.id = '$id'";
+                order by     c.id";
+        return execute($sql);
+    }
+
+    public function buscar($id) {
+        $sql = "select       c.id,date(c.fecha_hora) as fecha,c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
+                             c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
+                             c.impuesto,c.total_compra,c.estado
+                from         compras c
+                inner join   personas p   on c.id_proveedor = p.id
+                inner join   usuarios u   on c.id_usuario = u.id
+                where        c.id = '$id'
+                order by     c.id";
+        return findById($sql);
+    }
+    
+    public function buscarDetalle($id) {
+        $sql = "select       a.nombre,dc.precio_compra,dc.precio_venta,dc.cantidad
+                             dc.id_articulo
+                from         detalle_compras dc
+                inner join   articulos a   
+                on           dc.id_articulo = a.id
+                where        dc.id_compra = '$id'
+                order by     dc.id";
         return findById($sql);
     }
 

@@ -34,7 +34,7 @@ switch($action) {
                 '6' => $obj->num_comprobante,
                 '7' => $obj->impuesto,
                 '8' => $obj->total_compra,
-                '9' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">editar</a>',
+                '9' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">detalle</a>',
                 '10' => ($obj->estado == "Aceptado") ?
                        '<a class="btn btn-sm" style="background-color: #773CB8; color: #fff;" href="javascript:anular(' . $obj->id . ')">anular</a>' :
                        '<h6><span class="badge badge-outline-dark">Anulado</span></h6>',
@@ -56,6 +56,33 @@ switch($action) {
     case 'buscar';
         $respuesta = $objDaoCom->buscar($id);
         echo json_encode($respuesta);
+    break;
+
+    case 'buscarDetalle';
+        $respuesta = $objDaoCom->buscarDetalle($id);
+        while ($obj = $respuesta->fetch_object()) {
+            echo '  <tr id="row_'+ $obj->id_articulo +'">' +
+                        '<td class="d-none">' +
+                            '<input type="hidden" name="item_id[]" value="'+ $obj->id_articulo +'"></input>' +
+                        '</td>' +
+                        '<td>'+ $obj->nombre +'</td>' +
+                        '<td style="width: 150px;">' +
+                            '<input class="form-control col-sm-8" id="precioCompra_'+ $obj->id_articulo +'" type="number" name="precioCompra[]" value="1" min="1" step="any" onchange="calcularImporte(' + id + ');" required></input>' +
+                        '</td>' +
+                        '<td style="width: 150px;">' +
+                            '<input class="form-control col-sm-8" id="precioVenta_'+ $obj->id_articulo +'" type="number" name="precioVenta[]" value="1" min="1" step="any" required></input>' +
+                        '</td>' +
+                        '<td style="width: 120px;">' +
+                            '<input class="form-control col-sm-8" id="cantidad_'+ $obj->id_articulo +'" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(' + id + ');" required></input>' +
+                        '</td>' +
+                        '<td>' +
+                            '<span id="totalImporte_'+ $obj->id_articulo +'">1</span>' +
+                        '</td>' +
+                        '<td>' +
+                            '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar(' + $obj->id_articulo + ');">Eliminar</button>' +
+                        '</td>' +
+                    '</tr>';
+        }
     break;
 
     case 'guardar':
