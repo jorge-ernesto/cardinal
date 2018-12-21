@@ -209,7 +209,7 @@ function limpiarForm() {
 //    $('#serieComprobante').val('');
 //    $('#numComprobante').val('');
 //    $('#fechaHora').val('');
-//    $('#impuesto').val('');
+    $('#impuesto').val('0');
 
     $('#idProveedor').val($('option:first', select).val());
     $('#tipoComprobante').val($('option:first', select).val());
@@ -232,7 +232,9 @@ function cancelarForm() {
     mostrarForm(false);
 }
 
-function cancelarCompra() {    
+function cancelarCompra() {
+    $('#id').val('');
+    $('#impuesto').val('0');
     $('#idProveedor').val($('option:first', select).val());
     $('#tipoComprobante').val($('option:first', select).val());
     
