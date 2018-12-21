@@ -30,14 +30,12 @@ class Compra {
     }
     
     public function buscarDetalle($id) {
-        $sql = "select       a.nombre,dc.precio_compra,dc.precio_venta,dc.cantidad
-                             dc.id_articulo
+        $sql = "select       a.nombre,dc.precio_compra,dc.precio_venta,dc.cantidad,dc.id_articulo
                 from         detalle_compras dc
-                inner join   articulos a   
-                on           dc.id_articulo = a.id
+                inner join   articulos a on dc.id_articulo = a.id
                 where        dc.id_compra = '$id'
                 order by     dc.id";
-        return findById($sql);
+        return execute($sql);
     }
 
     public function guardar($idProveedor, $idUsuario, $tipoComprobante, $serieComprobante, $numComprobante, $fechaHora, $impuesto, $granTotal,

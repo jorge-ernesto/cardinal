@@ -61,26 +61,26 @@ switch($action) {
     case 'buscarDetalle';
         $respuesta = $objDaoCom->buscarDetalle($id);
         while ($obj = $respuesta->fetch_object()) {
-            echo '  <tr id="row_'+ $obj->id_articulo +'">' +
-                        '<td class="d-none">' +
-                            '<input type="hidden" name="item_id[]" value="'+ $obj->id_articulo +'"></input>' +
-                        '</td>' +
-                        '<td>'+ $obj->nombre +'</td>' +
-                        '<td style="width: 150px;">' +
-                            '<input class="form-control col-sm-8" id="precioCompra_'+ $obj->id_articulo +'" type="number" name="precioCompra[]" value="1" min="1" step="any" onchange="calcularImporte(' + id + ');" required></input>' +
-                        '</td>' +
-                        '<td style="width: 150px;">' +
-                            '<input class="form-control col-sm-8" id="precioVenta_'+ $obj->id_articulo +'" type="number" name="precioVenta[]" value="1" min="1" step="any" required></input>' +
-                        '</td>' +
-                        '<td style="width: 120px;">' +
-                            '<input class="form-control col-sm-8" id="cantidad_'+ $obj->id_articulo +'" type="number" name="cantidad[]" value="1" min="1" onchange="calcularImporte(' + id + ');" required></input>' +
-                        '</td>' +
-                        '<td>' +
-                            '<span id="totalImporte_'+ $obj->id_articulo +'">1</span>' +
-                        '</td>' +
-                        '<td>' +
-                            '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar(' + $obj->id_articulo + ');">Eliminar</button>' +
-                        '</td>' +
+            echo '  <tr id="row_'. $obj->id_articulo .'">' .
+                        '<td class="d-none">' .
+                            '<input type="hidden" name="item_id[]" value="'. $obj->id_articulo .'"></input>' .
+                        '</td>' .
+                        '<td>'. $obj->nombre .'</td>' .
+                        '<td style="width: 150px;">' .
+                            '<input class="form-control col-sm-8" id="precioCompra_'. $obj->id_articulo .'" type="number" name="precioCompra[]" value="' . $obj->precio_compra . '" min="1" step="any" onchange="calcularImporte(' . $obj->id_articulo . ');" required></input>' .
+                        '</td>' .
+                        '<td style="width: 150px;">' .
+                            '<input class="form-control col-sm-8" id="precioVenta_'. $obj->id_articulo .'" type="number" name="precioVenta[]" value="' . $obj->precio_venta . '" min="1" step="any" required></input>' .
+                        '</td>' .
+                        '<td style="width: 120px;">' .
+                            '<input class="form-control col-sm-8" id="cantidad_'. $obj->id_articulo .'" type="number" name="cantidad[]" value="' . $obj->cantidad . '" min="1" onchange="calcularImporte(' . $obj->id_articulo . ');" required></input>' .
+                        '</td>' .
+                        '<td>' .
+                            '<span id="totalImporte_'. $obj->id_articulo .'">'. number_format($obj->cantidad * $obj->precio_compra, 2, ".", "") .'</span>' .
+                        '</td>' .
+                        '<td>' .
+                            '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar(' . $obj->id_articulo . ');">Eliminar</button>' .
+                        '</td>' .
                     '</tr>';
         }
     break;

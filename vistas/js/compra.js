@@ -76,8 +76,14 @@ function buscar(id) {
                 
         $('#impuesto').attr('readonly', true);
         $('#divArticulos').hide();
-        $('#crear').hide();        
-    });        
+        $('#crear').hide();  
+        $('#cancelarCompra').hide();
+    });
+    
+    $.post('../controlador/controladorCompra.php?action=buscarDetalle', {id:id}, function(data) {        
+        $('#cargarDetalleVenta').html(data);                        
+        calcularImporte(id);
+    });
 }
 
 $('#formulario').on('submit', function(e) {

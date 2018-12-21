@@ -181,7 +181,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
                                 <h4>
                                     <button type="submit" id="crear" class="btn" style="background-color: #773CB8; color: #fff;">Crear Compra</button>
-                                    <a class="btn" style="background-color: #773CB8; color: #fff;" href="javascript:cancelarCompra()">Cancelar Compra</a>
+                                    <a id="cancelarCompra" class="btn" style="background-color: #773CB8; color: #fff;" href="javascript:cancelarCompra()">Cancelar Compra</a>
                                     <a class="btn" style="background-color: #773CB8; color: #fff;" href="javascript:cancelarForm()">Atras</a>
                                 </h4>
 
