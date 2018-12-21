@@ -86,14 +86,23 @@ function guardar(e) {
         contentType: false,
         processData: false,
         success: function(data) {
-            cancelarCompra();
-            mostrarForm(false);
-            tabla.ajax.reload();
-            if (data == 'Compra creada con éxito') {                
-                swal(data, 'You clicked the button!', 'success')
-            } else {                
+            if (data == 'Error: La compra debe tener productos para ser creada') {
+                cancelarCompra(); // limpiarForm();
+                $('#crear').attr('disabled', false);
+                tabla.ajax.reload();
+                tabla2.ajax.reload();
                 swal(data, 'You clicked the button!', 'error')
-            }
+            } else {
+                cancelarCompra(); // limpiarForm();
+                mostrarForm(false);
+                tabla.ajax.reload();
+                tabla2.ajax.reload();
+                if (data == 'Compra creada con éxito') {                
+                    swal(data, 'You clicked the button!', 'success')
+                } else {                
+                    swal(data, 'You clicked the button!', 'error')
+                }
+            }            
         }
     });       
 }
@@ -193,7 +202,6 @@ function listarArticulosActivos() {
     $('#table_id_2').after(div4);
     $('#table_id_2_info').appendTo('#div7');
     $('#table_id_2_paginate').appendTo('#div8');    
-
 
     $('#table_id_2_wrapper .dt-buttons button').removeClass('btn-secondary');
     $('#table_id_2_wrapper .dt-buttons button').addClass('btn-primary');

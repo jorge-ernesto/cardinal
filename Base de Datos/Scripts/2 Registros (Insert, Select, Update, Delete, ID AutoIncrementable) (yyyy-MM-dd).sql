@@ -46,3 +46,27 @@ insert into usuarios_permisos (id_usuario,id_permiso) values(2,2);
 insert into usuarios_permisos (id_usuario,id_permiso) values(2,3);
 
 commit;
+
+delimiter //
+CREATE OR REPLACE TRIGGER tr_updateStockCompra AFTER INSERT ON detalle_compras /* Después de insertar en detalle_compras */
+FOR EACH ROW
+BEGIN
+    UPDATE articulos a
+    SET    a.stock = a.stock + new.cantidad
+    WHERE  a.id = new.id_articulo;
+END;//
+delimiter ;
+
+mysql> delimiter //
+mysql> CREATE TRIGGER upd_check BEFORE UPDATE ON account
+       FOR EACH ROW
+       BEGIN
+           IF NEW.amount < 0 THEN
+               SET NEW.amount = 0;
+           ELSEIF NEW.amount > 100 THEN
+               SET NEW.amount = 100;
+           END IF;
+       END;//
+mysql> delimiter ;
+
+commit;
