@@ -280,14 +280,22 @@ function limpiarForm() {
 
 function cancelarCompra() {
     $('#id').val('');
+    $('#serieComprobante').val('Synthesis 001');
+    $('#numComprobante').val('Autogenerado');
+    date();
     $('#impuesto').val('0');
+    
     $('#idProveedor').val($('option:first', select).val());
     $('#tipoComprobante').val($('option:first', select).val());
+    
+    /*****/
     
     $('tr[id^="row_"]').each(function() {
         $(this).remove();
     });
-    calcularGranTotal();
+    calcularGranTotal();        
+    
+    /*****/
     
     $('#granTotal').text('Total');
     $('#granTotal2').val('');
