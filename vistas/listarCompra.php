@@ -92,7 +92,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="tipoComprobante" class="col-form-label col-md-2">Tipo de comprobante:</label>
                                     <div class="col-md-5">
-                                        <select name="tipoComprobante" id="tipoComprobante" class="form-control selectpicker" data-live-search="true">
+                                        <select name="tipoComprobante" id="tipoComprobante" class="form-control selectpicker" data-live-search="true" onchange="cambiaImpuesto();">
                                             <option value="Boleta">Boleta</option>
                                             <option value="Factura">Factura</option>
                                             <option value="Ticket">Ticket</option>
@@ -120,7 +120,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="impuesto" class="col-form-label col-md-2">Impuesto:</label>
                                     <div class="col-md-5">
-                                        <input type="number" name="impuesto" value="18" min="18" max="100" id="impuesto" class="form-control" required> <!-- required -->
+                                        <input type="number" name="impuesto" value="0" min="0" max="100" id="impuesto" class="form-control" required> <!-- required -->
                                     </div>
                                 </div>
                                 <div class="row form-group">

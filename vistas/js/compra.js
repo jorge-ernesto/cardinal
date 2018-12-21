@@ -274,13 +274,20 @@ function wea() {
 }
 
 function date() {
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+    $('#fechaHora').val(today);
+    
+    /*
     Date.prototype.toDateInputValue = (function() {
         var local = new Date(this);
         local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
         return local.toJSON().slice(0,10);
     });
-
-    $('#fechaHora').val(new Date().toDateInputValue());
+    $('#fechaHora2').val(new Date().toDateInputValue());
+    */       
 }
 
 /*************** weas ***************/
@@ -312,7 +319,6 @@ function agregar(id, nombre) {
                             '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar(' + id + ');">Eliminar</button>' +
                         '</td>' +
                     '</tr>';
-
     $('#cargarDetalleVenta').append(response);            
         
     calcularImporte(id);
@@ -355,4 +361,13 @@ function incrementaCantidad(id) {
     var cantidad = $('#cantidad_' + id).val() ? parseInt($('#cantidad_' + id).val()) : 0;
     $('#cantidad_' + id).val(++cantidad);
     calcularImporte(id);
+}
+
+function cambiaImpuesto() {
+    var tipoComprobante = $("#tipoComprobante option:selected").text();
+    if (tipoComprobante == 'Factura') {
+        $("#impuesto").val("18"); 
+    } else {
+        $("#impuesto").val("0"); 
+    }
 }
