@@ -165,7 +165,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                             <th>Precio venta</th>
                                             <th>Cantidad</th>
                                             <th>Total</th>
-                                            <th>Eliminar</th>
+                                            <th id="thEliminar">Eliminar</th>
                                         </tr>
                                     </thead>
                                     <tbody id="cargarDetalleVenta">

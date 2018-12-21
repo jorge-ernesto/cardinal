@@ -98,6 +98,7 @@ function buscar(id) {
                 
         $('#impuesto').attr('readonly', true);
         $('#divArticulos').hide();
+        $('#thEliminar').hide();
         $('#crear').hide();  
         $('#cancelarCompra').hide();
     });
@@ -321,6 +322,7 @@ function cancelarForm() {
                 
     $('#impuesto').attr('readonly', false);
     $('#divArticulos').show();
+    $('#thEliminar').show();
     $('#crear').show();  
     $('#cancelarCompra').show();
 }
@@ -362,10 +364,6 @@ function agregar(id, nombre) {
 function eliminar(id) {                        
     $('#row_' + id).remove();
     calcularGranTotal();
-} 
-
-function eliminar2() {
-    swal('Error: No puedes eliminar el detalle de la compra', 'You clicked the button!', 'error')
 }
 
 function calcularImporte(id) {

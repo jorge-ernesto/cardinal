@@ -77,10 +77,7 @@ switch($action) {
                         '</td>' .
                         '<td>' .
                             '<span id="totalImporte_'. $obj->id_articulo .'">'. number_format($obj->cantidad * $obj->precio_compra, 2, ".", "") .'</span>' .
-                        '</td>' .
-                        '<td>' .
-                            '<button type="button" class="btn btn-sm btn-danger" onclick="eliminar2();">Eliminar</button>' .
-                        '</td>' .
+                        '</td>' .                        
                     '</tr>';
         }
     break;
