@@ -137,7 +137,7 @@ switch($action) {
 
         $respuesta = $objDaoPer->login($username, $cipher);
         $obj = $respuesta->fetch_object();
-        if (isset($obj)) { // Determina si una variable no es null
+        if (isset($obj)) { // Determina si una variable está definida y no es null
             $_SESSION['id'] = $obj->id; // Declaramos variables de sesión
             $_SESSION['nombre'] = $obj->nombre;
             $_SESSION['username'] = $obj->username;

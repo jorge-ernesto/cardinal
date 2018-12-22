@@ -3,7 +3,7 @@
 require_once '../modelos/Categoria.php';
 require_once '../conexion/conexion.php'; // conexion.php no es una clase y no se puede instanciar, clearString
 
-$id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Determina si una variable no es null // Obtiene la variable desde categoria.js para poder buscar, guardar, desactivar y activar
+$id = isset($_POST['id']) ? clearString($_POST['id']) : ''; // Determina si una variable está definida y no es null // Obtiene la variable desde categoria.js para poder buscar, guardar, desactivar y activar
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
 $descripcion = isset($_POST['descripcion']) ? clearString($_POST['descripcion']) : '';
 
