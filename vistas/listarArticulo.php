@@ -148,8 +148,8 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <svg id="barcode"></svg>
                             </div>
                             <div class="modal-footer">
-                                <a class="btn btn-sm btn-success" href="javascript:imprimirBarcode()">Imprimir</a>
-                                <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Atras</button>
+                                <a class="btn btn-sm btn-primary" href="javascript:imprimirBarcode()">Imprimir</a>
+                                <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Atras</button>
                             </div>
                         </div>
                     </div>
