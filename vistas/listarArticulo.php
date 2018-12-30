@@ -111,7 +111,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     </div>
                                 </div>
                                 <div class="form-group row clearfix">
-			                        <label for="descripcion" class="col-form-label col-md-2">Imagén:</label>
+			                        <label for="file" class="col-form-label col-md-2">Imagén:</label>
                                     <div class="col-md-5">
                                         <div class="custom-file">
                                             <input type="file" name="file" id="file" class="custom-file-input"> <!-- required --> <!-- value="", genera error -->
