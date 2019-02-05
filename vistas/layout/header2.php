@@ -6,11 +6,15 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">                
-                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                <li class="nav-item">
-                    <a class="nav-link disabled d-none" href="#">Disabled</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link active" href="home.php">Home</a>
                 </li>
+                <li class="nav-item"><a class="nav-link" href="listarCategoria.php">Categorías</a></li>
+                <li class="nav-item"><a class="nav-link" href="listarArticulo.php">Artículos</a></li>
+                <li class="nav-item"><a class="nav-link" href="listarProveedor.php">Proveedores</a></li>
+                <li class="nav-item"><a class="nav-link" href="listarPermiso.php">Permisos</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>                
             </ul>
             <!--
             <form class="form-inline my-2 my-lg-0">
@@ -42,16 +46,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link active" href="home.php">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="home.php">Home</a>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="listarCategoria.php">Categorías</a></li>
                 <li class="nav-item"><a class="nav-link" href="listarArticulo.php">Artículos</a></li>
                 <li class="nav-item"><a class="nav-link" href="listarProveedor.php">Proveedores</a></li>
                 <li class="nav-item"><a class="nav-link" href="listarPermiso.php">Permisos</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                <li class="nav-item">
-                    <a class="nav-link disabled d-none" href="#">Disabled</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>                
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
