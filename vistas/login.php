@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php // require 'layout/header.php'; ?>
-    <?php require 'layout/header2.php'; ?>
+    <?php require 'layout/headerLogin.php'; ?>
 
     <div class="container">
         <div class="row justify-content-center mt-3 pt-2"> <!-- mt-5 pt5 -->
