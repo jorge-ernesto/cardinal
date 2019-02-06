@@ -87,7 +87,7 @@ if (strlen(session_id()) < 1) { // Si no existe ningun variable de session, vali
                             </li>';
                     }                
                 ?>                
-                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>                
+                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
             </ul>
             <!--
             <form class="form-inline my-2 my-lg-0">
@@ -99,7 +99,7 @@ if (strlen(session_id()) < 1) { // Si no existe ningun variable de session, vali
                 <img src="../files/usuarios/<?php echo $_SESSION['imagen'] ?>" class="mr-2" width="50"></img>
             <?php } ?>
             <ul class="navbar-nav navbar-right">                
-                <li class="dropdown"> <!-- dropdown show -->                                        
+                <li class="dropdown"> <!-- dropdown show --> <!-- show, mantiene hover sobre el boton -->
                     <a id="dropdownMenuLink" class="btn btn-outline-primary dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['nombre']; ?></a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                        

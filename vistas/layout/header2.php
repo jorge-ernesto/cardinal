@@ -6,15 +6,8 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link active" href="home.php">Home</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="listarCategoria.php">Categorías</a></li>
-                <li class="nav-item"><a class="nav-link" href="listarArticulo.php">Artículos</a></li>
-                <li class="nav-item"><a class="nav-link" href="listarProveedor.php">Proveedores</a></li>
-                <li class="nav-item"><a class="nav-link" href="listarPermiso.php">Permisos</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>                
+            <ul class="navbar-nav mr-auto">                
+                <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
             </ul>
             <!--
             <form class="form-inline my-2 my-lg-0">
@@ -23,7 +16,7 @@
             </form>
             -->
             <ul class="navbar-nav navbar-right">                
-                <li class="dropdown"> <!-- dropdown show -->                                        
+                <li class="dropdown"> <!-- dropdown show --> <!-- show, mantiene hover sobre el boton -->
                     <a id="dropdownMenuLink" class="btn btn-outline-primary dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign Out</a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">                        
