@@ -6,7 +6,7 @@ class Compra {
 
     public function __construct() { }
 
-    public function listar() {
+    public function listar() { // date, obtiene solo la fecha, no la hora
         $sql = "select       c.id,date(c.fecha_hora) as fecha,c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
                              c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
                              c.impuesto,c.total_compra,c.estado

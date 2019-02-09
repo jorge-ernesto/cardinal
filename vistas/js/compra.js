@@ -361,7 +361,7 @@ function agregar(id, nombre) {
     calcularImporte(id);
 }
 
-function eliminar(id) {                        
+function eliminar(id) {
     $('#row_' + id).remove();
     calcularGranTotal();
 }
