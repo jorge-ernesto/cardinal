@@ -25,7 +25,8 @@ $('#formularioLogin').on('submit', function(e) {
                 `
             }).then((result) => {
                 if (result.value) {
-                    $(location).attr('href', 'listarCategoria.php')
+                    $(location).attr('href', 'listarCategoria.php');
+                    // location.href='listarCategoria.php';
                 }
             })
         }
