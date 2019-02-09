@@ -57,10 +57,10 @@ function listar() {
                  <div id="div2" class="col-sm-12 col-md-5">\n\
                  </div>\n\
                  </div>');
-    $('#table_id').before(div);
-    $('#wea').appendTo('#div');
-    $('.dt-buttons').appendTo('#div');
-    $('#table_id_filter').appendTo('#div2');
+    $('#table_id').before(div);              // Creamos el div antes de id='table_id'
+    $('#wea').appendTo('#div');              // Agregamos id='wea' dentro del div
+    $('.dt-buttons').appendTo('#div');       // Agregamos class="dt-buttons" dentro del div
+    $('#table_id_filter').appendTo('#div2'); // Agregamos id="table_id_filter" dentro del div
 
     var div2 = $('<div class="row">\n\
                  <div id="div3" class="col-sm-12 col-md-5">\n\
@@ -68,12 +68,12 @@ function listar() {
                  <div id="div4" class="col-sm-12 col-md-7">\n\
                  </div>\n\
                  </div>');
-    $('#table_id').after(div2);
-    $('#table_id_info').appendTo('#div3');
-    $('#table_id_paginate').appendTo('#div4');    
+    $('#table_id').after(div2);                // Creamos el div2 antes de id='table_id'
+    $('#table_id_info').appendTo('#div3');     // Agregamos id="table_id_info" dentro del div2
+    $('#table_id_paginate').appendTo('#div4'); // Agregamos id="table_id_paginate" dentro del div2
 
-    $('.dt-buttons button').removeClass('btn-secondary');
-    $('.dt-buttons button').addClass('btn-primary');
+    $('.dt-buttons button').removeClass('btn-secondary'); // Remueve class="btn-secondary"
+    $('.dt-buttons button').addClass('btn-primary');      // Agrega class="btn-primary"
 }
 
 function buscar(id) {
