@@ -7,9 +7,9 @@ class Compra {
     public function __construct() { }
 
     public function listar() { // date, obtiene solo la fecha, no la hora
-        $sql = "select       c.id,date(c.fecha_hora) as fecha,c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
+        $sql = "select       c.id,c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
                              c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
-                             c.impuesto,c.total_compra,c.estado
+                             date(c.fecha_hora) as fecha,c.impuesto,c.total_compra,c.estado
                 from         compras c
                 inner join   personas p   on c.id_proveedor = p.id
                 inner join   usuarios u   on c.id_usuario = u.id
@@ -18,9 +18,9 @@ class Compra {
     }
 
     public function buscar($id) {
-        $sql = "select       c.id,date(c.fecha_hora) as fecha,c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
+        $sql = "select       c.id,c.id_proveedor,p.nombre as proveedor,c.id_usuario,u.nombre as usuario,
                              c.tipo_comprobante,c.serie_comprobante,c.num_comprobante,
-                             c.impuesto,c.total_compra,c.estado
+                             date(c.fecha_hora) as fecha,c.impuesto,c.total_compra,c.estado
                 from         compras c
                 inner join   personas p   on c.id_proveedor = p.id
                 inner join   usuarios u   on c.id_usuario = u.id
