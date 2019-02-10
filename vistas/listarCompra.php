@@ -36,12 +36,12 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     <thead> <!-- class="thead-dark" -->
                                         <tr>
                                             <th>id</th>
-                                            <th>fecha</th>
                                             <th>proveedor</th>
                                             <th>usuario</th>
                                             <th>comprobante</th>
                                             <th>serie</th>
                                             <th>numero</th>
+                                            <th>fecha</th>
                                             <th>impuesto</th>
                                             <th>total</th>
                                             <th>detalle</th>

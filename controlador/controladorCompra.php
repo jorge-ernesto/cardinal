@@ -25,13 +25,13 @@ switch($action) {
         $listJson = array();
         while ($obj = $respuesta->fetch_object()) {
             $listJson[] = array(
-                '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',
-                '1' => $obj->fecha,
-                '2' => $obj->proveedor,
-                '3' => $obj->usuario,
-                '4' => $obj->tipo_comprobante,
-                '5' => $obj->serie_comprobante,
-                '6' => $obj->num_comprobante,
+                '0' => '<a href="javascript:ver(' . $obj->id . ')">' . $obj->id . '</a>',                
+                '1' => $obj->proveedor,
+                '2' => $obj->usuario,
+                '3' => $obj->tipo_comprobante,
+                '4' => $obj->serie_comprobante,
+                '5' => $obj->num_comprobante,
+                '6' => $obj->fecha,
                 '7' => $obj->impuesto,
                 '8' => $obj->total_compra,
                 '9' => '<a class="btn btn-sm btn-primary" href="javascript:buscar(' . $obj->id . ')">detalle</a>',
