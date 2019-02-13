@@ -181,28 +181,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
 
                         </div>
                     </div>
-                </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h6 class="modal-title" id="exampleModalLabel">Barcode</h6>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body" id="print">
-                                <svg id="barcode"></svg>
-                            </div>
-                            <div class="modal-footer">
-                                <a class="btn btn-sm btn-success" href="javascript:imprimirBarcode()">Imprimir</a>
-                                <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Atras</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>                
 
                 <?php require 'layout/footer.php'; ?>
 
