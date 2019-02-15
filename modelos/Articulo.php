@@ -58,6 +58,7 @@ class Articulo {
                 order by   a.id";
         return execute($sql);
     }
+    
 }
 
 ?>

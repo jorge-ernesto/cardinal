@@ -54,6 +54,7 @@ class Categoria {
                 order by id";
         return execute($sql);
     }
+    
 }
 
 ?>
