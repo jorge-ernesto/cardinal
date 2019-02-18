@@ -1,6 +1,6 @@
 <?php 
 
-if (strlen(session_id()) < 1) { // Si no existe ningun variable de session, validamos por que headder es llamado en todas las vistas 
+if (strlen(session_id()) < 1) { // Si no existe ningun variable de session, validamos por que header es llamado en todas las vistas 
     session_start(); // Iniciamos las variables de session
 }
 
