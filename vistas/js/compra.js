@@ -187,7 +187,7 @@ function date() {
         local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
         return local.toJSON().slice(0,10);
     });
-    $('#fechaHora2').val(new Date().toDateInputValue());
+    $('#fechaHora').val(new Date().toDateInputValue());
     */       
 }
 
