@@ -268,7 +268,6 @@ function listarArticulosActivos() {
 function limpiarForm() {
     $('#id').val('');
 //    $('#idProveedor').val('');
-//    $('#idUsuario').val('');
 //    $('#tipoComprobante').val('');
 //    $('#serieComprobante').val('');
 //    $('#numComprobante').val('');
