@@ -1,18 +1,18 @@
-/*Si no se especifica el ID, la propiedad AutoIncrementable se ejecuta*/
+/* Si no se especifica el ID, la propiedad AutoIncrementable se ejecuta */
 insert into categorias (nombre,descripcion,estado) values('Categoría 1','descripción 1',1);
 insert into categorias (nombre,descripcion,estado) values('Categoría 2','descripción 2',1);
 insert into categorias (nombre,descripcion,estado) values('Categoría 3','descripción 3',1);
 insert into categorias (nombre,descripcion,estado) values('Categoría 4','descripción 4',1);
 insert into categorias (nombre,descripcion,estado) values('Categoría 5','descripción 5',1);
 
-/*Si no se especifica el ID, la propiedad AutoIncrementable se ejecuta*/
+/* Si no se especifica el ID, la propiedad AutoIncrementable se ejecuta */
 insert into categorias values(null,'Categoría 1','descripción 1',1);
 insert into categorias values(null,'Categoría 2','descripción 2',1);
 insert into categorias values(null,'Categoría 3','descripción 3',1);
 insert into categorias values(null,'Categoría 4','descripción 4',1);
 insert into categorias values(null,'Categoría 5','descripción 5',1);
 
-/*Si se especifica el ID, la propiedad AutoIncrementable no se ejecuta, esto conlleva a crear tu propio Procedimiento Almacenado para generar el ID*/
+/* Si se especifica el ID, la propiedad AutoIncrementable no se ejecuta, esto conlleva a crear tu propio Procedimiento Almacenado para generar el ID */
 insert into categorias values(1,'Categoría 1','descripción 1',1);
 insert into categorias values(2,'Categoría 2','descripción 2',1);
 insert into categorias values(3,'Categoría 3','descripción 3',1);
@@ -47,6 +47,7 @@ insert into usuarios_permisos (id_usuario,id_permiso) values(2,3);
 
 commit;
 
+/* Compras */
 delimiter //
 CREATE OR REPLACE TRIGGER tr_updateStockCompra AFTER INSERT ON detalle_compras /* Después de insertar en detalle_compras */
 FOR EACH ROW
@@ -68,5 +69,3 @@ mysql> CREATE TRIGGER upd_check BEFORE UPDATE ON account
            END IF;
        END;//
 mysql> delimiter ;
-
-commit;
