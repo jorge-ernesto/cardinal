@@ -23,13 +23,13 @@ function findById($sql) {
 
 function executeWithFindByLastId($sql) {
     global $conexion;
-    $query = $conexion->query($sql);
+    $conexion->query($sql);
     return $conexion->insert_id; // Retornamos haciendo uso de la setencia insert_id, la llave primaria del ultimo registro insertado
 }
 
 function clearString($str) {
     global $conexion;
-    $str = mysqli_real_escape_string($conexion, trim($str)); // Escapamos los caracteres especiales de una cadena, usamos la codificación utf8
+    $str = mysqli_real_escape_string($conexion,trim($str)); // Escapamos los caracteres especiales de una cadena, usamos la codificación utf8
     return htmlspecialchars($str); // Retornamos la variable $str
 }
 
