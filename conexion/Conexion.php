@@ -4,7 +4,7 @@ $conexion = new mysqli('localhost','root','','cardinal');
 mysqli_query($conexion, 'set names utf8'); // En php es utf8, no utf-8
 
 if (mysqli_connect_errno()) { // Si tenemos un error en la conexión
-    printf('Error estableciendo conexión con la base de datos: ', myqsli_connect_error());
+    printf('Error estableciendo conexión con la base de datos: ',myqsli_connect_error());
     die();
 }
 
