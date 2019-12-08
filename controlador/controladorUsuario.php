@@ -131,7 +131,7 @@ switch($action) {
 
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $cipher = hash("SHA512", $password);
+        $cipher = hash("MD5", $password);
 
         /*****/
 

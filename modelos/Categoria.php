@@ -1,57 +1,57 @@
 <?php
 
-require_once '../conexion/conexion.php';
+require_once "../conexion/conexion.php";
 
 class Categoria {
 
-    public function __construct() { }
+    public function __construct() {         
+    }
 
     public function listar() {
-        $sql = "select   *
-                from     categorias
-                order by id";
+        $sql = "SELECT   * 
+                FROM     categorias 
+                ORDER BY id";        
         return execute($sql);
     }
 
     public function buscar($id) {
-        $sql = "select *
-                from   categorias
-                where  id = '$id'";
+        $sql = "SELECT * 
+                FROM   categorias 
+                WHERE  id = '$id'";        
         return findById($sql);
     }
 
     public function guardar($nombre, $descripcion) {
-        $sql = "insert into categorias (nombre,descripcion,estado)
-                values('$nombre','$descripcion','1')";
+        $sql = "INSERT INTO categorias (nombre,descripcion,estado) VALUES('$nombre','$descripcion','1')";        
         return execute($sql);
     }
 
     public function editar($id, $nombre, $descripcion) {
-        $sql = "update categorias
-                set    nombre = '$nombre',descripcion = '$descripcion'
-                where  id = '$id'";
+        $sql = "UPDATE categorias
+                SET    nombre = '$nombre',descripcion = '$descripcion'
+                WHERE  id = '$id'";
         return execute($sql);
     }
 
     public function desactivar($id) {
-        $sql = "update categorias
-                set    estado = '0'
-                where  id = '$id'";
+        $sql = "UPDATE categorias
+                SET    estado = '0'
+                WHERE  id = '$id'";
         return execute($sql);
     }
 
     public function activar($id) {
-        $sql = "update categorias
-                set    estado = '1'
-                where  id = '$id'";
+        $sql = "UPDATE categorias
+                SET    estado = '1'
+                WHERE  id = '$id'";
         return execute($sql);
     }
 
-    public function select() { // Solo se listan las categorias activas
-        $sql = "select   id,nombre,descripcion
-                from     categorias
-                where    estado = 1
-                order by id";
+    public function select() {
+        $sql = "SELECT   id,nombre,descripcion
+                FROM     categorias
+                WHERE    estado = 1
+                ORDER BY id";
         return execute($sql);
     }
     

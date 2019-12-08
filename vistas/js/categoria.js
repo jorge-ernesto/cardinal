@@ -77,13 +77,15 @@ function listar() {
 }
 
 function buscar(id) {
-    $.post('../controlador/controladorCategoria.php?action=buscar', {id:id}, function(data) {
+    $.post('../controlador/controladorCategoria.php?action=buscar', {id:id}, function(data) {                
         data = JSON.parse(data);
 
         mostrarForm(true);
         $('#id').val(data.id);
         $('#nombre').val(data.nombre);
         $('#descripcion').val(data.descripcion);
+
+        //console.log(data);
     });
 }
 
