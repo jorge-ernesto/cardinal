@@ -3,7 +3,7 @@
 $mysqli = new mysqli('localhost','root','','cardinal');
 mysqli_set_charset($mysqli, "utf8");
 if(mysqli_connect_errno()){
-    printf('Error estableciendo conexión con la base de datos: ',myqsli_connect_error());
+    printf('Error estableciendo conexión con la base de datos: ',mysqli_connect_error());
     die();
 }
 
