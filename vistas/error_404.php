@@ -31,7 +31,7 @@
         </div><!-- .row -->
     </div><!-- .container -->
 
-    <?php require 'layout/cdn.php'; ?>
+    <?php require 'layout/scripts.php'; ?>
 
     <script src="js/login.js"></script>
 </body>

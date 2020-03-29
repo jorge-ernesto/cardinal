@@ -99,7 +99,7 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
         </div><!-- .row -->
     </div><!-- .container -->
 
-    <?php require 'layout/cdn.php'; ?>
+    <?php require 'layout/scripts.php'; ?>
 
     <script src="js/categoria.js"></script>
 </body>

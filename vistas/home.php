@@ -36,7 +36,7 @@ if (!isset($_SESSION['nombre'])) {
         </div><!-- .row -->
     </div><!-- .container -->
 
-    <?php require 'layout/cdn.php'; ?>
+    <?php require 'layout/scripts.php'; ?>
 </body>
 </html>
 
