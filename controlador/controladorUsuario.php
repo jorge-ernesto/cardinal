@@ -74,7 +74,7 @@ switch($action) {
         }
 
         $password = $_POST['password'];
-        $cipher = hash("SHA512", $password);
+        $cipher = hash("MD5", $password);
 
         if (empty($id)) {
             $permisos = $_POST['permisos']; // $permisos es un array con el id de todos los permisos marcados
