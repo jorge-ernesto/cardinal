@@ -6,7 +6,6 @@ if(mysqli_connect_errno()){
     printf('Error estableciendo conexión con la base de datos: ',mysqli_connect_error());
     die();
 }
-
 function execute($sql){
     global $mysqli; //Utilizamos la variable global $mysqli
     $query = $mysqli->query($sql); 
