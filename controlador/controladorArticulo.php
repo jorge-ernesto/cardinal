@@ -1,7 +1,7 @@
 <?php
 
-include_once'../modelos/Articulo.php';
-include_once'../conexion/conexion.php';
+include_once '../modelos/Articulo.php';
+include_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
 $idCategoria = isset($_POST['categoria']) ? clearString($_POST['categoria']) : '';
@@ -83,7 +83,7 @@ switch($action) {
     break;
 
     case 'select';
-        include_once'../modelos/Categoria.php';
+        include_once '../modelos/Categoria.php';
         $objDaoCat = new Categoria();
 
         $respuesta = $objDaoCat->select();

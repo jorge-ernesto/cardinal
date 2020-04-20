@@ -1,7 +1,7 @@
 <?php
 
-include_once'../modelos/Persona.php';
-include_once'../conexion/conexion.php';
+include_once '../modelos/Persona.php';
+include_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
 $tipoPersona = isset($_POST['tipoPersona']) ? clearString($_POST['tipoPersona']) : '';

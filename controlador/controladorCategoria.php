@@ -1,6 +1,6 @@
 <?php
 
-include_once"../modelos/Categoria.php";
+include_once "../modelos/Categoria.php";
 
 $id          = isset($_POST['id']) ? clearString($_POST['id']) : '';                   
 $nombre      = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';

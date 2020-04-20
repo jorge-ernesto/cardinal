@@ -2,8 +2,8 @@
 
 session_start();
 
-include_once'../modelos/Usuario.php';
-include_once'../conexion/conexion.php';
+include_once '../modelos/Usuario.php';
+include_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
 $nombre = isset($_POST['nombre']) ? clearString($_POST['nombre']) : '';
@@ -98,7 +98,7 @@ switch($action) {
     break;
 
     case 'permisos';
-        include_once'../modelos/Permiso.php';
+        include_once '../modelos/Permiso.php';
         $objDaoPer = new Permiso();
 
         /*****/
@@ -124,7 +124,7 @@ switch($action) {
     break;
 
     case 'login';
-        include_once'../modelos/Permiso.php';
+        include_once '../modelos/Permiso.php';
         $objDaoPer = new Permiso();
 
         /*****/

@@ -2,8 +2,8 @@
 
 session_start();
 
-include_once'../modelos/Compra.php';
-include_once'../conexion/conexion.php';
+include_once '../modelos/Compra.php';
+include_once '../conexion/conexion.php';
 
 $id = isset($_POST['id']) ? clearString($_POST['id']) : '';
 $idProveedor = isset($_POST['idProveedor']) ? clearString($_POST['idProveedor']) : '';
@@ -106,7 +106,7 @@ switch($action) {
     break;
 
     case 'selectProveedor':
-        include_once'../modelos/Persona.php';
+        include_once '../modelos/Persona.php';
         $objDaoPer = new Persona();
 
         $respuesta = $objDaoPer->listarProveedor();
@@ -116,7 +116,7 @@ switch($action) {
     break;
     
     case 'listarArticulosActivos':
-        include_once'../modelos/Articulo.php';
+        include_once '../modelos/Articulo.php';
         $objDaoArt = new Articulo();
         
         $respuesta = $objDaoArt->listarArticulosActivos();

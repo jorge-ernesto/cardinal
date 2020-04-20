@@ -1,7 +1,7 @@
 <?php
 
-include_once'../modelos/Permiso.php';
-include_once'../conexion/conexion.php';
+include_once '../modelos/Permiso.php';
+include_once '../conexion/conexion.php';
 
 $objDaoPer = new Permiso();
 $action = $_GET['action'];
