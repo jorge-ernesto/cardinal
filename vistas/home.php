@@ -15,10 +15,10 @@ if (!isset($_SESSION['nombre'])) {
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>App Angular</title>
-    <?php require 'layout/head.php'; ?>
+    <?php include 'layout/head.php'; ?>
 </head>
 <body>
-    <?php require 'layout/header.php'; ?>
+    <?php include 'layout/header.php'; ?>
 
     <div class="container">
         <div class="row justify-content-center mt-3 pt-2"> <!-- mt-5 pt5 -->
@@ -36,7 +36,7 @@ if (!isset($_SESSION['nombre'])) {
         </div><!-- .row -->
     </div><!-- .container -->
 
-    <?php require 'layout/scripts.php'; ?>
+    <?php include 'layout/scripts.php'; ?>
 </body>
 </html>
 

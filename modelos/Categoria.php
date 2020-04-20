@@ -1,6 +1,6 @@
 <?php
 
-require_once "../conexion/conexion.php";
+include_once"../conexion/conexion.php";
 
 class Categoria {
 
