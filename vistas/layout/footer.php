@@ -2,6 +2,7 @@
     <br>
     <hr>
     <img src="vendors/img/angular2.svg" width="109" alt="angular">
+    
     <p>
         Powered by <a href="https://angular.io">Angular</a> y <a href="https://projects.spring.io/spring-boot">Spring Boot</a>
     </p>
