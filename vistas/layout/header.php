@@ -70,6 +70,7 @@ if (strlen(session_id()) < 1) { // Si no existe ningun variable de session, vali
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="listarPermiso.php">Permisos</a>
+                                    <a class="dropdown-item" href="listarCargo.php">Cargos</a>
                                     <a class="dropdown-item" href="listarUsuario.php">Usuarios</a>
                                 </div>
                             </li>';

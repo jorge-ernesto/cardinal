@@ -15,8 +15,8 @@ class Permiso {
 
     public function permisosMarcados($id) {
         $sql = "select *
-                from   usuarios_permisos
-                where  id_usuario = '$id'";
+                from   detalle_cargos
+                where  id_cargo = '$id'";
         return execute($sql);
     }
 
