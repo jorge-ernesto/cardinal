@@ -190,6 +190,7 @@ function limpiarForm() {
     $('#file').val('');
 
     $('#categoria').val($('option:first', select).val());
+    
     $('#fileCurrent').val('');
     $('#fileShow').hide(); $('#fileShow').attr("src" ,"");
 }
