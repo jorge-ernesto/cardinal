@@ -97,29 +97,13 @@ switch($action) {
         echo $respuesta ? 'Usuario activado con éxito' : 'No se puede activar usuario';
     break;
 
-    case 'permisos';
-        include_once '../modelos/Permiso.php';
-        $objDaoPer = new Permiso();
+    case 'select';
+        include_once '../modelos/Cargo.php';
+        $cargo = new Cargo();
 
-        /*****/
-
-        $listPermisosMarcados = array();
-
-        $id = $_GET['id'];
-        $respuesta2 = $objDaoPer->permisosMarcados($id);
-        while ($obj2 = $respuesta2->fetch_object()) {
-            array_push($listPermisosMarcados, $obj2->id_permiso);
-        }
-
-        /*****/
-
-        $respuesta = $objDaoPer->listar();
+        $respuesta = $cargo->select();
         while ($obj = $respuesta->fetch_object()) {
-            $checked = in_array($obj->id, $listPermisosMarcados) ? 'checked' : ''; // Método para determinar si algún permiso de listar() {{id en la tabla permisos}} estan dentro de $listPermisosMarcados {{id_permiso en la tabla usuarios_permisos}}
-            echo '  <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="permisos[]" value="'. $obj->id .'" id="customCheck_'.$obj->id.'" class="custom-control-input" '. $checked .'>
-                        <label class="custom-control-label" for="customCheck_'.$obj->id.'">'. $obj->nombre .'</label>
-                    </div>';
+            echo '<option value="'. $obj->id .'" id="'. $obj->id .'">'. $obj->nombre .'</option>';
         }
     break;
 

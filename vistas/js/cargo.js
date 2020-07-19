@@ -171,6 +171,8 @@ function limpiarForm() {
     $('#id').val('');
     $('#nombre').val('');
     $('#descripcion').val('');
+
+    $('input[name="permisos[]"]').attr('checked', false); // Referenciamos cada input que tenga name="permisos[]"
 }
 
 function mostrarForm(posta) {

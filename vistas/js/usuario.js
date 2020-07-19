@@ -6,7 +6,6 @@ function init() {
     listar();
 
     select();
-    permisos();    
     $('#fileShow').hide();
 }
 init();
@@ -98,10 +97,6 @@ function buscar(id) {
         $('#fileCurrent').val(data.imagen);
         $('#fileShow').show(); $('#fileShow').attr("src" ,"../files/usuarios/" + data.imagen);
     });
-
-    $.post('../controlador/controladorUsuario.php?action=permisos&id=' + id, function(data) { // Lo que se envia a través de la url se obtiene por el método get
-        $('#permisos').html(data);
-    });
 }
 
 $('#formulario').on('submit', function(e) {
@@ -172,12 +167,10 @@ function activar(id) {
 
 function select() {
     $('#tipoDocumento').val('DNI'); $('#tipoDocumento').selectpicker('refresh');
-    $('#cargo').val('Usuario'); $('#cargo').selectpicker('refresh');
-}
 
-function permisos() {
-    $.post('../controlador/controladorUsuario.php?action=permisos&id=', function(data) { // Lo que se envia a través de la url se obtiene por el método get
-        $('#permisos').html(data);
+    $.post('../controlador/controladorUsuario.php?action=select', function(data) {
+        $('#cargo').html(data);
+        $('#cargo').selectpicker('refresh');
     });
 }
 
@@ -198,10 +191,9 @@ function limpiarForm() {
 
     $('#tipoDocumento').val($('option:first', select).val());
     $('#cargo').val($('option:first', select).val());
+    
     $('#fileCurrent').val('');
     $('#fileShow').hide(); $('#fileShow').attr("src" ,"");
-
-    $('input[name="permisos[]"]').attr('checked', false); // Referenciamos cada input que tenga name="permisos[]"
 }
 
 function mostrarForm(posta) {

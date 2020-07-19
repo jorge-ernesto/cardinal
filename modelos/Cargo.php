@@ -78,7 +78,7 @@ class Cargo {
 
     public function select() {
         $sql = "SELECT   id,nombre,descripcion
-                FROM     categorias
+                FROM     cargos
                 WHERE    estado = 1
                 ORDER BY id";
         return execute($sql);

@@ -129,8 +129,8 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     <label for="cargo" class="col-form-label col-md-2">Cargo:</label>
                                     <div class="col-md-5">
                                         <select name="cargo" id="cargo" class="form-control selectpicker" data-live-search="true">
-                                            <option value="Usuario">Usuario</option>
-                                            <option value="Administrador">Administrador</option>
+                                            <option value="ADMIN">ADMIN</option>
+                                            <option value="USER">USER</option>
                                         </select>
                                     </div>
                                 </div>
@@ -144,19 +144,6 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                     <label for="password" class="col-form-label col-md-2">Password:</label>
                                     <div class="col-md-5">
                                         <input type="password" name="password" value="" id="password" class="form-control" required> <!-- required -->
-                                    </div>
-                                </div>
-                                <div class="row form-group">
-                                    <label for="permisos" class="col-form-label col-md-2">Permiso:</label>
-                                    <div class="col-md-5">
-                                        <span id="permisos">
-                                            <!--
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" name="" value="" id="customCheck1" class="custom-control-input">
-                                                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-                                            </div>
-                                            -->
-                                        </span>
                                     </div>
                                 </div>
                                 <div class="form-group row clearfix">
