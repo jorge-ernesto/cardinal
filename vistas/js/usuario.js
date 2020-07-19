@@ -166,7 +166,8 @@ function activar(id) {
 }
 
 function select() {
-    $('#tipoDocumento').val('DNI'); $('#tipoDocumento').selectpicker('refresh');
+    $('#tipoDocumento').val('DNI'); 
+    $('#tipoDocumento').selectpicker('refresh');
 
     $.post('../controlador/controladorUsuario.php?action=select', function(data) {
         $('#cargo').html(data);

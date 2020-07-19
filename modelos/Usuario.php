@@ -7,16 +7,18 @@ class Usuario {
     public function __construct() { }
 
     public function listar() {
-        $sql = "select   *
-                from     usuarios
-                order by id";
+        $sql = "select     u.id, u.nombre, u.tipo_documento, u.num_documento, u.direccion, u.telefono, u.email, c.nombre as cargo, u.username, u.password, u.imagen, u.estado
+                from       usuarios u
+                inner join cargos c ON u.id_cargo = c.id
+                order by   u.id";
         return execute($sql);
     }
 
     public function buscar($id) {
-        $sql = "select *
-                from   usuarios
-                where  id = '$id'";
+        $sql = "select     u.id, u.nombre, u.tipo_documento, u.num_documento, u.direccion, u.telefono, u.email, u.id_cargo as cargo, u.username, u.password, u.imagen, u.estado
+                from       usuarios u
+                inner join cargos c ON u.id_cargo = c.id
+                where      u.id = '$id'";
         return findById($sql);
     }
 
