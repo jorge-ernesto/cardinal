@@ -22,48 +22,17 @@ class Usuario {
         return findById($sql);
     }
 
-    public function guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen, $permisos) {
-        $sql = "insert into usuarios (nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,username,password,imagen,estado)
-                values('$nombre','$tipoDocumento','$numDocumento','$direccion','$telefono','$email','$cargo','$username','$password','$imagen','1')";
-        $lastId = executeWithFindByLastId($sql);
-        // return execute($sql);
-
-        /**** $permisos es un array con el id de todos los permisos marcados *****/
-
-        $contador = 0;
-        $posta = true;
-        while ($contador < count($permisos)) {
-            $sqlDetalle = "insert into usuarios_permisos (id_usuario, id_permiso)
-                            values('$lastId','$permisos[$contador]')";
-            execute($sqlDetalle) ? $posta = true : $posta = false;
-            $contador = $contador + 1;
-        }
-        return $posta;
+    public function guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen) {
+            $sql = "insert into usuarios (nombre,tipo_documento,num_documento,direccion,telefono,email,id_cargo,username,password,imagen,estado)
+                    values('$nombre','$tipoDocumento','$numDocumento','$direccion','$telefono','$email','$cargo','$username','$password','$imagen','1')";
+        return execute($sql);
     }
 
-    public function editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen, $permisos) {
+    public function editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $password, $imagen) {
         $sql = "update usuarios
-                set    nombre = '$nombre',tipo_documento = '$tipoDocumento',num_documento = '$numDocumento',direccion = '$direccion',telefono = '$telefono',email = '$email',cargo = '$cargo',username = '$username',password = '$password',imagen = '$imagen'
+                set    nombre = '$nombre',tipo_documento = '$tipoDocumento',num_documento = '$numDocumento',direccion = '$direccion',telefono = '$telefono',email = '$email',id_cargo = '$cargo',username = '$username',password = '$password',imagen = '$imagen'
                 where  id = '$id'";
-        execute($sql);
-        // return execute($sql);
-
-        /****/
-
-        $sqlDelete = "delete from usuarios_permisos where id_usuario = '$id'";
-        execute($sqlDelete);
-
-        /****/
-
-        $contador = 0;
-        $posta = true;
-        while ($contador < count($permisos)) {
-            $sqlDetalle = "insert into usuarios_permisos (id_usuario, id_permiso)
-                            values('$id', '$permisos[$contador]')";
-            execute($sqlDetalle) ? $posta = true : $posta = false;
-            $contador = $contador + 1;
-        }
-        return $posta;
+        return execute($sql);
     }
 
     public function desactivar($id) {

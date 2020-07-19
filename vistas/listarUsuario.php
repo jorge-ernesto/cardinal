@@ -128,9 +128,8 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
                                 <div class="row form-group">
                                     <label for="cargo" class="col-form-label col-md-2">Cargo:</label>
                                     <div class="col-md-5">
-                                        <select name="cargo" id="cargo" class="form-control selectpicker" data-live-search="true">
-                                            <option value="ADMIN">ADMIN</option>
-                                            <option value="USER">USER</option>
+                                        <select name="cargo" id="cargo" class="form-control selectpicker" data-live-search="true" data-show-subtext="true">
+                                            <!-- <option value="" id="" data-subtext=""></option> -->
                                         </select>
                                     </div>
                                 </div>

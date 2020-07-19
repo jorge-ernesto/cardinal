@@ -21,10 +21,13 @@ class Permiso {
     }
 
     public function login($username, $password) {
-        $sql = "select id,nombre,tipo_documento,num_documento,direccion,telefono,email,cargo,username,imagen
-                from   usuarios
-                where  username = '$username' and password = '$password' and estado = 1";
+        $sql = "select     u.id, u.nombre, u.tipo_documento, u.num_documento, u.direccion, u.telefono, u.email, u.id_cargo as id_cargo, u.username, u.password, u.imagen, u.estado
+                from       usuarios u
+                inner join cargos c ON u.id_cargo = c.id
+                where      u.username = '$username' and u.password = '$password' and u.estado = 1";
         return execute($sql);
+
+        
     }
 
 }

@@ -77,12 +77,10 @@ switch($action) {
         $cipher = hash("MD5", $password);
 
         if (empty($id)) {
-            $permisos = $_POST['permisos']; // $permisos es un array con el id de todos los permisos marcados
-            $respuesta = $objDaoUsu->guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen, $permisos);
+            $respuesta = $objDaoUsu->guardar($nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen);
             echo $respuesta ? 'Usuario creado con éxito' : 'No se pudo crear usuario';
         } else {
-            $permisos = $_POST['permisos'];
-            $respuesta = $objDaoUsu->editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen, $permisos);
+             $respuesta = $objDaoUsu->editar($id, $nombre, $tipoDocumento, $numDocumento, $direccion, $telefono, $email, $cargo, $username, $cipher, $imagen);
             echo $respuesta ? 'Usuario editado con éxito' : 'No se pudo editar usuario';
         }
     break;
@@ -131,7 +129,7 @@ switch($action) {
 
             $listPermisosMarcados = array();
 
-            $respuestaPermisos = $objDaoPer->permisosMarcados($obj->id);
+            $respuestaPermisos = $objDaoPer->permisosMarcados($obj->id_cargo);
             while ($objPermisos = $respuestaPermisos->fetch_object()) {
                 array_push($listPermisosMarcados, $objPermisos->id_permiso);
             }
