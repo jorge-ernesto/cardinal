@@ -24,7 +24,7 @@ class Permiso {
         $sql = "select     u.id, u.nombre, u.tipo_documento, u.num_documento, u.direccion, u.telefono, u.email, u.id_cargo as id_cargo, u.username, u.password, u.imagen, u.estado
                 from       usuarios u
                 inner join cargos c ON u.id_cargo = c.id
-                where      u.username = '$username' and u.password = '$password' and u.estado = 1";
+                where      u.username = '$username' and u.password = '$password' and u.estado = 1 and c.estado = 1";
         return execute($sql);
 
         
