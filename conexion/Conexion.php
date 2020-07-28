@@ -1,11 +1,15 @@
 <?php
 
 $mysqli = new mysqli('localhost','root','','cardinal');
-mysqli_set_charset($mysqli, "utf8");
-if(mysqli_connect_errno()){
-    printf('Error estableciendo conexión con la base de datos: ',mysqli_connect_error());
-    die();
+
+/* verificar la conexión */
+if ($mysqli->connect_errno) {
+    echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;    
 }
+
+/* cambiar el conjunto de caracteres a utf8 */
+$mysqli->set_charset("utf8");
+
 function execute($sql){
     global $mysqli; //Utilizamos la variable global $mysqli
     $query = $mysqli->query($sql); 
@@ -27,5 +31,3 @@ function clearString($str){
     $str = mysqli_real_escape_string($mysqli,trim($str));
     return htmlspecialchars($str);                        
 }
-
-?>
