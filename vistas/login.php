@@ -43,7 +43,6 @@
     </div><!-- .container -->
 
     <?php include 'layout/scripts.php'; ?>
-
     <script src="js/login.js"></script>
 </body>
 </html>

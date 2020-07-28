@@ -1,12 +1,10 @@
 <?php
-
 ob_start();
 session_start();
 if (!isset($_SESSION['nombre'])) { // Si la variable es null
     header('Location: login.php');
 } else {
     if ($_SESSION['almacen'] == 1) {
-
 ?>
 
 <!DOCTYPE html>
@@ -111,17 +109,14 @@ if (!isset($_SESSION['nombre'])) { // Si la variable es null
     </div><!-- .container -->
 
     <?php include 'layout/scripts.php'; ?>
-
     <script src="js/cargo.js"></script>
 </body>
 </html>
 
 <?php
-
     } else {
         include 'error_404.php';
     }
 }
 ob_end_flush();
-
 ?>
