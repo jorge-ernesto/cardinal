@@ -5,6 +5,7 @@ $mysqli = new mysqli('localhost','root','','cardinal');
 /* verificar la conexión */
 if ($mysqli->connect_errno) {
     echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;    
+    die();
 }
 
 /* cambiar el conjunto de caracteres a utf8 */
